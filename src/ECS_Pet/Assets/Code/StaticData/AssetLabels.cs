@@ -1,0 +1,8 @@
+namespace Code.StaticData
+{
+    public class AssetLabels
+    {
+        public const string Configs = "Configs";
+        public const string Gameplay = "Gameplay";
+    }
+}
