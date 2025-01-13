@@ -9,14 +9,38 @@
 public static class GameComponentsLookup {
 
     public const int Destructed = 0;
+    public const int View = 1;
+    public const int ViewPath = 2;
+    public const int Id = 3;
+    public const int MeshRenderer = 4;
+    public const int Transform = 5;
+    public const int WorldPosition = 6;
+    public const int GameBoardCell = 7;
+    public const int ProcessMaterialChange = 8;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 9;
 
     public static readonly string[] componentNames = {
-        "Destructed"
+        "Destructed",
+        "View",
+        "ViewPath",
+        "Id",
+        "MeshRenderer",
+        "Transform",
+        "WorldPosition",
+        "GameBoardCell",
+        "ProcessMaterialChange"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Common.CommonComponents.Destructed)
+        typeof(Code.Common.CommonComponents.Destructed),
+        typeof(Code.Common.CommonComponents.View),
+        typeof(Code.Common.CommonComponents.ViewPath),
+        typeof(Code.Gameplay.Common.CommonComponents.Id),
+        typeof(Code.Gameplay.Common.CommonComponents.MeshRendererComponent),
+        typeof(Code.Gameplay.Common.CommonComponents.TransformComponent),
+        typeof(Code.Gameplay.Common.CommonComponents.WorldPosition),
+        typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.GameBoardCell),
+        typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.ProcessMaterialChange)
     };
 }

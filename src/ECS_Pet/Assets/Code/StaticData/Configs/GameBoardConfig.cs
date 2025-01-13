@@ -8,7 +8,6 @@ namespace Code.StaticData
     public class GameBoardConfig : ScriptableObject
     {
         [Header("--- Prefabs Paths ---")]
-        [field: SerializeField] public string BoardPrefabPath { get; private set; }
         [field: SerializeField] public string CellPrefabPath { get; private set; }
         
         [Header("--- Other ---")]

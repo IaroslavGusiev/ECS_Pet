@@ -1,6 +1,7 @@
+using Code.Common.View.Factory;
 using Code.StaticData;
-using Code.Common.Physics;
 using Code.Gameplay.Input;
+using Code.Gameplay.Common;
 using Code.UI.LoadingCurtain;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
@@ -39,7 +40,10 @@ namespace Code.Infrastructure.CompositionRoot
 
         private void BindCommonServices()
         {
-            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
+            Container.Bind<IIdProvider>().To<IdProvider>().AsSingle();
+            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle(); // може поїхати до інсталеру геймплею
+            Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle(); // може поїхати до інсталеру геймплею
+
             Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
         }
 
@@ -52,6 +56,7 @@ namespace Code.Infrastructure.CompositionRoot
         {
             Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
             Container.Bind<IEntityFactory>().To<EntityFactory>().AsSingle();
+            Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
         }
 
         private void BindContexts()

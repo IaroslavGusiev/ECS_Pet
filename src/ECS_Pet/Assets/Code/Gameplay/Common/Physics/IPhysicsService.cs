@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Code.Common.Physics
+namespace Code.Gameplay.Common
 {
     public interface IPhysicsService
     {

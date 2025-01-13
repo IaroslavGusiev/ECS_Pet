@@ -2,7 +2,7 @@ using PrimeTween;
 using UnityEngine;
 using Code.Gameplay.Features.GameBoard;
 
-namespace Code.Common.Physics
+namespace Code.Gameplay.Common
 {
     public class PhysicsService : IPhysicsService
     {
