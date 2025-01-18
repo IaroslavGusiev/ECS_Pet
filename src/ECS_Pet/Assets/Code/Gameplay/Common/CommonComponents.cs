@@ -11,5 +11,7 @@ namespace Code.Gameplay.Common
         
         [Game] public class TransformComponent : IComponent { public Transform Value; }
         [Game] public class MeshRendererComponent : IComponent { public MeshRenderer Value; }
+        
+        [Game] public class LayerMask : IComponent { public int Value; } // TODO: можливо пізніше винисте TargetCollection фічу
     }
 }

@@ -1,5 +1,4 @@
 using Zenject;
-using Code.Gameplay.Features.GameBoard;
 
 namespace Code.Gameplay.EcsWorld
 {
@@ -7,9 +6,7 @@ namespace Code.Gameplay.EcsWorld
     {
         public override void InstallBindings()
         {
-            Container
-                .BindInterfacesAndSelfTo<GameBoardFactory>()
-                .AsSingle();
+            
         }
     }
 }

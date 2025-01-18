@@ -1,10 +1,11 @@
-using Code.Common.View.Factory;
 using Code.StaticData;
 using Code.Gameplay.Input;
 using Code.Gameplay.Common;
 using Code.UI.LoadingCurtain;
+using Code.Common.View.Factory;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
+using Code.Gameplay.Features.GameBoard;
 
 namespace Code.Infrastructure.CompositionRoot
 {
@@ -13,6 +14,7 @@ namespace Code.Infrastructure.CompositionRoot
         protected override void Bind()
         {
             BindInfrastructureServices();
+            BindGameplayFactories();
             BindGameplayServices();
             BindCommonServices();
             BindUIServices();
@@ -20,16 +22,21 @@ namespace Code.Infrastructure.CompositionRoot
             BindContexts();
         }
 
-        protected override void BindStates()
-        {
-            Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
-        }
-
         private void BindInfrastructureServices()
         {
             Container.Bind<IAddressablesAssetProvider>().To<AddressablesAssetProvider>().AsSingle();
             Container.Bind<IResourcesAssetProvider>().To<ResourcesAssetProvider>().AsSingle();
+        }
+
+        private void BindGameplayFactories()
+        {
+            Container.BindInterfacesAndSelfTo<GameBoardFactory>().AsSingle();
+        }
+
+        protected override void BindStates()
+        {
+            Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
         }
 
         private void BindGameplayServices()

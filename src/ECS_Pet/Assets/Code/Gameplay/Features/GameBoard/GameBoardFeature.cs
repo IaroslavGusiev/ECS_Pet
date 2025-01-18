@@ -6,7 +6,12 @@ namespace Code.Gameplay.Features.GameBoard
     {
         public GameBoardFeature(ISystemFactory systemFactory)
         {
+            // Initialize
+            Add(systemFactory.Create<InitializeGameBoardSystem>());
+            
+            // Execute
             Add(systemFactory.Create<ProcessClickOnGameBoardSystem>());
+            Add(systemFactory.Create<ProcessCellsMaterialChangeSystem>());
         }
     }
 }

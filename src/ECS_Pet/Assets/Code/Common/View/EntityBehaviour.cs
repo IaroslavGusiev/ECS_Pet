@@ -48,13 +48,13 @@ namespace Code.Common.View
 
         private void RegisterColliders()
         {
-            foreach (Collider2D collider2d in GetComponentsInChildren<Collider2D>(includeInactive: true))
+            foreach (Collider collider2d in GetComponentsInChildren<Collider>(includeInactive: true))
                 _collisionRegistry.Register(collider2d.GetInstanceID(), Entity);
         }
 
         private void UnregisterColliders()
         {
-            foreach (Collider2D collider2d in GetComponentsInChildren<Collider2D>(includeInactive: true))
+            foreach (Collider collider2d in GetComponentsInChildren<Collider>(includeInactive: true))
                 _collisionRegistry.Unregister(collider2d.GetInstanceID());
         }
     }

@@ -19,9 +19,12 @@ namespace Code.Gameplay.Features.GameBoard
         public void Initialize()
         {
             GameBoardConfig config = _staticDataService.GetGameBoardConfig();
-            
-            var gameBoardObject = new GameObject("GameBoard");
-            
+            Material randomMaterial = config.GetRandomCellMaterial();
+            CreateGameBoard(config, randomMaterial);
+        }
+
+        private void CreateGameBoard(GameBoardConfig config, Material randomMaterial)
+        {
             Vector2Int boardSize = config.BoardSize;
 
             int minX = -boardSize.x / 2;
@@ -29,30 +32,10 @@ namespace Code.Gameplay.Features.GameBoard
             
             for (int x = minX; x <= maxX; x++)
             {
-                for (int y = 0; y < boardSize.y; y++)
+                for (var y = 0; y < boardSize.y; y++)
                 {
-                    _gameBoardFactory.CreateGameBoardCell(config, new Vector3(x, 0, y));
+                    _gameBoardFactory.CreateGameBoardCell(config.CellPrefabPath, new Vector3(x, 0, y), randomMaterial);
                 }
-            }
-        }
-    }
-
-    public class ProcessBoardCellUponInitSystem : IExecuteSystem
-    {
-        // UpdateTransformPositionSystem
-        
-        private readonly IGroup<GameEntity> _cells;
-
-        public ProcessBoardCellUponInitSystem(GameContext game)
-        {
-            _cells = game.GetGroup(GameMatcher.AllOf(GameMatcher.GameBoardCell, GameMatcher.GameBoardCell, GameMatcher.WorldPosition, GameMatcher.Transform));
-        }
-
-        public void Execute()
-        {
-            foreach (GameEntity entity in _cells)
-            {
-                
             }
         }
     }
