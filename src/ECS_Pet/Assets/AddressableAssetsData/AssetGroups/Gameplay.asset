@@ -21,6 +21,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Gameplay
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7abe21e67adaebd49b4eb2a71396ed7e
+    m_Address: EvilWitch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b154d36796f7cc348888b46d446199db
+    m_Address: Minotaur
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f8e05fb51d7f3fd4cbf89d4ed67371d3, type: 2}
   m_SchemaSet:

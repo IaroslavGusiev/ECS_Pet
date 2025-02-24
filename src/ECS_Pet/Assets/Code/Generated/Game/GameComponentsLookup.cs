@@ -13,13 +13,20 @@ public static class GameComponentsLookup {
     public const int ViewPath = 2;
     public const int Id = 3;
     public const int LayerMask = 4;
-    public const int MeshRenderer = 5;
-    public const int Transform = 6;
-    public const int WorldPosition = 7;
-    public const int GameBoardCell = 8;
-    public const int MaterialChangeRequest = 9;
+    public const int MaterialChangeRequest = 5;
+    public const int MeshRenderer = 6;
+    public const int SkinnedMeshRenderer = 7;
+    public const int Transform = 8;
+    public const int WorldPosition = 9;
+    public const int GameBoardCell = 10;
+    public const int Occupied = 11;
+    public const int SuccessfulCellRequest = 12;
+    public const int Fighter = 13;
+    public const int FighterTypeId = 14;
+    public const int ProducerId = 15;
+    public const int TargetId = 16;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -27,11 +34,18 @@ public static class GameComponentsLookup {
         "ViewPath",
         "Id",
         "LayerMask",
+        "MaterialChangeRequest",
         "MeshRenderer",
+        "SkinnedMeshRenderer",
         "Transform",
         "WorldPosition",
         "GameBoardCell",
-        "MaterialChangeRequest"
+        "Occupied",
+        "SuccessfulCellRequest",
+        "Fighter",
+        "FighterTypeId",
+        "ProducerId",
+        "TargetId"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -40,10 +54,17 @@ public static class GameComponentsLookup {
         typeof(Code.Common.CommonComponents.ViewPath),
         typeof(Code.Gameplay.Common.CommonComponents.Id),
         typeof(Code.Gameplay.Common.CommonComponents.LayerMask),
+        typeof(Code.Gameplay.Common.CommonComponents.MaterialChangeRequest),
         typeof(Code.Gameplay.Common.CommonComponents.MeshRendererComponent),
+        typeof(Code.Gameplay.Common.CommonComponents.SkinnedMeshRendererComponent),
         typeof(Code.Gameplay.Common.CommonComponents.TransformComponent),
         typeof(Code.Gameplay.Common.CommonComponents.WorldPosition),
         typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.GameBoardCell),
-        typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.MaterialChangeRequest)
+        typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.Occupied),
+        typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.SuccessfulCellRequest),
+        typeof(Code.Gameplay.Fighter.FighterComponents.Fighter),
+        typeof(Code.Gameplay.Fighter.FighterComponents.FighterTypeIdComponent),
+        typeof(Code.Gameplay.Target.TargetComponents.ProducerId),
+        typeof(Code.Gameplay.Target.TargetComponents.TargetId)
     };
 }

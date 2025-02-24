@@ -21,6 +21,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Configs
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 814e9e6b0b3f71342902a71c91bdf0fc
+    m_Address: FighterConfig_EvilWitch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db355ee801d2fe84cbfcf4a5881d27ec
+    m_Address: FighterConfig_Minotaur
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f8e05fb51d7f3fd4cbf89d4ed67371d3, type: 2}
   m_SchemaSet:

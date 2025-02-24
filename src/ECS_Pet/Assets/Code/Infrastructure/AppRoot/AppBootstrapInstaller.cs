@@ -6,6 +6,7 @@ using Code.Common.View.Factory;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
 using Code.Gameplay.Features.GameBoard;
+using Code.Gameplay.Fighter;
 
 namespace Code.Infrastructure.CompositionRoot
 {
@@ -31,6 +32,7 @@ namespace Code.Infrastructure.CompositionRoot
         private void BindGameplayFactories()
         {
             Container.BindInterfacesAndSelfTo<GameBoardFactory>().AsSingle();
+            Container.Bind<IFighterFactory>().To<FighterFactory>().AsSingle();
         }
 
         protected override void BindStates()
@@ -43,6 +45,7 @@ namespace Code.Infrastructure.CompositionRoot
         {
             Container.Bind<IInputService>().To<InputService>().AsSingle();
             Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
+            Container.Bind<IFighterPlacementService>().To<FighterPlacementService>().AsSingle();
         }
 
         private void BindCommonServices()

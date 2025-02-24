@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Features.GameBoard.GameBoardComponents.MaterialChangeRequest materialChangeRequest { get { return (Code.Gameplay.Features.GameBoard.GameBoardComponents.MaterialChangeRequest)GetComponent(GameComponentsLookup.MaterialChangeRequest); } }
+    public Code.Gameplay.Common.CommonComponents.MaterialChangeRequest materialChangeRequest { get { return (Code.Gameplay.Common.CommonComponents.MaterialChangeRequest)GetComponent(GameComponentsLookup.MaterialChangeRequest); } }
     public UnityEngine.Material MaterialChangeRequest { get { return materialChangeRequest.Value; } }
     public bool hasMaterialChangeRequest { get { return HasComponent(GameComponentsLookup.MaterialChangeRequest); } }
 
     public GameEntity AddMaterialChangeRequest(UnityEngine.Material newValue) {
         var index = GameComponentsLookup.MaterialChangeRequest;
-        var component = (Code.Gameplay.Features.GameBoard.GameBoardComponents.MaterialChangeRequest)CreateComponent(index, typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.MaterialChangeRequest));
+        var component = (Code.Gameplay.Common.CommonComponents.MaterialChangeRequest)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.MaterialChangeRequest));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceMaterialChangeRequest(UnityEngine.Material newValue) {
         var index = GameComponentsLookup.MaterialChangeRequest;
-        var component = (Code.Gameplay.Features.GameBoard.GameBoardComponents.MaterialChangeRequest)CreateComponent(index, typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.MaterialChangeRequest));
+        var component = (Code.Gameplay.Common.CommonComponents.MaterialChangeRequest)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.MaterialChangeRequest));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

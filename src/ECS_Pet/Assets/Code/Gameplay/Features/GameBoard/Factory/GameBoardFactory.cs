@@ -22,7 +22,8 @@ namespace Code.Gameplay.Features.GameBoard
                 .AddWorldPosition(position)
                 .AddMaterialChangeRequest(material)
                 .AddLayerMask(CollisionLayer.GameBoard.AsMask())
-                .With(entity => entity.isGameBoardCell = true);
+                .With(entity => entity.isGameBoardCell = true)
+                .With(entity => entity.isOccupied = false);
         }
     }
 }
