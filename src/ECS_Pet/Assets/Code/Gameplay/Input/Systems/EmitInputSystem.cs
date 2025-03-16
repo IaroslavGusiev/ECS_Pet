@@ -17,9 +17,9 @@ namespace Code.Gameplay.Input
       {
          foreach (InputEntity input in _inputs)
          {
-            if (_inputService.IsLeftMouseButtonPressed())
+            if (_inputService.IsLeftMouseButtonPressed() && _inputService.IsMouseOverUI() == false)
             {
-               input.ReplaceClickInput(_inputService.GetClickPosition());
+               input.ReplaceClickInput(_inputService.GetScreenPosition());
             }
             else
             {
@@ -28,6 +28,8 @@ namespace Code.Gameplay.Input
                   input.RemoveClickInput();
                }
             }
+
+            input.isEscKeyInput = _inputService.IsEscapeKeyPressed();
          }
       }
    }

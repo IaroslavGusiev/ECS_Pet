@@ -1,5 +1,6 @@
 using System.Linq;
 using Code.StaticData;
+using Code.UI.BaseWindow;
 using Code.Gameplay.Fighter;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ namespace Code.Infrastructure.Services
     public class StaticDataService : IStaticDataService
     {
         private readonly IAddressablesAssetProvider _assetProvider;
-        
+
+        private List<WindowsConfig> _windowConfigs;
         private List<GameBoardConfig> _gameBoardConfigs;
         private Dictionary<FighterTypeId, FighterConfig> _fighterConfigs;
 
@@ -20,8 +22,12 @@ namespace Code.Infrastructure.Services
         public async UniTask Initialize()
         {
             await LoadGameBoardConfigs();
+            await LoadWindowsConfig();
             await LoadFighterConfigs();
         }
+        
+        public WindowsConfig GetWindowsConfig() =>
+            _windowConfigs.FirstOrDefault();
 
         public GameBoardConfig GetGameBoardConfig() =>
             _gameBoardConfigs.FirstOrDefault();
@@ -29,10 +35,19 @@ namespace Code.Infrastructure.Services
         public FighterConfig GetFighterConfig(FighterTypeId fighterTypeId) => 
             _fighterConfigs.GetValueOrDefault(fighterTypeId);
 
+        public List<FighterConfig> GetAllFighterConfigs() => 
+            _fighterConfigs.Values.ToList();
+
         private async UniTask LoadGameBoardConfigs()
         {
             GameBoardConfig[] configs = await GetConfigs<GameBoardConfig>();
             _gameBoardConfigs = configs.ToList();
+        }
+
+        private async UniTask LoadWindowsConfig()
+        {
+            WindowsConfig[] configs = await GetConfigs<WindowsConfig>();
+            _windowConfigs = configs.ToList();
         }
 
         private async UniTask LoadFighterConfigs()

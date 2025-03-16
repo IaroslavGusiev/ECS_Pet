@@ -1,12 +1,13 @@
 using Code.StaticData;
+using Code.UI.BaseWindow;
 using Code.Gameplay.Input;
 using Code.Gameplay.Common;
+using Code.Gameplay.Fighter;
 using Code.UI.LoadingCurtain;
 using Code.Common.View.Factory;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
 using Code.Gameplay.Features.GameBoard;
-using Code.Gameplay.Fighter;
 
 namespace Code.Infrastructure.CompositionRoot
 {
@@ -39,12 +40,14 @@ namespace Code.Infrastructure.CompositionRoot
         {
             Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
         }
 
         private void BindGameplayServices()
         {
             Container.Bind<IInputService>().To<InputService>().AsSingle();
             Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
+            Container.Bind<IGameBoardService>().To<GameBoardService>().AsSingle();
             Container.Bind<IFighterPlacementService>().To<FighterPlacementService>().AsSingle();
         }
 
@@ -60,6 +63,9 @@ namespace Code.Infrastructure.CompositionRoot
         private void BindUIServices()
         {
             Container.Bind<ILoadingCurtain>().FromComponentInNewPrefabResource(CorePrefabPath.LoadingCurtainPath).AsSingle();
+            Container.Bind<IHUDRoot>().FromComponentInNewPrefabResource(CorePrefabPath.HudRootPath).AsSingle();
+            Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
+            Container.Bind<IWindowService>().To<WindowService>().AsSingle();
         }
 
         private void BindFactories()

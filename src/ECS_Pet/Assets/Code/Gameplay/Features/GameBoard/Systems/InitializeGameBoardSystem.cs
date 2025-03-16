@@ -1,40 +1,33 @@
 using Entitas;
 using UnityEngine;
-using Code.StaticData;
-using Code.Infrastructure.Services;
 
 namespace Code.Gameplay.Features.GameBoard
 {
     public class InitializeGameBoardSystem : IInitializeSystem
     {
-        private readonly IStaticDataService _staticDataService;
         private readonly IGameBoardFactory _gameBoardFactory;
+        private readonly IGameBoardService _gameBoardService;
 
-        public InitializeGameBoardSystem(IGameBoardFactory gameBoardFactory, IStaticDataService staticDataService)
+        public InitializeGameBoardSystem(
+            IGameBoardFactory gameBoardFactory, 
+            IGameBoardService gameBoardService)
         {
             _gameBoardFactory = gameBoardFactory;
-            _staticDataService = staticDataService;
+            _gameBoardService = gameBoardService;
         }
 
         public void Initialize()
         {
-            GameBoardConfig config = _staticDataService.GetGameBoardConfig();
-            Material randomMaterial = config.GetRandomCellMaterial();
-            CreateGameBoard(config, randomMaterial);
-        }
-
-        private void CreateGameBoard(GameBoardConfig config, Material randomMaterial)
-        {
-            Vector2Int boardSize = config.BoardSize;
+            Vector2Int boardSize = _gameBoardService.GetBoardSize();
 
             int minX = -boardSize.x / 2;
-            int maxX = boardSize.x / 2 - 1;
+            int maxX = (boardSize.x - 1) / 2; 
             
             for (int x = minX; x <= maxX; x++)
             {
                 for (var y = 0; y < boardSize.y; y++)
                 {
-                    _gameBoardFactory.CreateGameBoardCell(config.CellPrefabPath, new Vector3(x, 0, y), randomMaterial);
+                    _gameBoardFactory.CreateGameBoardCell(_gameBoardService.GetCellPrefabPath(), new Vector3(x, GameBoardService.FixedYForCells, y), _gameBoardService.GetCurrentCellMaterial());
                 }
             }
         }

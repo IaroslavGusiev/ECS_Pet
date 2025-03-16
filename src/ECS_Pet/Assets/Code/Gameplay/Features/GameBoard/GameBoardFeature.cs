@@ -10,7 +10,7 @@ namespace Code.Gameplay.Features.GameBoard
             Add(systemFactory.Create<InitializeGameBoardSystem>());
             
             // Execute
-            Add(systemFactory.Create<ProcessClickOnBoardCellSystem>());
+            // Add(systemFactory.Create<ProcessClickOnBoardCellSystem>());
         }
     }
 }

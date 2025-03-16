@@ -8,8 +8,9 @@ namespace Code.Gameplay.Fighter
 {
     public class FighterFactory : IFighterFactory
     {
-        private readonly IStaticDataService _staticDataService;
         private readonly IEntityFactory _entityFactory;
+        private readonly IStaticDataService _staticDataService;
+        private readonly Vector3 _spawnOffsetForGameBoard = new(0f, 0.5f, 0f);
 
         public FighterFactory(
             IEntityFactory entityFactory, 
@@ -22,15 +23,14 @@ namespace Code.Gameplay.Fighter
         public GameEntity CreateFighter(FighterTypeId fighterTypeId, Vector3 at)
         {
             FighterConfig fighterConfig = _staticDataService.GetFighterConfig(fighterTypeId);
-            
-            Vector3 spawnPos = at + new Vector3(0f, 0.5f, 0f);
 
             return _entityFactory
                 .CreateEntity<GameEntity>(needToSetId: true)
                 .AddViewPath(fighterConfig.ViewPath)
                 .AddFighterTypeId(fighterTypeId)
-                .AddWorldPosition(spawnPos)
-                .With(entity => entity.isFighter = true);
+                .AddWorldPosition(at)
+                .With(entity => entity.isFighter = true)
+                .With(entity => entity.isSelected = true);
         }
     }
 }

@@ -1,80 +1,46 @@
-using Code.Gameplay;
 using Code.StaticData;
-using Code.UI.LoadingCurtain;
+using Code.UI.BaseWindow;
+using Code.Common.Extensions;
 using Cysharp.Threading.Tasks;
-using Code.Infrastructure.Systems;
-using Code.Infrastructure.Services;
+using System.Collections.Generic;
+using Code.Gameplay.FighterSelection;
+using Code.Gameplay.Features.GameBoard;
 using Code.Infrastructure.StateMachineBase;
-using UnityEngine;
 
 namespace Code.Infrastructure
 {
-    public class BattleEnterState : EndOfFrameExitState
+    public class BattleEnterState : SimpleState
     {
-        private readonly ISceneLoader _sceneLoader;
-        private readonly ISystemFactory _systemFactory;
-        private readonly ILoadingCurtain _loadingCurtain;
-        private readonly IAddressablesAssetProvider _assetProvider;
-
-        private GameContext _gameContext; 
-        private GameFeature _gameFeature;
+        private readonly AppStateMachine _stateMachine;
+        private readonly IWindowService _windowService;
+        private readonly IGameBoardService _gameBoardService;
 
         public BattleEnterState(
-            ISceneLoader sceneLoader, 
-            ISystemFactory systemFactory, 
-            ILoadingCurtain loadingCurtain, 
-            IAddressablesAssetProvider assetProvider)
+            AppStateMachine stateMachine, 
+            IWindowService windowService,
+            IGameBoardService gameBoardService)
         {
-            _sceneLoader = sceneLoader;
-            _assetProvider = assetProvider;
-            _systemFactory = systemFactory;
-            _loadingCurtain = loadingCurtain;
+            _stateMachine = stateMachine;
+            _windowService = windowService;
+            _gameBoardService = gameBoardService;
         }
 
         public override async UniTask Enter()
         {
-            await _assetProvider.WarmupAssetsByLabel(AssetLabels.Gameplay);
-            await _sceneLoader.Load(SceneName.EcsWorld);
+            await CreateGameplayWindows();
             
-            _gameFeature = _systemFactory.Create<GameFeature>();
-            _gameFeature.Initialize();
-
-            Debug.Log("<color=green>Enter</color>");
+            _gameBoardService.Initialize();
             
-            await _loadingCurtain.Hide();
+            _stateMachine
+                .Enter<BattleLoopState>()
+                .Forget();
         }
 
-        protected override async UniTask OnBeginExit() => 
-            await _assetProvider.ReleaseAssetsByLabel(AssetLabels.Gameplay);
-
-        protected override void OnUpdate()
+        private async UniTask CreateGameplayWindows()
         {
-            if (_gameFeature == null)
-            {
-                Debug.Log("<color=green>NULL FEATURE</color>");
-            }
-            _gameFeature.Execute();
-            _gameFeature.Cleanup();
-        }
-
-        protected override void ExitOnEndOfFrame()
-        {
-            _gameFeature.DeactivateReactiveSystems();
-            _gameFeature.ClearReactiveSystems();
-
-            DestructEntities();
-            
-            _gameFeature.Cleanup();
-            _gameFeature.TearDown();
-            _gameFeature = null;
-        }
-
-        private void DestructEntities()
-        {
-            foreach (GameEntity entity in _gameContext.GetEntities())
-            {
-                entity.isDestructed = true;
-            }
+            List<FighterTypeId> randomFighters = EnumExtensions.GetRandomEnumValues(count: 6, excludeValues: FighterTypeId.Unknown);
+            var data = new SelectFighterWindowData(randomFighters);
+            await _windowService.ShowWindow<SelectFighterWindow, SelectFighterWindowData>(data);
         }
     }
 }

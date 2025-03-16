@@ -6,7 +6,7 @@ namespace Code.Gameplay.Fighter
     {
         public FighterFeature(ISystemFactory systemFactory)
         {
-            Add(systemFactory.Create<CreateFightersSystem>());
+            
         }
     }
 }

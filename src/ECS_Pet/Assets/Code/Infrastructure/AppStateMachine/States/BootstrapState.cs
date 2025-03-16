@@ -1,4 +1,5 @@
 using Code.StaticData;
+using Code.UI.BaseWindow;
 using Code.UI.LoadingCurtain;
 using Cysharp.Threading.Tasks;
 using Code.Infrastructure.Services;
@@ -9,18 +10,21 @@ namespace Code.Infrastructure
     public class BootstrapState : SimpleState
     {
        private readonly AppStateMachine _stateMachine;
+       private readonly IWindowService _windowService;
        private readonly ILoadingCurtain _loadingCurtain;
        private readonly IStaticDataService _staticDataService;
        private readonly IAddressablesAssetProvider _assetProvider;
 
        public BootstrapState(
            AppStateMachine stateMachine, 
-           ILoadingCurtain loadingCurtain,
+           IWindowService windowService,
+           ILoadingCurtain loadingCurtain, 
            IStaticDataService staticDataService, 
            IAddressablesAssetProvider assetProvider)
        {
            _stateMachine = stateMachine;
            _assetProvider = assetProvider;
+           _windowService = windowService;
            _loadingCurtain = loadingCurtain;
            _staticDataService = staticDataService;
        }
@@ -35,7 +39,10 @@ namespace Code.Infrastructure
            await _assetProvider.WarmupAssetsByLabel(AssetLabels.Configs);
            await _staticDataService.Initialize();
            
-           _stateMachine.Enter<BattleEnterState>();
+           _windowService.Initialize();
+           _stateMachine
+               .Enter<BattleEnterState>()
+               .Forget();
        }
        
          protected override async UniTask Exit() => 

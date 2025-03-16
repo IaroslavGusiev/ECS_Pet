@@ -6,8 +6,8 @@ namespace Code.Common.Destruct
     {
         public ProcessDestructedFeature(ISystemFactory systemFactory)
         {
-            Add(systemFactory.Create<CleanupGameEntitySystem>());
             Add(systemFactory.Create<CleanupGameDestructedViewSystem>());
+            Add(systemFactory.Create<CleanupGameEntitySystem>());
         }
     }
 }

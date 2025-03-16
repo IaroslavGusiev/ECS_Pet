@@ -15,20 +15,14 @@ MonoBehaviour:
   m_GroupName: Configs
   m_GUID: c758c35d15250e747afbeca14277fd9c
   m_SerializeEntries:
+  - m_GUID: 25c2ec06abfed454ca6fb8da012770f0
+    m_Address: Assets/Addresables/Configs/WindowsConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42b30659c87765a4ca4b2eb513317368
     m_Address: GameBoardConfig
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Configs
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 814e9e6b0b3f71342902a71c91bdf0fc
-    m_Address: FighterConfig_EvilWitch
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Configs
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: db355ee801d2fe84cbfcf4a5881d27ec
-    m_Address: FighterConfig_Minotaur
     m_ReadOnly: 0
     m_SerializedLabels:
     - Configs

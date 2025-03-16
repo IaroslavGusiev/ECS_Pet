@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2017528088657961105
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3166647200680513054, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 1fc301eb0d1e59c43827dd03010e98a9, type: 3}
+    - target: {fileID: 3166647200680513054, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 7561400e4d9d40c4986cfa99d10626f4, type: 2}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8144648496288269464, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: skinnedMeshRenderer
+      value: 
+      objectReference: {fileID: 4500000603027354529}
+    - target: {fileID: 8417785520222840257, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Name
+      value: Wildboar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5048455696746606438, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4500000603030299305}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+--- !u!4 &6768915386050301943 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5048455696746606438, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+  m_PrefabInstance: {fileID: 2017528088657961105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4941818037345094161
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6768915386050301943}
+    m_Modifications:
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856306568212198616, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+      propertyPath: m_Name
+      value: Wildboar_body
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+--- !u!137 &4500000603027354529 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8856306568223766960, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+  m_PrefabInstance: {fileID: 4941818037345094161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4500000603030299305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8856306568211769528, guid: 68f3b280497360142a2d26a68963377c, type: 3}
+  m_PrefabInstance: {fileID: 4941818037345094161}
+  m_PrefabAsset: {fileID: 0}

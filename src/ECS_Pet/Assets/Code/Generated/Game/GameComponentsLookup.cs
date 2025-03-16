@@ -22,11 +22,13 @@ public static class GameComponentsLookup {
     public const int Occupied = 11;
     public const int SuccessfulCellRequest = 12;
     public const int Fighter = 13;
-    public const int FighterTypeId = 14;
-    public const int ProducerId = 15;
-    public const int TargetId = 16;
+    public const int FighterRequest = 14;
+    public const int FighterTypeId = 15;
+    public const int Selected = 16;
+    public const int ProducerId = 17;
+    public const int TargetId = 18;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -43,7 +45,9 @@ public static class GameComponentsLookup {
         "Occupied",
         "SuccessfulCellRequest",
         "Fighter",
+        "FighterRequest",
         "FighterTypeId",
+        "Selected",
         "ProducerId",
         "TargetId"
     };
@@ -63,7 +67,9 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.Occupied),
         typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.SuccessfulCellRequest),
         typeof(Code.Gameplay.Fighter.FighterComponents.Fighter),
+        typeof(Code.Gameplay.Fighter.FighterComponents.FighterRequest),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterTypeIdComponent),
+        typeof(Code.Gameplay.Fighter.FighterComponents.Selected),
         typeof(Code.Gameplay.Target.TargetComponents.ProducerId),
         typeof(Code.Gameplay.Target.TargetComponents.TargetId)
     };

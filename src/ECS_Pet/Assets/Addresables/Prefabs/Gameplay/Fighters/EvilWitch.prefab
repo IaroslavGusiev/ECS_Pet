@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3166647200680513054, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 7fb5707cedc79f54db8906c52ed6aba4, type: 3}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3185481725791720895, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -80,6 +96,14 @@ PrefabInstance:
     - target: {fileID: 1957953817327781, guid: e8407fadd52a65b479c37ce6e6a3014b, type: 3}
       propertyPath: m_Name
       value: EvilWitch_Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101567718010717994, guid: e8407fadd52a65b479c37ce6e6a3014b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 25159e03ebc8b78488bfb7dec75d7eaf, type: 2}
+    - target: {fileID: 2712521789374027187, guid: e8407fadd52a65b479c37ce6e6a3014b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8645325645207858631, guid: e8407fadd52a65b479c37ce6e6a3014b, type: 3}
       propertyPath: m_LocalPosition.x

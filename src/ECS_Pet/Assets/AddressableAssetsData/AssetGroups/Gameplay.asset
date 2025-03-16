@@ -15,11 +15,65 @@ MonoBehaviour:
   m_GroupName: Gameplay
   m_GUID: 7c8d0111764ffe64c818f2836f59b53a
   m_SerializeEntries:
+  - m_GUID: 03bb011a4cb0ab14fa0495647399b9c3
+    m_Address: Assets/Addresables/Configs/Fighter/FighterConfig_Golem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c71d164959e3da4a805aad8c387152b
     m_Address: BoardCell
     m_ReadOnly: 0
     m_SerializedLabels:
     - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ffb28a616283a84b8c92d0df47b9a9c
+    m_Address: Assets/Addresables/Configs/Fighter/FighterConfig_Bee.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23d254ece1cde434db68e8659151ac27
+    m_Address: Golem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23fe031794ac6d749ae9af0350b7dcec
+    m_Address: Assets/Addresables/Configs/Fighter/FighterConfig_Rat.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 26a9d675052a9114787ae6ec5bc159ab
+    m_Address: Rat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29d798658304195449f2c764d0441b3c
+    m_Address: Mushroom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 333f9a1056636d14285c763112448a00
+    m_Address: Assets/Addresables/Configs/Fighter/FighterConfig_Ent.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f0a168223e85094c984b44cbc7dec34
+    m_Address: Bee
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 690fea88210814a499fe6547b2977403
+    m_Address: Assets/Addresables/Configs/Fighter/FighterConfig_Mushroom.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7abe21e67adaebd49b4eb2a71396ed7e
     m_Address: EvilWitch
@@ -27,8 +81,68 @@ MonoBehaviour:
     m_SerializedLabels:
     - Gameplay
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 814e9e6b0b3f71342902a71c91bdf0fc
+    m_Address: FighterConfig_EvilWitch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88819c6c793a01d4995af175634ee0d2
+    m_Address: Wildboar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 896ad1dee3a955d48821d37b8297afff
+    m_Address: Eagle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9671d745dd053ae47b09aef2d2492fb6
+    m_Address: Assets/Addresables/Configs/Fighter/FighterConfig_Wildboar.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b154d36796f7cc348888b46d446199db
     m_Address: Minotaur
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6d49e1de1024a84b8a58d706e15c347
+    m_Address: Stump
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1307b008073ba743b9346ebfe38d8ca
+    m_Address: Assets/Addresables/Configs/Fighter/FighterConfig_Eagle.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3016404caa8d7a498ca27aaf8f902a3
+    m_Address: SelectFighterWindow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db355ee801d2fe84cbfcf4a5881d27ec
+    m_Address: FighterConfig_Minotaur
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0478fdea3980fd4da77d33db2e5211c
+    m_Address: Assets/Addresables/Configs/Fighter/FighterConfig_Stump.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee278ece5905fc74e921a4694f97eec5
+    m_Address: Ent
     m_ReadOnly: 0
     m_SerializedLabels:
     - Gameplay

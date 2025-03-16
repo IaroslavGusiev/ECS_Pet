@@ -9,17 +9,20 @@
 public static class InputComponentsLookup {
 
     public const int ClickInput = 0;
-    public const int Input = 1;
+    public const int EscKeyInput = 1;
+    public const int Input = 2;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
         "ClickInput",
+        "EscKeyInput",
         "Input"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Gameplay.Input.InputComponents.ClickInput),
-        typeof(Code.Gameplay.Input.InputComponents.Input)
+        typeof(Code.Gameplay.Input.InputComponents.EscKeyInputComponent),
+        typeof(Code.Gameplay.Input.InputComponents.InputComponent)
     };
 }

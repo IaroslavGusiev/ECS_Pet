@@ -1,5 +1,6 @@
 using UnityEngine;
 using Code.StaticData;
+using NaughtyAttributes;
 
 namespace Code.Gameplay.Fighter
 {
@@ -8,5 +9,9 @@ namespace Code.Gameplay.Fighter
     {
         [field: SerializeField] public FighterTypeId FighterTypeId { get; private set; }
         [field: SerializeField] public string ViewPath { get; private set; }
+        [field: SerializeField] public int Price { get; private set; }
+
+        [field: ShowAssetPreview]
+        [field: SerializeField] public Sprite Icon { get; private set; }
     }
 }

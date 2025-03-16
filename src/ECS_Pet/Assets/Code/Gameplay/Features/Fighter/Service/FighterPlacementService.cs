@@ -6,14 +6,13 @@ namespace Code.Gameplay.Fighter
     {
         private readonly Dictionary<int, int> _towersToCells = new(); // key: cell id, value: tower id
         
-        public void RegisterFighter(int towerId, int cellId)
-        {
-            _towersToCells[cellId] = towerId;
-        }
-        
-        public void UnregisterFighter(int cellId)
-        {
+        public void RegisterFighter(int fighterId, int cellId) => 
+            _towersToCells[cellId] = fighterId;
+
+        public void UnregisterFighter(int cellId) => 
             _towersToCells.Remove(cellId);
-        }
+        
+        public bool IsFighterPlaced(int fighterId) => 
+            _towersToCells.ContainsKey(fighterId);
     }
 }
