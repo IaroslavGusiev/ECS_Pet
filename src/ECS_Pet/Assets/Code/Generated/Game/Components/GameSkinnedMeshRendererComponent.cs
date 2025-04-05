@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Common.CommonComponents.SkinnedMeshRendererComponent skinnedMeshRenderer { get { return (Code.Gameplay.Common.CommonComponents.SkinnedMeshRendererComponent)GetComponent(GameComponentsLookup.SkinnedMeshRenderer); } }
+    public Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent skinnedMeshRenderer { get { return (Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent)GetComponent(GameComponentsLookup.SkinnedMeshRenderer); } }
     public UnityEngine.SkinnedMeshRenderer SkinnedMeshRenderer { get { return skinnedMeshRenderer.Value; } }
     public bool hasSkinnedMeshRenderer { get { return HasComponent(GameComponentsLookup.SkinnedMeshRenderer); } }
 
     public GameEntity AddSkinnedMeshRenderer(UnityEngine.SkinnedMeshRenderer newValue) {
         var index = GameComponentsLookup.SkinnedMeshRenderer;
-        var component = (Code.Gameplay.Common.CommonComponents.SkinnedMeshRendererComponent)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.SkinnedMeshRendererComponent));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceSkinnedMeshRenderer(UnityEngine.SkinnedMeshRenderer newValue) {
         var index = GameComponentsLookup.SkinnedMeshRenderer;
-        var component = (Code.Gameplay.Common.CommonComponents.SkinnedMeshRendererComponent)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.SkinnedMeshRendererComponent));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

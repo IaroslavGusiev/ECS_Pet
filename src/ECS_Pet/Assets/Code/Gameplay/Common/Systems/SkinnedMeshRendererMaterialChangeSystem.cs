@@ -1,16 +1,16 @@
 using Entitas;
 using System.Collections.Generic;
 
-namespace Code.Gameplay.Common.Systems
+namespace Code.Gameplay.Common.Time.Systems
 {
     public class SkinnedMeshRendererMaterialChangeSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _entities;
         private readonly List<GameEntity> _buffer = new(capacity: 64);
 
-        public SkinnedMeshRendererMaterialChangeSystem(GameContext game)
+        public SkinnedMeshRendererMaterialChangeSystem(GameContext gameContext)
         {
-            _entities = game.GetGroup(GameMatcher.AllOf(matchers: new[]
+            _entities = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
                 GameMatcher.MeshRenderer, 
                 GameMatcher.MaterialChangeRequest

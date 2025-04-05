@@ -2,6 +2,8 @@ using UnityEngine;
 using Code.StaticData;
 using Code.Infrastructure;
 using Code.Common.Extensions;
+using System.Collections.Generic;
+using Code.Gameplay.CharacterStats;
 using Code.Infrastructure.Services;
 
 namespace Code.Gameplay.Fighter
@@ -10,7 +12,6 @@ namespace Code.Gameplay.Fighter
     {
         private readonly IEntityFactory _entityFactory;
         private readonly IStaticDataService _staticDataService;
-        private readonly Vector3 _spawnOffsetForGameBoard = new(0f, 0.5f, 0f);
 
         public FighterFactory(
             IEntityFactory entityFactory, 
@@ -24,13 +25,31 @@ namespace Code.Gameplay.Fighter
         {
             FighterConfig fighterConfig = _staticDataService.GetFighterConfig(fighterTypeId);
 
+            Dictionary<Stats, float> baseStates = FillBaseStatsFromConfig(fighterConfig); 
+
             return _entityFactory
                 .CreateEntity<GameEntity>(needToSetId: true)
                 .AddViewPath(fighterConfig.ViewPath)
                 .AddFighterTypeId(fighterTypeId)
                 .AddWorldPosition(at)
+                .AddWorldRotation(Quaternion.identity)
+                .AddBaseStats(baseStates)
+                .AddStatModifiers(InitStats.EmptyStatDictionary())
+                .AddMaxHp(baseStates[Stats.MaxHp])
+                .AddCurrentHp(baseStates[Stats.MaxHp])
+                .AddMaxMana(baseStates[Stats.MaxMana])
+                .AddCurrentMana(0)
                 .With(entity => entity.isFighter = true)
                 .With(entity => entity.isSelected = true);
+        }
+
+        private static Dictionary<Stats, float> FillBaseStatsFromConfig(FighterConfig fighterConfig)
+        {
+            return InitStats.EmptyStatDictionary()
+                .With(dictionary => dictionary[Stats.MaxHp] = fighterConfig.MaxHp)
+                .With(dictionary => dictionary[Stats.Damage] = fighterConfig.Damage)
+                .With(dictionary => dictionary[Stats.MaxMana] = fighterConfig.MaxMana)
+                .With(dictionary => dictionary[Stats.ManaRegen] = fighterConfig.ManaRegen);
         }
     }
 }

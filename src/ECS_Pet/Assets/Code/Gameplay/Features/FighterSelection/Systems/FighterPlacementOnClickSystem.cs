@@ -4,7 +4,6 @@ using Code.Gameplay.Fighter;
 using Code.Common.Extensions;
 using System.Collections.Generic;
 using Code.Gameplay.Features.GameBoard;
-using UnityEngine;
 
 namespace Code.Gameplay.FighterSelection
 {
@@ -78,6 +77,7 @@ namespace Code.Gameplay.FighterSelection
         {
             fighter
                 .RemoveTargetId()
+                .With(entity => entity.isPlaced = true)
                 .With(entity => entity.isSelected = false)
                 .With(entity => _fighterPlacementService.RegisterFighter(entity.Id, cellId));
         }

@@ -1,16 +1,16 @@
 using Entitas;
 using System.Collections.Generic;
 
-namespace Code.Gameplay.Common.Systems
+namespace Code.Gameplay.Common.Time.Systems
 {
     public class MeshRendererMaterialChangeSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _meshRenderers;
         private readonly List<GameEntity> _buffer = new(capacity: 64);
 
-        public MeshRendererMaterialChangeSystem(GameContext game)
+        public MeshRendererMaterialChangeSystem(GameContext gameContext)
         {
-            _meshRenderers = game.GetGroup(GameMatcher.AllOf(matchers: new[]
+            _meshRenderers = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
                 GameMatcher.MeshRenderer, 
                 GameMatcher.MaterialChangeRequest

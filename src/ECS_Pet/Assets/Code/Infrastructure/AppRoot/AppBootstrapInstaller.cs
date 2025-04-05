@@ -1,13 +1,14 @@
 using Code.StaticData;
 using Code.UI.BaseWindow;
 using Code.Gameplay.Input;
-using Code.Gameplay.Common;
+using Code.Gameplay.Common.Time;
 using Code.Gameplay.Fighter;
 using Code.UI.LoadingCurtain;
 using Code.Common.View.Factory;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
 using Code.Gameplay.Features.GameBoard;
+using Code.Gameplay.Common.Time.EntityIndices;
 
 namespace Code.Infrastructure.CompositionRoot
 {
@@ -19,6 +20,7 @@ namespace Code.Infrastructure.CompositionRoot
             BindGameplayFactories();
             BindGameplayServices();
             BindCommonServices();
+            BindEntityIndices();
             BindUIServices();
             BindFactories();
             BindContexts();
@@ -46,18 +48,23 @@ namespace Code.Infrastructure.CompositionRoot
         private void BindGameplayServices()
         {
             Container.Bind<IInputService>().To<InputService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
             Container.Bind<IGameBoardService>().To<GameBoardService>().AsSingle();
+            Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
             Container.Bind<IFighterPlacementService>().To<FighterPlacementService>().AsSingle();
         }
 
         private void BindCommonServices()
         {
             Container.Bind<IIdProvider>().To<IdProvider>().AsSingle();
-            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle(); // може поїхати до інсталеру геймплею
-            Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle(); // може поїхати до інсталеру геймплею
-
+            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle(); // can be moved to gameplay installer
+            Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle(); // can be moved to gameplay installer
             Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
+            Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
+        }
+
+        private void BindEntityIndices()
+        {
+            Container.BindInterfacesAndSelfTo<GameEntityIndices>().AsSingle();
         }
 
         private void BindUIServices()

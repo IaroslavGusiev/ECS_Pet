@@ -2,7 +2,7 @@ using Entitas;
 using UnityEngine;
 using Code.StaticData;
 using Code.Gameplay.Input;
-using Code.Gameplay.Common;
+using Code.Gameplay.Common.Time;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.GameBoard;
 

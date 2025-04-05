@@ -7,7 +7,7 @@ namespace Code.Gameplay.Fighter
         private readonly Dictionary<int, int> _towersToCells = new(); // key: cell id, value: tower id
         
         public void RegisterFighter(int fighterId, int cellId) => 
-            _towersToCells[cellId] = fighterId;
+            _towersToCells[fighterId] = cellId;
 
         public void UnregisterFighter(int cellId) => 
             _towersToCells.Remove(cellId);

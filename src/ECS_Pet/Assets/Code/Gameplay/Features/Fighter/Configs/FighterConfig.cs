@@ -12,6 +12,13 @@ namespace Code.Gameplay.Fighter
         [field: SerializeField] public int Price { get; private set; }
 
         [field: ShowAssetPreview]
-        [field: SerializeField] public Sprite Icon { get; private set; }
+        [field: SerializeField]
+        public Sprite Icon { get; private set; }
+
+        [Header("--- Stats ---")]
+        [field: SerializeField] public float MaxHp { get; private set; }
+        [field: SerializeField] public float MaxMana { get; private set; }
+        [field: SerializeField] public float Damage { get; private set; }
+        [field: SerializeField] public float ManaRegen { get; private set; }
     }
 }

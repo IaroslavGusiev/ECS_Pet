@@ -59,13 +59,13 @@ public partial class GameEntity : IIdEntity<GameEntity>, IIdEntity
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Common.CommonComponents.Id id { get { return (Code.Gameplay.Common.CommonComponents.Id)GetComponent(GameComponentsLookup.Id); } }
+    public Code.Gameplay.Common.Time.CommonComponents.Id id { get { return (Code.Gameplay.Common.Time.CommonComponents.Id)GetComponent(GameComponentsLookup.Id); } }
     public int Id { get { return id.Value; } }
     public bool hasId { get { return HasComponent(GameComponentsLookup.Id); } }
 
     public GameEntity AddId(int newValue) {
         var index = GameComponentsLookup.Id;
-        var component = (Code.Gameplay.Common.CommonComponents.Id)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.Id));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.Id)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.Id));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -73,7 +73,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceId(int newValue) {
         var index = GameComponentsLookup.Id;
-        var component = (Code.Gameplay.Common.CommonComponents.Id)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.Id));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.Id)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.Id));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

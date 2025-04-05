@@ -16,3 +16,7 @@ MonoBehaviour:
   <ViewPath>k__BackingField: Wildboar
   <Price>k__BackingField: 10
   <Icon>k__BackingField: {fileID: 21300000, guid: b521d464fec13d143b03540e8ed08a1c, type: 3}
+  <MaxHp>k__BackingField: 90
+  <MaxMana>k__BackingField: 7
+  <Damage>k__BackingField: 7
+  <ManaRegen>k__BackingField: 0.5

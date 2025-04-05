@@ -16,3 +16,7 @@ MonoBehaviour:
   <ViewPath>k__BackingField: Stump
   <Price>k__BackingField: 10
   <Icon>k__BackingField: {fileID: 21300000, guid: fea31210cee2ad541a28c8a00673e44f, type: 3}
+  <MaxHp>k__BackingField: 100
+  <MaxMana>k__BackingField: 12
+  <Damage>k__BackingField: 11
+  <ManaRegen>k__BackingField: 0.5

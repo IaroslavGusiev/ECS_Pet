@@ -16,3 +16,7 @@ MonoBehaviour:
   <ViewPath>k__BackingField: Minotaur
   <Price>k__BackingField: 10
   <Icon>k__BackingField: {fileID: 21300000, guid: ffe0e3c9284d3ea48b240abd91e4889d, type: 3}
+  <MaxHp>k__BackingField: 145
+  <MaxMana>k__BackingField: 10
+  <Damage>k__BackingField: 12
+  <ManaRegen>k__BackingField: 0.5

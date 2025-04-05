@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Common.CommonComponents.MeshRendererComponent meshRenderer { get { return (Code.Gameplay.Common.CommonComponents.MeshRendererComponent)GetComponent(GameComponentsLookup.MeshRenderer); } }
+    public Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent meshRenderer { get { return (Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent)GetComponent(GameComponentsLookup.MeshRenderer); } }
     public UnityEngine.MeshRenderer MeshRenderer { get { return meshRenderer.Value; } }
     public bool hasMeshRenderer { get { return HasComponent(GameComponentsLookup.MeshRenderer); } }
 
     public GameEntity AddMeshRenderer(UnityEngine.MeshRenderer newValue) {
         var index = GameComponentsLookup.MeshRenderer;
-        var component = (Code.Gameplay.Common.CommonComponents.MeshRendererComponent)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.MeshRendererComponent));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceMeshRenderer(UnityEngine.MeshRenderer newValue) {
         var index = GameComponentsLookup.MeshRenderer;
-        var component = (Code.Gameplay.Common.CommonComponents.MeshRendererComponent)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.MeshRendererComponent));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

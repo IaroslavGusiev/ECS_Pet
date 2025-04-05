@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Common.CommonComponents.WorldPosition worldPosition { get { return (Code.Gameplay.Common.CommonComponents.WorldPosition)GetComponent(GameComponentsLookup.WorldPosition); } }
+    public Code.Gameplay.Common.Time.CommonComponents.WorldPosition worldPosition { get { return (Code.Gameplay.Common.Time.CommonComponents.WorldPosition)GetComponent(GameComponentsLookup.WorldPosition); } }
     public UnityEngine.Vector3 WorldPosition { get { return worldPosition.Value; } }
     public bool hasWorldPosition { get { return HasComponent(GameComponentsLookup.WorldPosition); } }
 
     public GameEntity AddWorldPosition(UnityEngine.Vector3 newValue) {
         var index = GameComponentsLookup.WorldPosition;
-        var component = (Code.Gameplay.Common.CommonComponents.WorldPosition)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.WorldPosition));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.WorldPosition)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.WorldPosition));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceWorldPosition(UnityEngine.Vector3 newValue) {
         var index = GameComponentsLookup.WorldPosition;
-        var component = (Code.Gameplay.Common.CommonComponents.WorldPosition)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.WorldPosition));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.WorldPosition)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.WorldPosition));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

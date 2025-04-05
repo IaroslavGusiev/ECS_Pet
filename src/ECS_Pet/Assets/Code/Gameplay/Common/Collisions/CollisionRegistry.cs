@@ -1,7 +1,7 @@
 using Entitas;
 using System.Collections.Generic;
 
-namespace Code.Gameplay.Common
+namespace Code.Gameplay.Common.Time
 {
     public class CollisionRegistry : ICollisionRegistry
     {

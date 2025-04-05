@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Common.CommonComponents.LayerMask layerMask { get { return (Code.Gameplay.Common.CommonComponents.LayerMask)GetComponent(GameComponentsLookup.LayerMask); } }
+    public Code.Gameplay.Common.Time.CommonComponents.LayerMask layerMask { get { return (Code.Gameplay.Common.Time.CommonComponents.LayerMask)GetComponent(GameComponentsLookup.LayerMask); } }
     public int LayerMask { get { return layerMask.Value; } }
     public bool hasLayerMask { get { return HasComponent(GameComponentsLookup.LayerMask); } }
 
     public GameEntity AddLayerMask(int newValue) {
         var index = GameComponentsLookup.LayerMask;
-        var component = (Code.Gameplay.Common.CommonComponents.LayerMask)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.LayerMask));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.LayerMask)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.LayerMask));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceLayerMask(int newValue) {
         var index = GameComponentsLookup.LayerMask;
-        var component = (Code.Gameplay.Common.CommonComponents.LayerMask)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.LayerMask));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.LayerMask)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.LayerMask));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

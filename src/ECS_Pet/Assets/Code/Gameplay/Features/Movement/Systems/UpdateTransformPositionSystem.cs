@@ -10,8 +10,8 @@ namespace Code.Gameplay.Features.Movement
         {
             _movers = game.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
-                GameMatcher.WorldPosition, 
-                GameMatcher.Transform
+                GameMatcher.Transform, 
+                GameMatcher.WorldPosition
             }));
         }
     

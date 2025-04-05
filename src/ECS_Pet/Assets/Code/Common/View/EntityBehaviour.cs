@@ -1,6 +1,6 @@
 using Zenject;
 using UnityEngine;
-using Code.Gameplay.Common;
+using Code.Gameplay.Common.Time;
 
 namespace Code.Common.View
 {

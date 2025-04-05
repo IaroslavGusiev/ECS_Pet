@@ -11,66 +11,132 @@ public static class GameComponentsLookup {
     public const int Destructed = 0;
     public const int View = 1;
     public const int ViewPath = 2;
-    public const int Id = 3;
-    public const int LayerMask = 4;
-    public const int MaterialChangeRequest = 5;
-    public const int MeshRenderer = 6;
-    public const int SkinnedMeshRenderer = 7;
-    public const int Transform = 8;
-    public const int WorldPosition = 9;
-    public const int GameBoardCell = 10;
-    public const int Occupied = 11;
-    public const int SuccessfulCellRequest = 12;
-    public const int Fighter = 13;
-    public const int FighterRequest = 14;
-    public const int FighterTypeId = 15;
-    public const int Selected = 16;
-    public const int ProducerId = 17;
-    public const int TargetId = 18;
+    public const int BaseStats = 3;
+    public const int StatChange = 4;
+    public const int StatModifiers = 5;
+    public const int Id = 6;
+    public const int LayerMask = 7;
+    public const int MaterialChangeRequest = 8;
+    public const int MeshRenderer = 9;
+    public const int SkinnedMeshRenderer = 10;
+    public const int Tick = 11;
+    public const int Transform = 12;
+    public const int WorldPosition = 13;
+    public const int WorldRotation = 14;
+    public const int GameBoardCell = 15;
+    public const int Occupied = 16;
+    public const int SuccessfulCellRequest = 17;
+    public const int Direction = 18;
+    public const int DistanceToTarget = 19;
+    public const int MovementAvailable = 20;
+    public const int MovementTarget = 21;
+    public const int Moving = 22;
+    public const int Fighter = 23;
+    public const int FighterRequest = 24;
+    public const int FighterTypeId = 25;
+    public const int Placed = 26;
+    public const int Selected = 27;
+    public const int StatsSliderHolder = 28;
+    public const int CurrentHp = 29;
+    public const int Dead = 30;
+    public const int MaxHp = 31;
+    public const int ProcessingDeath = 32;
+    public const int CurrentMana = 33;
+    public const int MaxMana = 34;
+    public const int ProducerId = 35;
+    public const int TargetId = 36;
+    public const int DamageEffect = 37;
+    public const int Effect = 38;
+    public const int EffectValue = 39;
+    public const int HealEffect = 40;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 41;
 
     public static readonly string[] componentNames = {
         "Destructed",
         "View",
         "ViewPath",
+        "BaseStats",
+        "StatChange",
+        "StatModifiers",
         "Id",
         "LayerMask",
         "MaterialChangeRequest",
         "MeshRenderer",
         "SkinnedMeshRenderer",
+        "Tick",
         "Transform",
         "WorldPosition",
+        "WorldRotation",
         "GameBoardCell",
         "Occupied",
         "SuccessfulCellRequest",
+        "Direction",
+        "DistanceToTarget",
+        "MovementAvailable",
+        "MovementTarget",
+        "Moving",
         "Fighter",
         "FighterRequest",
         "FighterTypeId",
+        "Placed",
         "Selected",
+        "StatsSliderHolder",
+        "CurrentHp",
+        "Dead",
+        "MaxHp",
+        "ProcessingDeath",
+        "CurrentMana",
+        "MaxMana",
         "ProducerId",
-        "TargetId"
+        "TargetId",
+        "DamageEffect",
+        "Effect",
+        "EffectValue",
+        "HealEffect"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.CommonComponents.Destructed),
         typeof(Code.Common.CommonComponents.View),
         typeof(Code.Common.CommonComponents.ViewPath),
-        typeof(Code.Gameplay.Common.CommonComponents.Id),
-        typeof(Code.Gameplay.Common.CommonComponents.LayerMask),
-        typeof(Code.Gameplay.Common.CommonComponents.MaterialChangeRequest),
-        typeof(Code.Gameplay.Common.CommonComponents.MeshRendererComponent),
-        typeof(Code.Gameplay.Common.CommonComponents.SkinnedMeshRendererComponent),
-        typeof(Code.Gameplay.Common.CommonComponents.TransformComponent),
-        typeof(Code.Gameplay.Common.CommonComponents.WorldPosition),
-        typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.GameBoardCell),
-        typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.Occupied),
-        typeof(Code.Gameplay.Features.GameBoard.GameBoardComponents.SuccessfulCellRequest),
+        typeof(Code.Gameplay.CharacterStats.BaseStats),
+        typeof(Code.Gameplay.CharacterStats.StatChange),
+        typeof(Code.Gameplay.CharacterStats.StatModifiers),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.Id),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.LayerMask),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.MaterialChangeRequest),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.Tick),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.TransformComponent),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.WorldPosition),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.WorldRotation),
+        typeof(Code.Gameplay.Features.GameBoard.GameBoardCell),
+        typeof(Code.Gameplay.Features.GameBoard.Occupied),
+        typeof(Code.Gameplay.Features.GameBoard.SuccessfulCellRequest),
+        typeof(Code.Gameplay.Features.Movement.Direction),
+        typeof(Code.Gameplay.Features.Movement.DistanceToTarget),
+        typeof(Code.Gameplay.Features.Movement.MovementAvailable),
+        typeof(Code.Gameplay.Features.Movement.MovementTarget),
+        typeof(Code.Gameplay.Features.Movement.Moving),
         typeof(Code.Gameplay.Fighter.FighterComponents.Fighter),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterRequest),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterTypeIdComponent),
+        typeof(Code.Gameplay.Fighter.FighterComponents.Placed),
         typeof(Code.Gameplay.Fighter.FighterComponents.Selected),
-        typeof(Code.Gameplay.Target.TargetComponents.ProducerId),
-        typeof(Code.Gameplay.Target.TargetComponents.TargetId)
+        typeof(Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent),
+        typeof(Code.Gameplay.Lifetime.CurrentHp),
+        typeof(Code.Gameplay.Lifetime.Dead),
+        typeof(Code.Gameplay.Lifetime.MaxHp),
+        typeof(Code.Gameplay.Lifetime.ProcessingDeath),
+        typeof(Code.Gameplay.Mana.CurrentMana),
+        typeof(Code.Gameplay.Mana.MaxMana),
+        typeof(Code.Gameplay.TargetCollection.ProducerId),
+        typeof(Code.Gameplay.TargetCollection.TargetId),
+        typeof(Code.GameplayEffects.DamageEffect),
+        typeof(Code.GameplayEffects.Effect),
+        typeof(Code.GameplayEffects.EffectValue),
+        typeof(Code.GameplayEffects.HealEffect)
     };
 }

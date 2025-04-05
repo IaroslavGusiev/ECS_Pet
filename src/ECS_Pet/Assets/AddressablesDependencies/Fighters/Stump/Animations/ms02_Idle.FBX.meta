@@ -1,61 +1,161 @@
 fileFormatVersion: 2
 guid: 3eac94cb9ef62134aae496b499ce4edd
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Bip001
-    100002: Bip001 Head
-    100004: Bip001 L Calf
-    100006: Bip001 L Clavicle
-    100008: Bip001 L Foot
-    100010: Bip001 L Forearm
-    100012: Bip001 L Hand
-    100014: Bip001 L Thigh
-    100016: Bip001 L UpperArm
-    100018: Bip001 Neck
-    100020: Bip001 Pelvis
-    100022: Bip001 R Calf
-    100024: Bip001 R Clavicle
-    100026: Bip001 R Finger0
-    100028: Bip001 R Foot
-    100030: Bip001 R Forearm
-    100032: Bip001 R Hand
-    100034: Bip001 R Thigh
-    100036: Bip001 R UpperArm
-    100038: Bip001 Spine
-    100040: //RootNode
-    100042: ms02_Stump
-    400000: Bip001
-    400002: Bip001 Head
-    400004: Bip001 L Calf
-    400006: Bip001 L Clavicle
-    400008: Bip001 L Foot
-    400010: Bip001 L Forearm
-    400012: Bip001 L Hand
-    400014: Bip001 L Thigh
-    400016: Bip001 L UpperArm
-    400018: Bip001 Neck
-    400020: Bip001 Pelvis
-    400022: Bip001 R Calf
-    400024: Bip001 R Clavicle
-    400026: Bip001 R Finger0
-    400028: Bip001 R Foot
-    400030: Bip001 R Forearm
-    400032: Bip001 R Hand
-    400034: Bip001 R Thigh
-    400036: Bip001 R UpperArm
-    400038: Bip001 Spine
-    400040: //RootNode
-    400042: ms02_Stump
-    2100000: 'Material #0'
-    4300000: ms02_Stump
-    7400000: ms02_Idle
-    9500000: //RootNode
-    13700000: ms02_Stump
-    2186277476908879412: ImportLogs
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Bip001
+  - first:
+      1: 100002
+    second: Bip001 Head
+  - first:
+      1: 100004
+    second: Bip001 L Calf
+  - first:
+      1: 100006
+    second: Bip001 L Clavicle
+  - first:
+      1: 100008
+    second: Bip001 L Foot
+  - first:
+      1: 100010
+    second: Bip001 L Forearm
+  - first:
+      1: 100012
+    second: Bip001 L Hand
+  - first:
+      1: 100014
+    second: Bip001 L Thigh
+  - first:
+      1: 100016
+    second: Bip001 L UpperArm
+  - first:
+      1: 100018
+    second: Bip001 Neck
+  - first:
+      1: 100020
+    second: Bip001 Pelvis
+  - first:
+      1: 100022
+    second: Bip001 R Calf
+  - first:
+      1: 100024
+    second: Bip001 R Clavicle
+  - first:
+      1: 100026
+    second: Bip001 R Finger0
+  - first:
+      1: 100028
+    second: Bip001 R Foot
+  - first:
+      1: 100030
+    second: Bip001 R Forearm
+  - first:
+      1: 100032
+    second: Bip001 R Hand
+  - first:
+      1: 100034
+    second: Bip001 R Thigh
+  - first:
+      1: 100036
+    second: Bip001 R UpperArm
+  - first:
+      1: 100038
+    second: Bip001 Spine
+  - first:
+      1: 100040
+    second: //RootNode
+  - first:
+      1: 100042
+    second: ms02_Stump
+  - first:
+      4: 400000
+    second: Bip001
+  - first:
+      4: 400002
+    second: Bip001 Head
+  - first:
+      4: 400004
+    second: Bip001 L Calf
+  - first:
+      4: 400006
+    second: Bip001 L Clavicle
+  - first:
+      4: 400008
+    second: Bip001 L Foot
+  - first:
+      4: 400010
+    second: Bip001 L Forearm
+  - first:
+      4: 400012
+    second: Bip001 L Hand
+  - first:
+      4: 400014
+    second: Bip001 L Thigh
+  - first:
+      4: 400016
+    second: Bip001 L UpperArm
+  - first:
+      4: 400018
+    second: Bip001 Neck
+  - first:
+      4: 400020
+    second: Bip001 Pelvis
+  - first:
+      4: 400022
+    second: Bip001 R Calf
+  - first:
+      4: 400024
+    second: Bip001 R Clavicle
+  - first:
+      4: 400026
+    second: Bip001 R Finger0
+  - first:
+      4: 400028
+    second: Bip001 R Foot
+  - first:
+      4: 400030
+    second: Bip001 R Forearm
+  - first:
+      4: 400032
+    second: Bip001 R Hand
+  - first:
+      4: 400034
+    second: Bip001 R Thigh
+  - first:
+      4: 400036
+    second: Bip001 R UpperArm
+  - first:
+      4: 400038
+    second: Bip001 Spine
+  - first:
+      4: 400040
+    second: //RootNode
+  - first:
+      4: 400042
+    second: ms02_Stump
+  - first:
+      21: 2100000
+    second: Material #0
+  - first:
+      43: 4300000
+    second: ms02_Stump
+  - first:
+      74: 7400000
+    second: ms02_Idle
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: ms02_Stump
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -64,9 +164,8 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -84,6 +183,7 @@ ModelImporter:
     - serializedVersion: 16
       name: ms02_Idle
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -92,7 +192,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -116,25 +216,36 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
     importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 0
     keepQuads: 0
     weldVertices: 0
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: 1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -143,10 +254,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -156,13 +267,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

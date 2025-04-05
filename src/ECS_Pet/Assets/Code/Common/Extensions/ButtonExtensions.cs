@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Code.Common.Extensions
 {
-    public static class ButtonExtension
+    public static class ButtonExtensions
     {
         public static void AddClickListener(this Button button, UnityAction action) => 
             button.onClick.AddListener(action);

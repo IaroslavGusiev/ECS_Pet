@@ -17,6 +17,6 @@ public static class MetaComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Gameplay.Common.CommonComponents.Id)
+        typeof(Code.Gameplay.Common.Time.CommonComponents.Id)
     };
 }

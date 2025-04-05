@@ -1,4 +1,4 @@
-namespace Code.Gameplay.Common
+namespace Code.Gameplay.Common.Time
 {
     public interface IIdProvider
     {

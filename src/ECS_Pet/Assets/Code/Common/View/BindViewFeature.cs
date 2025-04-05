@@ -1,5 +1,5 @@
 using Code.Infrastructure.Systems;
-using Code.Gameplay.Common.Systems;
+using Code.Gameplay.Common.Time.Systems;
 
 namespace Code.Common.View
 {

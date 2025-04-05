@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Common.CommonComponents.TransformComponent transform { get { return (Code.Gameplay.Common.CommonComponents.TransformComponent)GetComponent(GameComponentsLookup.Transform); } }
+    public Code.Gameplay.Common.Time.CommonComponents.TransformComponent transform { get { return (Code.Gameplay.Common.Time.CommonComponents.TransformComponent)GetComponent(GameComponentsLookup.Transform); } }
     public UnityEngine.Transform Transform { get { return transform.Value; } }
     public bool hasTransform { get { return HasComponent(GameComponentsLookup.Transform); } }
 
     public GameEntity AddTransform(UnityEngine.Transform newValue) {
         var index = GameComponentsLookup.Transform;
-        var component = (Code.Gameplay.Common.CommonComponents.TransformComponent)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.TransformComponent));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.TransformComponent)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.TransformComponent));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceTransform(UnityEngine.Transform newValue) {
         var index = GameComponentsLookup.Transform;
-        var component = (Code.Gameplay.Common.CommonComponents.TransformComponent)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.TransformComponent));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.TransformComponent)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.TransformComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

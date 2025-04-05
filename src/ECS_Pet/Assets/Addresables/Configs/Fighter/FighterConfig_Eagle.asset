@@ -16,3 +16,7 @@ MonoBehaviour:
   <ViewPath>k__BackingField: Eagle
   <Price>k__BackingField: 10
   <Icon>k__BackingField: {fileID: 21300000, guid: ccb8887cf9a172949ade2f573b6c5268, type: 3}
+  <MaxHp>k__BackingField: 150
+  <MaxMana>k__BackingField: 5
+  <Damage>k__BackingField: 7
+  <ManaRegen>k__BackingField: 0.5

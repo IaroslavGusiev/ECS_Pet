@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.GameBoard.GameBoardComponents.SuccessfulCellRequest successfulCellRequestComponent = new Code.Gameplay.Features.GameBoard.GameBoardComponents.SuccessfulCellRequest();
+    static readonly Code.Gameplay.Features.GameBoard.SuccessfulCellRequest successfulCellRequestComponent = new Code.Gameplay.Features.GameBoard.SuccessfulCellRequest();
 
     public bool isSuccessfulCellRequest {
         get { return HasComponent(GameComponentsLookup.SuccessfulCellRequest); }

@@ -11,7 +11,7 @@ namespace Code.Infrastructure.Services
     public class StaticDataService : IStaticDataService
     {
         private readonly IAddressablesAssetProvider _assetProvider;
-
+        
         private List<WindowsConfig> _windowConfigs;
         private List<GameBoardConfig> _gameBoardConfigs;
         private Dictionary<FighterTypeId, FighterConfig> _fighterConfigs;
@@ -21,17 +21,22 @@ namespace Code.Infrastructure.Services
 
         public async UniTask Initialize()
         {
-            await LoadGameBoardConfigs();
-            await LoadWindowsConfig();
-            await LoadFighterConfigs();
+            var tasks = new List<UniTask>
+            {
+                LoadWindowsConfig(),
+                LoadFighterConfigs(),
+                LoadGameBoardConfigs()
+            };
+
+           await UniTask.WhenAll(tasks);
         }
-        
+
         public WindowsConfig GetWindowsConfig() =>
             _windowConfigs.FirstOrDefault();
 
         public GameBoardConfig GetGameBoardConfig() =>
             _gameBoardConfigs.FirstOrDefault();
-        
+
         public FighterConfig GetFighterConfig(FighterTypeId fighterTypeId) => 
             _fighterConfigs.GetValueOrDefault(fighterTypeId);
 

@@ -16,3 +16,7 @@ MonoBehaviour:
   <ViewPath>k__BackingField: Bee
   <Price>k__BackingField: 10
   <Icon>k__BackingField: {fileID: 21300000, guid: d29d99b11fa736b44adde77600a99838, type: 3}
+  <MaxHp>k__BackingField: 55
+  <MaxMana>k__BackingField: 10
+  <Damage>k__BackingField: 11
+  <ManaRegen>k__BackingField: 0.5

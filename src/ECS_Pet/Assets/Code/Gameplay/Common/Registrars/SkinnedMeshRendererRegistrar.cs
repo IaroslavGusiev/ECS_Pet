@@ -1,7 +1,7 @@
 using UnityEngine;
 using Code.Common.View;
 
-namespace Code.Gameplay.Common
+namespace Code.Gameplay.Common.Time
 {
     public class SkinnedMeshRendererRegistrar : EntityComponentRegistrar
     {

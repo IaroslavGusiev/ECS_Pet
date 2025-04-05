@@ -59,13 +59,13 @@ public partial class MetaEntity : IIdEntity<MetaEntity>, IIdEntity
 //------------------------------------------------------------------------------
 public partial class MetaEntity {
 
-    public Code.Gameplay.Common.CommonComponents.Id id { get { return (Code.Gameplay.Common.CommonComponents.Id)GetComponent(MetaComponentsLookup.Id); } }
+    public Code.Gameplay.Common.Time.CommonComponents.Id id { get { return (Code.Gameplay.Common.Time.CommonComponents.Id)GetComponent(MetaComponentsLookup.Id); } }
     public int Id { get { return id.Value; } }
     public bool hasId { get { return HasComponent(MetaComponentsLookup.Id); } }
 
     public MetaEntity AddId(int newValue) {
         var index = MetaComponentsLookup.Id;
-        var component = (Code.Gameplay.Common.CommonComponents.Id)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.Id));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.Id)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.Id));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -73,7 +73,7 @@ public partial class MetaEntity {
 
     public MetaEntity ReplaceId(int newValue) {
         var index = MetaComponentsLookup.Id;
-        var component = (Code.Gameplay.Common.CommonComponents.Id)CreateComponent(index, typeof(Code.Gameplay.Common.CommonComponents.Id));
+        var component = (Code.Gameplay.Common.Time.CommonComponents.Id)CreateComponent(index, typeof(Code.Gameplay.Common.Time.CommonComponents.Id));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.GameBoard.GameBoardComponents.Occupied occupiedComponent = new Code.Gameplay.Features.GameBoard.GameBoardComponents.Occupied();
+    static readonly Code.Gameplay.Features.GameBoard.Occupied occupiedComponent = new Code.Gameplay.Features.GameBoard.Occupied();
 
     public bool isOccupied {
         get { return HasComponent(GameComponentsLookup.Occupied); }

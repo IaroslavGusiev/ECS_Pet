@@ -1,7 +1,7 @@
 using System;
 using Entitas;
 using System.Linq;
-using Code.Gameplay.Common;
+using Code.Gameplay.Common.Time;
 using System.Collections.Generic;
 
 namespace Code.Infrastructure
