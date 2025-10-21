@@ -4,7 +4,7 @@ namespace Code.Gameplay.Fighter
 {
     public class FighterPlacementService : IFighterPlacementService
     {
-        private readonly Dictionary<int, int> _towersToCells = new(); // key: cell id, value: tower id
+        private readonly Dictionary<int, int> _towersToCells = new(); // key: cell id, value: figter id
         
         public void RegisterFighter(int fighterId, int cellId) => 
             _towersToCells[fighterId] = cellId;

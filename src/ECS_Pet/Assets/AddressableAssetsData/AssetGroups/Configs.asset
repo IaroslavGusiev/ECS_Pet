@@ -15,14 +15,80 @@ MonoBehaviour:
   m_GroupName: Configs
   m_GUID: c758c35d15250e747afbeca14277fd9c
   m_SerializeEntries:
+  - m_GUID: 03bb011a4cb0ab14fa0495647399b9c3
+    m_Address: FighterConfig_Golem
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ffb28a616283a84b8c92d0df47b9a9c
+    m_Address: FighterConfig_Bee
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23fe031794ac6d749ae9af0350b7dcec
+    m_Address: FighterConfig_Rat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c2ec06abfed454ca6fb8da012770f0
-    m_Address: Assets/Addresables/Configs/WindowsConfig.asset
+    m_Address: WindowsConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 333f9a1056636d14285c763112448a00
+    m_Address: FighterConfig_Ent
     m_ReadOnly: 0
     m_SerializedLabels:
     - Configs
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42b30659c87765a4ca4b2eb513317368
     m_Address: GameBoardConfig
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 690fea88210814a499fe6547b2977403
+    m_Address: FighterConfig_Mushroom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6dc0c668f93de4c4b980bf1f9bc642b9
+    m_Address: MonsterConfig_Skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 814e9e6b0b3f71342902a71c91bdf0fc
+    m_Address: FighterConfig_EvilWitch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9671d745dd053ae47b09aef2d2492fb6
+    m_Address: FighterConfig_Wildboar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1307b008073ba743b9346ebfe38d8ca
+    m_Address: FighterConfig_Eagle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db355ee801d2fe84cbfcf4a5881d27ec
+    m_Address: FighterConfig_Minotaur
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Configs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0478fdea3980fd4da77d33db2e5211c
+    m_Address: FighterConfig_Stump
     m_ReadOnly: 0
     m_SerializedLabels:
     - Configs

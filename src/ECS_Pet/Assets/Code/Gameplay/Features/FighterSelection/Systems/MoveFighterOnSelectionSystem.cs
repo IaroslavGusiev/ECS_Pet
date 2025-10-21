@@ -2,8 +2,8 @@ using Entitas;
 using UnityEngine;
 using Code.StaticData;
 using Code.Gameplay.Input;
-using Code.Gameplay.Common.Time;
 using Code.Common.Extensions;
+using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.GameBoard;
 
 namespace Code.Gameplay.FighterSelection
@@ -65,7 +65,7 @@ namespace Code.Gameplay.FighterSelection
                 
                 fighter
                     .ReplaceWorldPosition(hitCell.WorldPosition + _offsetForGameBoard)
-                    .ReplaceTargetId(hitCell.Id); 
+                    .ReplaceCellId(hitCell.Id); 
                 
                 _lastHitCellIndex = hitCell.Id;
             }

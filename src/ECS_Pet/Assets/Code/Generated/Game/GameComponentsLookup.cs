@@ -11,63 +11,103 @@ public static class GameComponentsLookup {
     public const int Destructed = 0;
     public const int View = 1;
     public const int ViewPath = 2;
-    public const int BaseStats = 3;
-    public const int StatChange = 4;
-    public const int StatModifiers = 5;
-    public const int Id = 6;
-    public const int LayerMask = 7;
-    public const int MaterialChangeRequest = 8;
-    public const int MeshRenderer = 9;
-    public const int SkinnedMeshRenderer = 10;
-    public const int Tick = 11;
-    public const int Transform = 12;
-    public const int WorldPosition = 13;
-    public const int WorldRotation = 14;
-    public const int GameBoardCell = 15;
-    public const int Occupied = 16;
-    public const int SuccessfulCellRequest = 17;
-    public const int Direction = 18;
-    public const int DistanceToTarget = 19;
-    public const int MovementAvailable = 20;
-    public const int MovementTarget = 21;
-    public const int Moving = 22;
-    public const int Fighter = 23;
-    public const int FighterRequest = 24;
-    public const int FighterTypeId = 25;
-    public const int Placed = 26;
-    public const int Selected = 27;
-    public const int StatsSliderHolder = 28;
-    public const int CurrentHp = 29;
-    public const int Dead = 30;
-    public const int MaxHp = 31;
-    public const int ProcessingDeath = 32;
-    public const int CurrentMana = 33;
-    public const int MaxMana = 34;
-    public const int ProducerId = 35;
-    public const int TargetId = 36;
-    public const int DamageEffect = 37;
-    public const int Effect = 38;
-    public const int EffectValue = 39;
-    public const int HealEffect = 40;
+    public const int Ability = 3;
+    public const int AbilityTypeId = 4;
+    public const int AnimationDelay = 5;
+    public const int AnimationDelayLeft = 6;
+    public const int BasicAbility = 7;
+    public const int MeleeAttackAbility = 8;
+    public const int OwnerLink = 9;
+    public const int SpecialAbility = 10;
+    public const int BaseStats = 11;
+    public const int StatChange = 12;
+    public const int StatModifiers = 13;
+    public const int Attacking = 14;
+    public const int AttackRange = 15;
+    public const int TimeLeft = 16;
+    public const int Id = 17;
+    public const int LayerMask = 18;
+    public const int MaterialChangeRequest = 19;
+    public const int MeshRenderer = 20;
+    public const int ReadyToUse = 21;
+    public const int SkinnedMeshRenderer = 22;
+    public const int Tick = 23;
+    public const int Transform = 24;
+    public const int WorldPosition = 25;
+    public const int WorldRotation = 26;
+    public const int Cooldown = 27;
+    public const int CooldownLeft = 28;
+    public const int CooldownUp = 29;
+    public const int CellId = 30;
+    public const int GameBoardCell = 31;
+    public const int Occupied = 32;
+    public const int SuccessfulCellRequest = 33;
+    public const int Direction = 34;
+    public const int DistanceToTarget = 35;
+    public const int MovementAvailable = 36;
+    public const int MovementTarget = 37;
+    public const int Moving = 38;
+    public const int BasicAbilityId = 39;
+    public const int Fighter = 40;
+    public const int FighterAnimator = 41;
+    public const int FighterRequest = 42;
+    public const int FighterTypeId = 43;
+    public const int Placed = 44;
+    public const int Selected = 45;
+    public const int SpecialAbilityId = 46;
+    public const int StatsSliderHolder = 47;
+    public const int CurrentHp = 48;
+    public const int Dead = 49;
+    public const int MaxHp = 50;
+    public const int ProcessingDeath = 51;
+    public const int CurrentMana = 52;
+    public const int MaxMana = 53;
+    public const int Monster = 54;
+    public const int MonsterTypeId = 55;
+    public const int ProducerId = 56;
+    public const int ReadyToCollectTargets = 57;
+    public const int TargetBuffer = 58;
+    public const int TargetId = 59;
+    public const int DamageEffect = 60;
+    public const int Effect = 61;
+    public const int EffectConfigs = 62;
+    public const int EffectValue = 63;
+    public const int HealEffect = 64;
 
-    public const int TotalComponents = 41;
+    public const int TotalComponents = 65;
 
     public static readonly string[] componentNames = {
         "Destructed",
         "View",
         "ViewPath",
+        "Ability",
+        "AbilityTypeId",
+        "AnimationDelay",
+        "AnimationDelayLeft",
+        "BasicAbility",
+        "MeleeAttackAbility",
+        "OwnerLink",
+        "SpecialAbility",
         "BaseStats",
         "StatChange",
         "StatModifiers",
+        "Attacking",
+        "AttackRange",
+        "TimeLeft",
         "Id",
         "LayerMask",
         "MaterialChangeRequest",
         "MeshRenderer",
+        "ReadyToUse",
         "SkinnedMeshRenderer",
         "Tick",
         "Transform",
         "WorldPosition",
         "WorldRotation",
+        "Cooldown",
+        "CooldownLeft",
+        "CooldownUp",
+        "CellId",
         "GameBoardCell",
         "Occupied",
         "SuccessfulCellRequest",
@@ -76,11 +116,14 @@ public static class GameComponentsLookup {
         "MovementAvailable",
         "MovementTarget",
         "Moving",
+        "BasicAbilityId",
         "Fighter",
+        "FighterAnimator",
         "FighterRequest",
         "FighterTypeId",
         "Placed",
         "Selected",
+        "SpecialAbilityId",
         "StatsSliderHolder",
         "CurrentHp",
         "Dead",
@@ -88,10 +131,15 @@ public static class GameComponentsLookup {
         "ProcessingDeath",
         "CurrentMana",
         "MaxMana",
+        "Monster",
+        "MonsterTypeId",
         "ProducerId",
+        "ReadyToCollectTargets",
+        "TargetBuffer",
         "TargetId",
         "DamageEffect",
         "Effect",
+        "EffectConfigs",
         "EffectValue",
         "HealEffect"
     };
@@ -100,18 +148,34 @@ public static class GameComponentsLookup {
         typeof(Code.Common.CommonComponents.Destructed),
         typeof(Code.Common.CommonComponents.View),
         typeof(Code.Common.CommonComponents.ViewPath),
+        typeof(Code.Gameplay.Abilities.Ability),
+        typeof(Code.Gameplay.Abilities.AbilityTypeIdComponent),
+        typeof(Code.Gameplay.Abilities.AnimationDelay),
+        typeof(Code.Gameplay.Abilities.AnimationDelayLeft),
+        typeof(Code.Gameplay.Abilities.BasicAbility),
+        typeof(Code.Gameplay.Abilities.MeleeAttackAbility),
+        typeof(Code.Gameplay.Abilities.OwnerLink),
+        typeof(Code.Gameplay.Abilities.SpecialAbility),
         typeof(Code.Gameplay.CharacterStats.BaseStats),
         typeof(Code.Gameplay.CharacterStats.StatChange),
         typeof(Code.Gameplay.CharacterStats.StatModifiers),
+        typeof(Code.Gameplay.Combat.Attacking),
+        typeof(Code.Gameplay.Combat.AttackRange),
+        typeof(Code.Gameplay.Combat.TimeLeft),
         typeof(Code.Gameplay.Common.Time.CommonComponents.Id),
         typeof(Code.Gameplay.Common.Time.CommonComponents.LayerMask),
         typeof(Code.Gameplay.Common.Time.CommonComponents.MaterialChangeRequest),
         typeof(Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.ReadyToUse),
         typeof(Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent),
         typeof(Code.Gameplay.Common.Time.CommonComponents.Tick),
         typeof(Code.Gameplay.Common.Time.CommonComponents.TransformComponent),
         typeof(Code.Gameplay.Common.Time.CommonComponents.WorldPosition),
         typeof(Code.Gameplay.Common.Time.CommonComponents.WorldRotation),
+        typeof(Code.Gameplay.Cooldowns.Cooldown),
+        typeof(Code.Gameplay.Cooldowns.CooldownLeft),
+        typeof(Code.Gameplay.Cooldowns.CooldownUp),
+        typeof(Code.Gameplay.Features.GameBoard.CellId),
         typeof(Code.Gameplay.Features.GameBoard.GameBoardCell),
         typeof(Code.Gameplay.Features.GameBoard.Occupied),
         typeof(Code.Gameplay.Features.GameBoard.SuccessfulCellRequest),
@@ -120,11 +184,14 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.MovementTarget),
         typeof(Code.Gameplay.Features.Movement.Moving),
+        typeof(Code.Gameplay.Fighter.FighterComponents.BasicAbilityId),
         typeof(Code.Gameplay.Fighter.FighterComponents.Fighter),
+        typeof(Code.Gameplay.Fighter.FighterComponents.FighterAnimatorComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterRequest),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterTypeIdComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.Placed),
         typeof(Code.Gameplay.Fighter.FighterComponents.Selected),
+        typeof(Code.Gameplay.Fighter.FighterComponents.SpecialAbilityId),
         typeof(Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent),
         typeof(Code.Gameplay.Lifetime.CurrentHp),
         typeof(Code.Gameplay.Lifetime.Dead),
@@ -132,10 +199,15 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Lifetime.ProcessingDeath),
         typeof(Code.Gameplay.Mana.CurrentMana),
         typeof(Code.Gameplay.Mana.MaxMana),
+        typeof(Code.Gameplay.Monster.Monster),
+        typeof(Code.Gameplay.Monster.MonsterTypeIdComponent),
         typeof(Code.Gameplay.TargetCollection.ProducerId),
+        typeof(Code.Gameplay.TargetCollection.ReadyToCollectTargets),
+        typeof(Code.Gameplay.TargetCollection.TargetBuffer),
         typeof(Code.Gameplay.TargetCollection.TargetId),
         typeof(Code.GameplayEffects.DamageEffect),
         typeof(Code.GameplayEffects.Effect),
+        typeof(Code.GameplayEffects.EffectConfigs),
         typeof(Code.GameplayEffects.EffectValue),
         typeof(Code.GameplayEffects.HealEffect)
     };

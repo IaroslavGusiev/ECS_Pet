@@ -56,10 +56,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5840094315914829425, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840094315914829425, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840094315914829425, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840094316351909519, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840094316351909519, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840094316351909519, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8144648496288269464, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
       propertyPath: skinnedMeshRenderer
       value: 
       objectReference: {fileID: 4921200238384305513}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Height
+      value: 1.0984429
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Center.y
+      value: 0.53152126
+      objectReference: {fileID: 0}
     - target: {fileID: 8417785520222840257, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
       propertyPath: m_Name
       value: Mushroom

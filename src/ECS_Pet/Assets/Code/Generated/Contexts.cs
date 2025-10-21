@@ -61,6 +61,7 @@ public partial class Contexts : Entitas.IContexts {
 public partial class Contexts {
 
     public const string Id = "Id";
+    public const string OwnerLink = "OwnerLink";
 
     [Entitas.CodeGeneration.Attributes.PostConstructor]
     public void InitializeEntityIndices() {
@@ -72,6 +73,11 @@ public partial class Contexts {
             Id,
             meta.GetGroup(MetaMatcher.Id),
             (e, c) => ((Code.Gameplay.Common.Time.CommonComponents.Id)c).Value));
+
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, int>(
+            OwnerLink,
+            game.GetGroup(GameMatcher.OwnerLink),
+            (e, c) => ((Code.Gameplay.Abilities.OwnerLink)c).Value));
     }
 }
 
@@ -83,6 +89,10 @@ public static class ContextsExtensions {
 
     public static MetaEntity GetEntityWithId(this MetaContext context, int Value) {
         return ((Entitas.PrimaryEntityIndex<MetaEntity, int>)context.GetEntityIndex(Contexts.Id)).GetEntity(Value);
+    }
+
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithOwnerLink(this GameContext context, int Value) {
+        return ((Entitas.EntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.OwnerLink)).GetEntities(Value);
     }
 }
 //------------------------------------------------------------------------------

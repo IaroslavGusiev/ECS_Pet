@@ -12,8 +12,6 @@ namespace Code.Infrastructure.StateMachineBase
         public async UniTask BeginExit()
         {
             await OnBeginExit();
-            _exitCompletionSource ??= new UniTaskCompletionSource();
-            await _exitCompletionSource.Task;
         }
 
         public void EndExit()

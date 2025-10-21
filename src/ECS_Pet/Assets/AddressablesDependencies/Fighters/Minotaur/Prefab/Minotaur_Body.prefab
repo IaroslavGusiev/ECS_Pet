@@ -512,7 +512,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4900615118328857008}
-  - component: {fileID: 4900615117856706578}
   m_Layer: 0
   m_Name: Minotaur_Body
   m_TagString: Untagged
@@ -537,29 +536,6 @@ Transform:
   - {fileID: 4900615118328857014}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4900615117856706578
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4900615118328503702}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.36
-  m_Height: 1.19
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4900615118328503712
 GameObject:
   m_ObjectHideFlags: 0

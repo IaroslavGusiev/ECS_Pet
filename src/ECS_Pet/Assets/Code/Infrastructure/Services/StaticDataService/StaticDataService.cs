@@ -2,6 +2,7 @@ using System.Linq;
 using Code.StaticData;
 using Code.UI.BaseWindow;
 using Code.Gameplay.Fighter;
+using Code.Gameplay.Monster;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using Code.Gameplay.Features.GameBoard;
@@ -15,6 +16,7 @@ namespace Code.Infrastructure.Services
         private List<WindowsConfig> _windowConfigs;
         private List<GameBoardConfig> _gameBoardConfigs;
         private Dictionary<FighterTypeId, FighterConfig> _fighterConfigs;
+        private Dictionary<MonsterTypeId, MonsterConfig> _monsterConfigs;
 
         public StaticDataService(IAddressablesAssetProvider assetProvider) => 
             _assetProvider = assetProvider;
@@ -25,6 +27,7 @@ namespace Code.Infrastructure.Services
             {
                 LoadWindowsConfig(),
                 LoadFighterConfigs(),
+                LoadMonsterConfigs(),
                 LoadGameBoardConfigs()
             };
 
@@ -39,9 +42,9 @@ namespace Code.Infrastructure.Services
 
         public FighterConfig GetFighterConfig(FighterTypeId fighterTypeId) => 
             _fighterConfigs.GetValueOrDefault(fighterTypeId);
-
-        public List<FighterConfig> GetAllFighterConfigs() => 
-            _fighterConfigs.Values.ToList();
+        
+        public MonsterConfig GetMonsterConfig(MonsterTypeId monsterTypeId) => 
+            _monsterConfigs.GetValueOrDefault(monsterTypeId);
 
         private async UniTask LoadGameBoardConfigs()
         {
@@ -59,6 +62,12 @@ namespace Code.Infrastructure.Services
         {
             FighterConfig[] configs = await GetConfigs<FighterConfig>();
             _fighterConfigs = configs.ToDictionary(config => config.FighterTypeId);
+        }
+        
+        private async UniTask LoadMonsterConfigs()
+        {
+            MonsterConfig[] configs = await GetConfigs<MonsterConfig>();
+            _monsterConfigs = configs.ToDictionary(config => config.MonsterTypeId);
         }
 
         private async UniTask<T[]> GetConfigs<T>() where T : class

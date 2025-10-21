@@ -60,7 +60,7 @@ namespace Code.Gameplay.FighterSelection
                     .GetWindowFromActive<SelectFighterWindow>()
                     .DeselectAll();
 
-                if (fighter.hasTargetId == false)
+                if (fighter.hasCellId == false)
                 {
                     continue;
                 }
@@ -78,7 +78,7 @@ namespace Code.Gameplay.FighterSelection
         private void SwitchAttachedCellToDefaultState(GameEntity fighter)
         {
             _gameContext
-                .GetEntityWithId(fighter.TargetId)
+                .GetEntityWithId(fighter.CellId)
                 .AddMaterialChangeRequest(_gameBoardService.GetCurrentCellMaterial());
         }
     }

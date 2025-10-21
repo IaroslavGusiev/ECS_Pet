@@ -6,7 +6,7 @@ namespace Code.Common.View
     {
         [SerializeField] private EntityBehaviour entityView;
 
-        public GameEntity Entity => entityView 
+        protected GameEntity Entity => entityView 
             ? entityView.Entity 
             : null;
 

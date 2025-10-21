@@ -1,5 +1,5 @@
-using Code.StaticData;
 using UnityEngine;
+using Code.StaticData;
 
 namespace Code.Gameplay.Fighter
 {

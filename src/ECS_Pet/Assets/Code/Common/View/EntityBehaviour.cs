@@ -37,25 +37,33 @@ namespace Code.Common.View
         private void RegisterEntityComponents()
         {
             foreach (IEntityComponentRegistrar registrar in GetComponentsInChildren<IEntityComponentRegistrar>())
+            {
                 registrar.RegisterComponents();
+            }
         }
 
         private void UnregisterEntityComponents()
         {
             foreach (IEntityComponentRegistrar registrar in GetComponentsInChildren<IEntityComponentRegistrar>())
+            {
                 registrar.UnregisterComponents();
+            }
         }
 
         private void RegisterColliders()
         {
             foreach (Collider collider2d in GetComponentsInChildren<Collider>(includeInactive: true))
+            {
                 _collisionRegistry.Register(collider2d.GetInstanceID(), Entity);
+            }
         }
 
         private void UnregisterColliders()
         {
             foreach (Collider collider2d in GetComponentsInChildren<Collider>(includeInactive: true))
+            {
                 _collisionRegistry.Unregister(collider2d.GetInstanceID());
+            }
         }
     }
 }

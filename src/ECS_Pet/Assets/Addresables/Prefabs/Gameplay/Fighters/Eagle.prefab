@@ -311,6 +311,22 @@ PrefabInstance:
       propertyPath: skinnedMeshRenderer
       value: 
       objectReference: {fileID: 4646631641044588815}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Height
+      value: 1.6233208
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Radius
+      value: 0.73646986
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Center.x
+      value: -0.039097592
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5872184
+      objectReference: {fileID: 0}
     - target: {fileID: 8417785520222840257, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
       propertyPath: m_Name
       value: Eagle

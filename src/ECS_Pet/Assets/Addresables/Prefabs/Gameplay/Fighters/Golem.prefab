@@ -179,6 +179,14 @@ PrefabInstance:
       propertyPath: skinnedMeshRenderer
       value: 
       objectReference: {fileID: 5159916618423160484}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Height
+      value: 1.443043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Center.y
+      value: 0.6472771
+      objectReference: {fileID: 0}
     - target: {fileID: 8417785520222840257, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
       propertyPath: m_Name
       value: Golem

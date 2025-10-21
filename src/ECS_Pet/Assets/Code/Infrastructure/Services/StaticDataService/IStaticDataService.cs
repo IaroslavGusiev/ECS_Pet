@@ -2,8 +2,8 @@ using Code.StaticData;
 using Code.UI.BaseWindow;
 using Code.Gameplay.Fighter;
 using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
 using Code.Gameplay.Features.GameBoard;
+using Code.Gameplay.Monster;
 
 namespace Code.Infrastructure.Services
 {
@@ -13,8 +13,8 @@ namespace Code.Infrastructure.Services
         
         WindowsConfig GetWindowsConfig();
         GameBoardConfig GetGameBoardConfig();
-
-        List<FighterConfig> GetAllFighterConfigs();
+        
         FighterConfig GetFighterConfig(FighterTypeId fighterTypeId);
+        MonsterConfig GetMonsterConfig(MonsterTypeId monsterTypeId);
     }
 }

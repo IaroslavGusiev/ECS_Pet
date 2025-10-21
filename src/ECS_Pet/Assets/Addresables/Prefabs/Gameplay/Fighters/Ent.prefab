@@ -207,6 +207,14 @@ PrefabInstance:
       propertyPath: skinnedMeshRenderer
       value: 
       objectReference: {fileID: 6858656339726598788}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Height
+      value: 1.6672248
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285456337184116139, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
+      propertyPath: m_Center.y
+      value: 0.8368449
+      objectReference: {fileID: 0}
     - target: {fileID: 8417785520222840257, guid: fb58c7d26e539224e9a5caa3af290d57, type: 3}
       propertyPath: m_Name
       value: Ent

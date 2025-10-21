@@ -1,5 +1,6 @@
 using Code.Gameplay.Mana;
 using Code.Gameplay.Lifetime;
+using Code.Gameplay.Abilities;
 using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Fighter
@@ -12,6 +13,8 @@ namespace Code.Gameplay.Fighter
             Add(systemFactory.Create<UpdateHpSliderSystem>());
             Add(systemFactory.Create<UpdateManaSliderSystem>());
             Add(systemFactory.Create<RegenerateFightersManaSystem>());
+            Add(systemFactory.Create<AnimateFighterMovementSystem>());
+            Add(systemFactory.Create<DestroyAbilitiesOnOwnerDestroySystem>());
             
             // reactive systems
             Add(systemFactory.Create<EnableStatsSliderOnPlacementSystem>());

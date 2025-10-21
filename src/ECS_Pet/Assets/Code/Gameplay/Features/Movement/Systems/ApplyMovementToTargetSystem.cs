@@ -1,6 +1,6 @@
-using Code.Gameplay.Common.Time;
 using Entitas;
 using UnityEngine;
+using Code.Gameplay.Common.Time;
 
 namespace Code.Gameplay.Features.Movement
 {
@@ -17,6 +17,7 @@ namespace Code.Gameplay.Features.Movement
             
             _movers = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
+                GameMatcher.Moving,
                 GameMatcher.Direction,
                 GameMatcher.MovementTarget,
                 GameMatcher.DistanceToTarget,

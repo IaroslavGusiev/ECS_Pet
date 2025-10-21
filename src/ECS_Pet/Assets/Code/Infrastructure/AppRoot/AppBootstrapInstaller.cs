@@ -1,10 +1,13 @@
 using Code.StaticData;
 using Code.UI.BaseWindow;
 using Code.Gameplay.Input;
-using Code.Gameplay.Common.Time;
+using Code.GameplayEffects;
 using Code.Gameplay.Fighter;
+using Code.Gameplay.Monster;
 using Code.UI.LoadingCurtain;
 using Code.Common.View.Factory;
+using Code.Gameplay.Abilities;
+using Code.Gameplay.Common.Time;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
 using Code.Gameplay.Features.GameBoard;
@@ -34,8 +37,11 @@ namespace Code.Infrastructure.CompositionRoot
 
         private void BindGameplayFactories()
         {
-            Container.BindInterfacesAndSelfTo<GameBoardFactory>().AsSingle();
+            Container.Bind<IGameBoardFactory>().To<GameBoardFactory>().AsSingle();
             Container.Bind<IFighterFactory>().To<FighterFactory>().AsSingle();
+            Container.Bind<IMonsterFactory>().To<MonsterFactory>().AsSingle();
+            Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
+            Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle();
         }
 
         protected override void BindStates()

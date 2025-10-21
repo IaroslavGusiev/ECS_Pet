@@ -54,9 +54,9 @@ namespace Code.Gameplay.FighterSelection
             foreach (GameEntity fighter in _selectedFighters.GetEntities(_buffer))
             foreach (InputEntity input in _inputs)
             {
-                if (input.hasClickInput && fighter.hasTargetId)
+                if (input.hasClickInput && fighter.hasCellId)
                 {
-                    GameEntity cell = GetEntityById(fighter.TargetId);
+                    GameEntity cell = GetEntityById(fighter.CellId);
 
                     if (cell is not { isOccupied: false })
                     {
@@ -76,9 +76,11 @@ namespace Code.Gameplay.FighterSelection
         private void PlaceFighterToCell(GameEntity fighter, int cellId)
         {
             fighter
-                .RemoveTargetId()
+                .RemoveCellId()
                 .With(entity => entity.isPlaced = true)
                 .With(entity => entity.isSelected = false)
+                .With(entity => entity.isMovementAvailable = true)
+                .With(entity => entity.isReadyToCollectTargets = true)
                 .With(entity => _fighterPlacementService.RegisterFighter(entity.Id, cellId));
         }
 
