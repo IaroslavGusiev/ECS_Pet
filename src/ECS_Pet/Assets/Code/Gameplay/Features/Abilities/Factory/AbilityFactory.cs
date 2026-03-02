@@ -1,9 +1,9 @@
+using Code.StaticData;
 using Code.Infrastructure;
 using Code.Common.Extensions;
 using Code.Gameplay.Cooldowns;
 using Code.Infrastructure.Services;
 using Code.Gameplay.Abilities.Configs;
-using Code.StaticData;
 
 namespace Code.Gameplay.Abilities
 {

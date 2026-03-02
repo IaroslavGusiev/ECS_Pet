@@ -10,7 +10,6 @@ namespace Code.Gameplay.Fighter
         public FighterFeature(ISystemFactory systemFactory)
         {
             // execute systems
-            Add(systemFactory.Create<UpdateHpSliderSystem>());
             Add(systemFactory.Create<UpdateManaSliderSystem>());
             Add(systemFactory.Create<RegenerateFightersManaSystem>());
             Add(systemFactory.Create<AnimateFighterMovementSystem>());

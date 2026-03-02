@@ -10,6 +10,7 @@ namespace Code.Gameplay.Fighter
         [Game] public class FighterRequest : IComponent {  }
         [Game] public class Selected : IComponent {  }
         [Game] public class Placed : IComponent {  }
+        
         [Game] public class StatsSliderHolderComponent : IComponent { public StatsSliderHolder Value; }
         [Game] public class FighterAnimatorComponent : IComponent { public FighterAnimator Value; }
         

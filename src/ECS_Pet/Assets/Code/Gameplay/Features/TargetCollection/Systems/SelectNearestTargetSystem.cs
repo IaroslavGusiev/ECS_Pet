@@ -50,6 +50,7 @@ namespace Code.Gameplay.TargetCollection
                 }
 
                 float sqrDistance = (target.WorldPosition - origin).sqrMagnitude;
+                
                 if (sqrDistance < minDistanceSqr == false)
                 {
                     continue;

@@ -1,0 +1,33 @@
+using Entitas;
+using System.Collections.Generic;
+
+namespace Code.GameplayEffects.Systems
+{
+    public class RemoveEffectsWithoutTargetsSystem : IExecuteSystem
+    {
+        private readonly IGroup<GameEntity> _effects;
+        private readonly List<GameEntity> _buffer = new(128);
+
+        public RemoveEffectsWithoutTargetsSystem(GameContext game)
+        {
+            _effects = game.GetGroup(GameMatcher.AllOf(matchers: new[]
+            {
+                GameMatcher.Effect,
+                GameMatcher.TargetId
+            }));
+        }
+
+        public void Execute()
+        {
+            foreach (GameEntity effect in _effects.GetEntities(_buffer))
+            {
+                GameEntity target = effect.Target();
+                
+                if (target == null)
+                {
+                    effect.Destroy();
+                }
+            }
+        }
+    }
+}

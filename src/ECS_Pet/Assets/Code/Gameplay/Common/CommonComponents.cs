@@ -17,6 +17,9 @@ namespace Code.Gameplay.Common.Time
         [Game] public class MaterialChangeRequest : IComponent { public Material Value; }
         [Game] public class ReadyToUse : IComponent { }
         
+        [Game] public class AnimationRequest : IComponent { }
+        [Game] public class Processed : IComponent { }
+        
         [Game] public class LayerMask : IComponent { public int Value; } // TODO: later move to Target Collection
         [Game] public class Tick : IComponent { public float Value; } // TODO: moved to some time based feature
     }

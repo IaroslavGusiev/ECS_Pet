@@ -1,5 +1,7 @@
 using Entitas;
 using UnityEngine;
+using Code.Infrastructure;
+using Code.Common.Extensions;
 using Code.Gameplay.Cooldowns;
 
 namespace Code.Gameplay.Combat
@@ -8,11 +10,13 @@ namespace Code.Gameplay.Combat
     {
         private readonly GameContext _gameContext;
         private readonly IGroup<GameEntity> _attackers;
-        
-        public AttackStartDecisionSystem( GameContext gameContext)
+        private readonly IEntityFactory _entityFactory;
+
+        public AttackStartDecisionSystem( GameContext gameContext, IEntityFactory entityFactory)
         {
             _gameContext = gameContext;
-            
+            _entityFactory = entityFactory;
+
             _attackers = _gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
                 GameMatcher.Attacking,
@@ -43,17 +47,29 @@ namespace Code.Gameplay.Combat
             }
         }
         
-        private static void TryActivateAbility(GameEntity ability)
+        private void TryActivateAbility(GameEntity ability)
         {
             if (ability is not { isCooldownUp: true })
             {
                 return;
             }
 
-            ability.PutOnCooldown();
-            ability.isReadyToUse = true;
+            ability
+                .PutOnCooldown()
+                .With(entity => entity.isReadyToUse = true);
+
+            CreateAnimationRequest(ability);
 
             Debug.Log($"<color=green>Ability {ability.AbilityTypeId} activated (ID {ability.Id})</color>");
+        }
+
+        private void CreateAnimationRequest(GameEntity ability)
+        {
+            _entityFactory
+                .CreateEntity<GameEntity>()
+                .AddProducerId(ability.OwnerLink)
+                .With(request => request.isBasicAbility = true)
+                .With(request => request.isAnimationRequest = true);
         }
     }
 }

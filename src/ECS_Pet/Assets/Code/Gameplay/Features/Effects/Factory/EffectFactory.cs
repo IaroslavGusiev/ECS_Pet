@@ -1,8 +1,8 @@
 using System;
+using UnityEngine;
 using Code.StaticData;
 using Code.Infrastructure;
 using Code.Common.Extensions;
-using UnityEngine;
 
 namespace Code.GameplayEffects
 {

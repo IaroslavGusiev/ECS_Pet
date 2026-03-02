@@ -25,56 +25,58 @@ public static class GameComponentsLookup {
     public const int Attacking = 14;
     public const int AttackRange = 15;
     public const int TimeLeft = 16;
-    public const int Id = 17;
-    public const int LayerMask = 18;
-    public const int MaterialChangeRequest = 19;
-    public const int MeshRenderer = 20;
-    public const int ReadyToUse = 21;
-    public const int SkinnedMeshRenderer = 22;
-    public const int Tick = 23;
-    public const int Transform = 24;
-    public const int WorldPosition = 25;
-    public const int WorldRotation = 26;
-    public const int Cooldown = 27;
-    public const int CooldownLeft = 28;
-    public const int CooldownUp = 29;
-    public const int CellId = 30;
-    public const int GameBoardCell = 31;
-    public const int Occupied = 32;
-    public const int SuccessfulCellRequest = 33;
-    public const int Direction = 34;
-    public const int DistanceToTarget = 35;
-    public const int MovementAvailable = 36;
-    public const int MovementTarget = 37;
-    public const int Moving = 38;
-    public const int BasicAbilityId = 39;
-    public const int Fighter = 40;
-    public const int FighterAnimator = 41;
-    public const int FighterRequest = 42;
-    public const int FighterTypeId = 43;
-    public const int Placed = 44;
-    public const int Selected = 45;
-    public const int SpecialAbilityId = 46;
-    public const int StatsSliderHolder = 47;
-    public const int CurrentHp = 48;
-    public const int Dead = 49;
-    public const int MaxHp = 50;
-    public const int ProcessingDeath = 51;
-    public const int CurrentMana = 52;
-    public const int MaxMana = 53;
-    public const int Monster = 54;
-    public const int MonsterTypeId = 55;
-    public const int ProducerId = 56;
-    public const int ReadyToCollectTargets = 57;
-    public const int TargetBuffer = 58;
-    public const int TargetId = 59;
-    public const int DamageEffect = 60;
-    public const int Effect = 61;
-    public const int EffectConfigs = 62;
-    public const int EffectValue = 63;
-    public const int HealEffect = 64;
+    public const int AnimationRequest = 17;
+    public const int Id = 18;
+    public const int LayerMask = 19;
+    public const int MaterialChangeRequest = 20;
+    public const int MeshRenderer = 21;
+    public const int Processed = 22;
+    public const int ReadyToUse = 23;
+    public const int SkinnedMeshRenderer = 24;
+    public const int Tick = 25;
+    public const int Transform = 26;
+    public const int WorldPosition = 27;
+    public const int WorldRotation = 28;
+    public const int Cooldown = 29;
+    public const int CooldownLeft = 30;
+    public const int CooldownUp = 31;
+    public const int CellId = 32;
+    public const int GameBoardCell = 33;
+    public const int Occupied = 34;
+    public const int SuccessfulCellRequest = 35;
+    public const int Direction = 36;
+    public const int DistanceToTarget = 37;
+    public const int MovementAvailable = 38;
+    public const int MovementTarget = 39;
+    public const int Moving = 40;
+    public const int BasicAbilityId = 41;
+    public const int Fighter = 42;
+    public const int FighterAnimator = 43;
+    public const int FighterRequest = 44;
+    public const int FighterTypeId = 45;
+    public const int Placed = 46;
+    public const int Selected = 47;
+    public const int SpecialAbilityId = 48;
+    public const int StatsSliderHolder = 49;
+    public const int CurrentHp = 50;
+    public const int Dead = 51;
+    public const int MaxHp = 52;
+    public const int ProcessingDeath = 53;
+    public const int CurrentMana = 54;
+    public const int MaxMana = 55;
+    public const int Monster = 56;
+    public const int MonsterTypeId = 57;
+    public const int ProducerId = 58;
+    public const int ReadyToCollectTargets = 59;
+    public const int TargetBuffer = 60;
+    public const int TargetId = 61;
+    public const int DamageEffect = 62;
+    public const int Effect = 63;
+    public const int EffectConfigs = 64;
+    public const int EffectValue = 65;
+    public const int HealEffect = 66;
 
-    public const int TotalComponents = 65;
+    public const int TotalComponents = 67;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -94,10 +96,12 @@ public static class GameComponentsLookup {
         "Attacking",
         "AttackRange",
         "TimeLeft",
+        "AnimationRequest",
         "Id",
         "LayerMask",
         "MaterialChangeRequest",
         "MeshRenderer",
+        "Processed",
         "ReadyToUse",
         "SkinnedMeshRenderer",
         "Tick",
@@ -162,10 +166,12 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Combat.Attacking),
         typeof(Code.Gameplay.Combat.AttackRange),
         typeof(Code.Gameplay.Combat.TimeLeft),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.AnimationRequest),
         typeof(Code.Gameplay.Common.Time.CommonComponents.Id),
         typeof(Code.Gameplay.Common.Time.CommonComponents.LayerMask),
         typeof(Code.Gameplay.Common.Time.CommonComponents.MaterialChangeRequest),
         typeof(Code.Gameplay.Common.Time.CommonComponents.MeshRendererComponent),
+        typeof(Code.Gameplay.Common.Time.CommonComponents.Processed),
         typeof(Code.Gameplay.Common.Time.CommonComponents.ReadyToUse),
         typeof(Code.Gameplay.Common.Time.CommonComponents.SkinnedMeshRendererComponent),
         typeof(Code.Gameplay.Common.Time.CommonComponents.Tick),

@@ -10,9 +10,12 @@ namespace Code.GameplayEffects
             // initialize
 
             // execute
+            Add(systemFactory.Create<RemoveEffectsWithoutTargetsSystem>());
             Add(systemFactory.Create<ApplyEffectsOnTargetsSystem>());
+            Add(systemFactory.Create<ProcessDamageEffectSystem>());
 
             // cleanup
+            Add(systemFactory.Create<CleanupProcessedEffects>());
         }
     }
 }

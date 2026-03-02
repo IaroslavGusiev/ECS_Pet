@@ -41,7 +41,7 @@ namespace Code.Gameplay.Monster
                 .AddCurrentMana(0)
                 .AddAttackRange(monsterConfig.AttackRange)
                 .AddTargetBuffer(new List<int>(capacity: 16))
-                .With(entity => entity.isFighter = true)
+                .With(entity => entity.isMonster = true)
                 .With(entity => entity.isSelected = true);
         }
         

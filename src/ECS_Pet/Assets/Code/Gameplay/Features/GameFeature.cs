@@ -1,11 +1,14 @@
+using Code.StaticData;
 using Code.Common.View;
 using Code.Gameplay.Input;
 using Code.Common.Destruct;
-using Code.Gameplay.Abilities;
 using Code.Gameplay.Combat;
 using Code.GameplayEffects;
 using Code.Gameplay.Fighter;
 using Code.Gameplay.Monster;
+using Code.Gameplay.Lifetime;
+using Code.Gameplay.Abilities;
+using Code.Gameplay.Animation;
 using Code.Gameplay.Common.Time;
 using Code.Infrastructure.Systems;
 using Code.Gameplay.CharacterStats;
@@ -18,11 +21,9 @@ namespace Code.Gameplay
 {
     public sealed class GameFeature : Feature
     {
-        private const float SimulationTickSeconds = 1f; 
-        
         public GameFeature(ISystemFactory systemFactory)
         {
-            Add(systemFactory.Create<EmitTickSystem>(SimulationTickSeconds));
+            Add(systemFactory.Create<EmitTickSystem>(SimulationConfig.TickSeconds));
             
             Add(systemFactory.Create<InputFeature>());
             Add(systemFactory.Create<BindViewFeature>());
@@ -36,6 +37,8 @@ namespace Code.Gameplay
             Add(systemFactory.Create<FighterFeature>());
             Add(systemFactory.Create<MonsterFeature>());
             Add(systemFactory.Create<StatsFeature>());
+            Add(systemFactory.Create<LifetimeFeature>());
+            Add(systemFactory.Create<AnimationFeature>());
 
             Add(systemFactory.Create<CollectTargetsFeature>());
             Add(systemFactory.Create<EffectFeature>());
