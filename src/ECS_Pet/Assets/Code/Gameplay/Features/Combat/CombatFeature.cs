@@ -9,8 +9,10 @@ namespace Code.Gameplay.Combat
             // initialize
 
             // execute
+            Add(systemFactory.Create<ClearDeadTargetSystem>());
             Add(systemFactory.Create<AttackRangeCheckSystem>());
             Add(systemFactory.Create<AttackStartDecisionSystem>());
+            Add(systemFactory.Create<StopAttackOnNoTargetSystem>());
 
             // cleanup
         }

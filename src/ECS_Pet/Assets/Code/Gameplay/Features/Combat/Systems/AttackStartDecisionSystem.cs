@@ -19,6 +19,7 @@ namespace Code.Gameplay.Combat
 
             _attackers = _gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
+                GameMatcher.TargetId,
                 GameMatcher.Attacking,
                 GameMatcher.BasicAbilityId, // GameMatcher.SpecialAbilityId
             }));

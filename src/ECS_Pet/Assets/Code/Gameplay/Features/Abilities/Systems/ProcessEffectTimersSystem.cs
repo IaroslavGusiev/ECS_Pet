@@ -2,7 +2,6 @@ using Entitas;
 using Code.GameplayEffects;
 using Code.Gameplay.Common.Time;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Code.Gameplay.Abilities
 {
@@ -45,6 +44,11 @@ namespace Code.Gameplay.Abilities
                     ability.ReplaceAnimationDelayLeft(ability.AnimationDelay);
                     
                     GameEntity owner = _gameContext.GetEntityWithId(ability.OwnerLink);
+
+                    if (owner.hasTargetId == false)
+                    {
+                        continue;
+                    }
 
                     foreach (EffectConfig config in ability.EffectConfigs)
                     {

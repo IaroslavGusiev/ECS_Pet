@@ -25,8 +25,8 @@ namespace Code.Gameplay.Monster
         {
             MonsterConfig monsterConfig = _staticDataService.GetMonsterConfig(monsterTypeId);
             
-            Dictionary<Stats, float> baseStates = FillBaseStatsFromConfig(monsterConfig); 
-            
+            Dictionary<Stats, float> baseStates = FillBaseStatsFromConfig(monsterConfig);
+
             return _entityFactory
                 .CreateEntity<GameEntity>(needToSetId: true)
                 .AddViewPath(monsterConfig.ViewPath)
@@ -42,7 +42,7 @@ namespace Code.Gameplay.Monster
                 .AddAttackRange(monsterConfig.AttackRange)
                 .AddTargetBuffer(new List<int>(capacity: 16))
                 .With(entity => entity.isMonster = true)
-                .With(entity => entity.isSelected = true);
+                .With(entity => entity.isPlaced = true);
         }
         
         private static Dictionary<Stats, float> FillBaseStatsFromConfig(MonsterConfig monsterConfig)

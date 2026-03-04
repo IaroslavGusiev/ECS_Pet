@@ -5,17 +5,16 @@ namespace Code.Gameplay.Lifetime
 {
     public class UpdateHpSliderSystem : IExecuteSystem 
     {
-        private readonly IGroup<GameEntity> _heroes;
+        private readonly IGroup<GameEntity> _placed;
 
         public UpdateHpSliderSystem(GameContext game)
         {
-            _heroes = game
+            _placed = game
                 .GetGroup(GameMatcher
                 .AllOf(matchers: new[]
             {
                 GameMatcher.MaxHp, 
                 GameMatcher.Placed,
-                GameMatcher.Fighter,
                 GameMatcher.CurrentHp,
                 GameMatcher.StatsSliderHolder
             })
@@ -24,14 +23,14 @@ namespace Code.Gameplay.Lifetime
 
         public void Execute()
         {
-            foreach (GameEntity hero in _heroes)
+            foreach (GameEntity entity in _placed)
             {
-                if (hero.isDead)
+                if (entity.isDead)
                 {
                     continue;
                 }
                 
-                hero.StatsSliderHolder.UpdateSlider(stat: Stats.MaxHp, hero.CurrentHp, maxValue: hero.MaxHp);
+                entity.StatsSliderHolder.UpdateSlider(stat: Stats.MaxHp, entity.CurrentHp, maxValue: entity.MaxHp);
             }
         }
     }
