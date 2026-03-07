@@ -25,14 +25,7 @@ namespace Code.Gameplay.Features.Movement
                 
                 float distanceToTarget = Vector3.Distance(currentPosition, targetPosition);
 
-                if (entity.hasDistanceToTarget)
-                {
-                    entity.ReplaceDistanceToTarget(distanceToTarget);
-                }
-                else
-                {
-                    entity.AddDistanceToTarget(distanceToTarget);
-                }
+                entity.ReplaceDistanceToTarget(distanceToTarget);
             }
         }
     }

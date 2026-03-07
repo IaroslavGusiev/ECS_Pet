@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5048455696746606438}
   - component: {fileID: 3166647200680513054}
   - component: {fileID: 1373633695918210293}
+  - component: {fileID: 7600738181945737363}
   m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
@@ -78,6 +79,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!114 &7600738181945737363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7719195850066904626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4593dfc2a4941c38afdf47b45ae3898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3166647200680513054}
 --- !u!1 &8417785520222840257
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +105,7 @@ GameObject:
   - component: {fileID: 2815588434047121247}
   - component: {fileID: 8144648496288269464}
   - component: {fileID: 7185643836912724973}
+  - component: {fileID: 2158058537233043366}
   m_Layer: 8
   m_Name: Monster_Base
   m_TagString: Untagged
@@ -168,6 +183,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityView: {fileID: 6435290667528622590}
   holder: {fileID: 114083067284314465}
+--- !u!114 &2158058537233043366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417785520222840257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29741280de141469b9c7fa723a1257f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityView: {fileID: 6435290667528622590}
+  fighterAnimator: {fileID: 7600738181945737363}
 --- !u!1001 &5747600346029254982
 PrefabInstance:
   m_ObjectHideFlags: 0

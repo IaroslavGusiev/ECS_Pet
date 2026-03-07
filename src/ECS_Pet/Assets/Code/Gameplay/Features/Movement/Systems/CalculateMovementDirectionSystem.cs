@@ -21,15 +21,7 @@ namespace Code.Gameplay.Features.Movement
             foreach (GameEntity entity in _entities)
             {
                 Vector3 direction = CalculateNormalizedDirection(entity);
-
-                if (entity.hasDirection) 
-                {
-                    entity.ReplaceDirection(direction);
-                } 
-                else 
-                {
-                    entity.AddDirection(direction);
-                }
+                entity.ReplaceDirection(direction);
             }
         }
 

@@ -5,6 +5,7 @@ namespace Code.Gameplay.Fighter
     public class FighterAnimator : MonoBehaviour
     {
         private static readonly int MovingHash = Animator.StringToHash("Walk");
+        private static readonly int DeathHash = Animator.StringToHash("Death");
         private static readonly int BasicAbilityHash = Animator.StringToHash("FirstAttack");
         private static readonly int SpecialAbilityHash = Animator.StringToHash("SecondAttack");
         
@@ -21,5 +22,8 @@ namespace Code.Gameplay.Fighter
 
         public void AnimateSpecialAbility() => 
             animator.SetTrigger(SpecialAbilityHash);
+
+        public void PlayDied() => 
+            animator.SetTrigger(DeathHash);
     }
 }

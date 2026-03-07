@@ -12,8 +12,8 @@ namespace Code.Gameplay.Monster
         {
             _monsters = game.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
-                GameMatcher.Monster, 
                 GameMatcher.Dead, 
+                GameMatcher.Monster, 
                 GameMatcher.ProcessingDeath
             }));
         }
@@ -23,7 +23,6 @@ namespace Code.Gameplay.Monster
             foreach (GameEntity monster in _monsters.GetEntities(_buffer))
             {
                 monster.isProcessingDeath = false;
-                monster.isDestructed = true;
             }
         }
     }

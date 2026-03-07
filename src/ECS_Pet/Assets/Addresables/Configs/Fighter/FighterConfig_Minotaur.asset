@@ -21,5 +21,6 @@ MonoBehaviour:
   <Damage>k__BackingField: 12
   <ManaRegen>k__BackingField: 0.5
   <AttackRange>k__BackingField: 1.5
+  <TargetDetectionRadius>k__BackingField: 3
   <BasicAbilityConfig>k__BackingField: {fileID: 11400000, guid: 1b2bc8bab57a82b4a886b9035da0f122, type: 2}
   <SpecialAbilityConfig>k__BackingField: {fileID: 0}

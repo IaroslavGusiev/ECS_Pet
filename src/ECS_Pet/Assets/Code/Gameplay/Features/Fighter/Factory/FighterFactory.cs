@@ -45,6 +45,7 @@ namespace Code.Gameplay.Fighter
                 .AddCurrentMana(0)
                 .AddAttackRange(fighterConfig.AttackRange)
                 .AddTargetBuffer(new List<int>(capacity: 16))
+                .AddRadius(fighterConfig.TargetDetectionRadius)
                 .With(entity => entity.isFighter = true)
                 .With(entity => entity.isSelected = true);
             

@@ -22,10 +22,9 @@ namespace Code.Gameplay.Features.Movement
         {
             foreach (GameEntity mover in _movers)
             {
-                int targetId = mover.TargetId;
-                GameEntity target = _gameContext.GetEntityWithId(targetId);
+                GameEntity target = _gameContext.GetEntityWithId(mover.TargetId);
 
-                if (target is { hasWorldPosition: true })
+                if (target is { hasWorldPosition: true, isDead: false })
                 {
                     mover.ReplaceMovementTarget(target.WorldPosition);
 
@@ -40,7 +39,12 @@ namespace Code.Gameplay.Features.Movement
                     {
                         mover.RemoveMovementTarget();
                     }
-                    
+
+                    if (mover.hasDistanceToTarget)
+                    {
+                        mover.RemoveDistanceToTarget();
+                    }
+
                     mover.isMoving = false;
                 }
             }

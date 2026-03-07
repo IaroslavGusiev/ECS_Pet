@@ -27,11 +27,6 @@ namespace Code.Gameplay.Features.Movement
         {
             foreach (GameEntity entity in _entities)
             {
-                if (entity.hasDirection == false)
-                {
-                    return;
-                }
-
                 if (entity.Direction.magnitude > 0.01f)
                 {
                     Quaternion targetRotation = Quaternion.LookRotation(entity.Direction);

@@ -19,6 +19,7 @@ namespace Code.Gameplay.TargetCollection
             
             _ready = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]  
                 {
+                    GameMatcher.Radius,
                     GameMatcher.TargetBuffer,
                     GameMatcher.WorldPosition,
                     GameMatcher.ReadyToCollectTargets
@@ -30,15 +31,23 @@ namespace Code.Gameplay.TargetCollection
         {
             foreach (GameEntity entity in _ready.GetEntities(_buffer))
             {
-                entity.TargetBuffer.AddRange(TargetsInRadius(entity));
+                List<int> targetsInRadius = TargetsInRadius(entity);
+
+                // foreach (int targetId in targetsInRadius)
+                // {
+                //     Debug.Log($"<color=yellow>{targetId}</color>");
+                // }
+
+                entity.TargetBuffer.AddRange(targetsInRadius);
             }
         }
     
         private List<int> TargetsInRadius(GameEntity entity)
         {
             return _physicsService
-                .SphereRaycast(entity.WorldPosition, 3f, CollisionLayer.Monster.AsMask()) // 2f as radius to config
-                .Select(x => x.Id)
+                .SphereRaycast(entity.WorldPosition, entity.Radius, CollisionLayer.Monster.AsMask())
+                .Where(target => target.isDead == false) 
+                .Select(target => target.Id)
                 .ToList();
         }
     }

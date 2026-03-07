@@ -6,7 +6,7 @@ namespace Code.Gameplay.Features.Movement
 {
     public class ApplyMovementToTargetSystem : IExecuteSystem
     {
-        private const float MoveSpeed = 2.0f;
+        private const float MoveSpeed = 2.0f; // TODO: will take from component
 
         private readonly ITimeService _timeService;
         private readonly IGroup<GameEntity> _movers;

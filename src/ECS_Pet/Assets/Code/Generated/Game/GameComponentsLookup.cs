@@ -9,77 +9,81 @@
 public static class GameComponentsLookup {
 
     public const int Destructed = 0;
-    public const int View = 1;
-    public const int ViewPath = 2;
-    public const int Ability = 3;
-    public const int AbilityTypeId = 4;
-    public const int AnimationDelay = 5;
-    public const int AnimationDelayLeft = 6;
-    public const int BasicAbility = 7;
-    public const int MeleeAttackAbility = 8;
-    public const int OwnerLink = 9;
-    public const int SpecialAbility = 10;
-    public const int BaseStats = 11;
-    public const int StatChange = 12;
-    public const int StatModifiers = 13;
-    public const int Attacking = 14;
-    public const int AttackRange = 15;
-    public const int TimeLeft = 16;
-    public const int AnimationRequest = 17;
-    public const int Id = 18;
-    public const int LayerMask = 19;
-    public const int MaterialChangeRequest = 20;
-    public const int MeshRenderer = 21;
-    public const int Processed = 22;
-    public const int ReadyToUse = 23;
-    public const int SkinnedMeshRenderer = 24;
-    public const int Tick = 25;
-    public const int Transform = 26;
-    public const int WorldPosition = 27;
-    public const int WorldRotation = 28;
-    public const int Cooldown = 29;
-    public const int CooldownLeft = 30;
-    public const int CooldownUp = 31;
-    public const int CellId = 32;
-    public const int GameBoardCell = 33;
-    public const int Occupied = 34;
-    public const int SuccessfulCellRequest = 35;
-    public const int Direction = 36;
-    public const int DistanceToTarget = 37;
-    public const int MovementAvailable = 38;
-    public const int MovementTarget = 39;
-    public const int Moving = 40;
-    public const int BasicAbilityId = 41;
-    public const int Fighter = 42;
-    public const int FighterAnimator = 43;
-    public const int FighterRequest = 44;
-    public const int FighterTypeId = 45;
-    public const int Placed = 46;
-    public const int Selected = 47;
-    public const int SpecialAbilityId = 48;
-    public const int StatsSliderHolder = 49;
-    public const int CurrentHp = 50;
-    public const int Dead = 51;
-    public const int MaxHp = 52;
-    public const int ProcessingDeath = 53;
-    public const int CurrentMana = 54;
-    public const int MaxMana = 55;
-    public const int Monster = 56;
-    public const int MonsterTypeId = 57;
-    public const int ProducerId = 58;
-    public const int ReadyToCollectTargets = 59;
-    public const int TargetBuffer = 60;
-    public const int TargetId = 61;
-    public const int DamageEffect = 62;
-    public const int Effect = 63;
-    public const int EffectConfigs = 64;
-    public const int EffectValue = 65;
-    public const int HealEffect = 66;
+    public const int Radius = 1;
+    public const int SelfDestructTimer = 2;
+    public const int View = 3;
+    public const int ViewPath = 4;
+    public const int Ability = 5;
+    public const int AbilityTypeId = 6;
+    public const int AnimationDelay = 7;
+    public const int AnimationDelayLeft = 8;
+    public const int BasicAbility = 9;
+    public const int MeleeAttackAbility = 10;
+    public const int OwnerLink = 11;
+    public const int SpecialAbility = 12;
+    public const int BaseStats = 13;
+    public const int StatChange = 14;
+    public const int StatModifiers = 15;
+    public const int Attacking = 16;
+    public const int AttackRange = 17;
+    public const int TimeLeft = 18;
+    public const int AnimationRequest = 19;
+    public const int Id = 20;
+    public const int LayerMask = 21;
+    public const int MaterialChangeRequest = 22;
+    public const int MeshRenderer = 23;
+    public const int Processed = 24;
+    public const int ReadyToUse = 25;
+    public const int SkinnedMeshRenderer = 26;
+    public const int Tick = 27;
+    public const int Transform = 28;
+    public const int WorldPosition = 29;
+    public const int WorldRotation = 30;
+    public const int Cooldown = 31;
+    public const int CooldownLeft = 32;
+    public const int CooldownUp = 33;
+    public const int CellId = 34;
+    public const int GameBoardCell = 35;
+    public const int Occupied = 36;
+    public const int SuccessfulCellRequest = 37;
+    public const int Direction = 38;
+    public const int DistanceToTarget = 39;
+    public const int MovementAvailable = 40;
+    public const int MovementTarget = 41;
+    public const int Moving = 42;
+    public const int BasicAbilityId = 43;
+    public const int Fighter = 44;
+    public const int FighterAnimator = 45;
+    public const int FighterRequest = 46;
+    public const int FighterTypeId = 47;
+    public const int Placed = 48;
+    public const int Selected = 49;
+    public const int SpecialAbilityId = 50;
+    public const int StatsSliderHolder = 51;
+    public const int CurrentHp = 52;
+    public const int Dead = 53;
+    public const int MaxHp = 54;
+    public const int ProcessingDeath = 55;
+    public const int CurrentMana = 56;
+    public const int MaxMana = 57;
+    public const int Monster = 58;
+    public const int MonsterTypeId = 59;
+    public const int ProducerId = 60;
+    public const int ReadyToCollectTargets = 61;
+    public const int TargetBuffer = 62;
+    public const int TargetId = 63;
+    public const int DamageEffect = 64;
+    public const int Effect = 65;
+    public const int EffectConfigs = 66;
+    public const int EffectValue = 67;
+    public const int HealEffect = 68;
 
-    public const int TotalComponents = 67;
+    public const int TotalComponents = 69;
 
     public static readonly string[] componentNames = {
         "Destructed",
+        "Radius",
+        "SelfDestructTimer",
         "View",
         "ViewPath",
         "Ability",
@@ -150,6 +154,8 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.CommonComponents.Destructed),
+        typeof(Code.Common.CommonComponents.Radius),
+        typeof(Code.Common.CommonComponents.SelfDestructTimer),
         typeof(Code.Common.CommonComponents.View),
         typeof(Code.Common.CommonComponents.ViewPath),
         typeof(Code.Gameplay.Abilities.Ability),

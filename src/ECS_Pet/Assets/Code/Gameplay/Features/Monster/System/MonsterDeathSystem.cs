@@ -4,20 +4,34 @@ namespace Code.Gameplay.Monster
 {
     public class MonsterDeathSystem : IExecuteSystem
     {
+        private const float DeathAnimationTime = 2.5f; // TODO: take it from config
+        
         private readonly IGroup<GameEntity> _monsters;
 
         public MonsterDeathSystem(GameContext game)
         {
-            _monsters = game.GetGroup(GameMatcher.AllOf(GameMatcher.Monster));
+            _monsters = game.GetGroup(GameMatcher.AllOf(matchers: new[]
+            {
+                GameMatcher.Monster, 
+                GameMatcher.Dead, 
+                GameMatcher.ProcessingDeath
+            }));
         }
 
         public void Execute()
         {
-            foreach (GameEntity entity in _monsters)
+            foreach (GameEntity monster in _monsters)
             {
-                entity.isMovementAvailable = false;
+                monster.isMovementAvailable = false;
                 
-                // TODO: play died animation
+                // monster.RemoveTargetCollectionComponents();
+
+                if (monster.hasFighterAnimator)
+                {
+                    monster.FighterAnimator.PlayDied();
+                }
+
+                monster.ReplaceSelfDestructTimer(DeathAnimationTime);
             }
         }
     }

@@ -16,7 +16,8 @@ namespace Code.Gameplay.Features.Movement
             {
                 GameMatcher.Direction,
                 GameMatcher.MovementTarget,
-                GameMatcher.MovementAvailable
+                GameMatcher.DistanceToTarget,
+                GameMatcher.MovementAvailable,
             }));
         }
 
