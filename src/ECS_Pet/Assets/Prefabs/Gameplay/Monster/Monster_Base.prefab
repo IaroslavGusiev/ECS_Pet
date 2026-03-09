@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityView: {fileID: 6435290667528622590}
-  fighterAnimator: {fileID: 7600738181945737363}
+  combatantAnimator: {fileID: 7600738181945737363}
 --- !u!1001 &5747600346029254982
 PrefabInstance:
   m_ObjectHideFlags: 0
