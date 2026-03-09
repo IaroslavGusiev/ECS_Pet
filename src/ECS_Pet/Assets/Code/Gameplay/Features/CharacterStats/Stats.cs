@@ -10,7 +10,8 @@ namespace Code.Gameplay.CharacterStats
         MaxMana = 1,
         MaxHp = 2,
         Damage = 3,
-        ManaRegen = 4
+        ManaRegen = 4,
+        Speed = 5
     }
     
     public static class InitStats

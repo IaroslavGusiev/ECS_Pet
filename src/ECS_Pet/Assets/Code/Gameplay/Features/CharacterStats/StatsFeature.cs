@@ -7,6 +7,7 @@ namespace Code.Gameplay.CharacterStats
         public StatsFeature(ISystemFactory systems)
         {
             Add(systems.Create<StatChangeSystem>());
+            Add(systems.Create<ApplySpeedFromStatsSystem>());
         }
     }
 }

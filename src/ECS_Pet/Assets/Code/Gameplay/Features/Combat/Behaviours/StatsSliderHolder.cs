@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Code.Gameplay.CharacterStats;
 
-namespace Code.Gameplay.Fighter
+namespace Code.Gameplay.Features.Combat
 {
     public class StatsSliderHolder : MonoBehaviour
     {
@@ -20,7 +20,6 @@ namespace Code.Gameplay.Fighter
             
             if (slider == false)
             {
-                Debug.LogError($"No slider found for stat: {stat}");
                 return;
             }
             

@@ -1,5 +1,6 @@
 using Code.StaticData;
 using Code.Common.View;
+using Code.Gameplay.Mana;
 using Code.Gameplay.Input;
 using Code.Common.Destruct;
 using Code.Gameplay.Combat;
@@ -38,6 +39,7 @@ namespace Code.Gameplay
             Add(systemFactory.Create<MonsterFeature>());
             Add(systemFactory.Create<StatsFeature>());
             Add(systemFactory.Create<LifetimeFeature>());
+            Add(systemFactory.Create<ManaFeature>());
             Add(systemFactory.Create<AnimationFeature>());
 
             Add(systemFactory.Create<CollectTargetsFeature>());

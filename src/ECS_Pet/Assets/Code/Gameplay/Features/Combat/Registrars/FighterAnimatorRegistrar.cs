@@ -1,25 +1,25 @@
 using UnityEngine;
 using Code.Common.View;
 
-namespace Code.Gameplay.Fighter.Registrars
+namespace Code.Gameplay.Features.Combat
 {
     public class FighterAnimatorRegistrar : EntityComponentRegistrar
     {
-        [SerializeField] private FighterAnimator fighterAnimator;
+        [SerializeField] private CombatantAnimator combatantAnimator;
         
         public override void RegisterComponents()
         {
-            if (fighterAnimator)
+            if (combatantAnimator)
             {
-                Entity.AddFighterAnimator(fighterAnimator);
+                Entity.AddCombatantAnimator(combatantAnimator);
             }
         }
 
         public override void UnregisterComponents()
         {
-            if (Entity.hasFighterAnimator)
+            if (Entity.hasCombatantAnimator)
             {
-                Entity.RemoveFighterAnimator();
+                Entity.RemoveCombatantAnimator();
             }
         }
     }

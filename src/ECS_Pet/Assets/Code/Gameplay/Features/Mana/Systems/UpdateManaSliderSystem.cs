@@ -3,7 +3,7 @@ using Code.Gameplay.CharacterStats;
 
 namespace Code.Gameplay.Mana
 {
-    public class UpdateManaSliderSystem : IExecuteSystem // maybe move this system to lifetime
+    public class UpdateManaSliderSystem : IExecuteSystem 
     {
         private readonly IGroup<GameEntity> _heroes;
 
@@ -13,7 +13,6 @@ namespace Code.Gameplay.Mana
             {
                 GameMatcher.Placed,
                 GameMatcher.MaxMana, 
-                GameMatcher.Fighter,
                 GameMatcher.CurrentMana,
                 GameMatcher.StatsSliderHolder
             })); 

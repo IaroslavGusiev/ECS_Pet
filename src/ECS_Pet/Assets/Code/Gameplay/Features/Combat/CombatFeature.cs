@@ -13,6 +13,11 @@ namespace Code.Gameplay.Combat
             Add(systemFactory.Create<AttackRangeCheckSystem>());
             Add(systemFactory.Create<AttackStartDecisionSystem>());
             Add(systemFactory.Create<StopAttackOnNoTargetSystem>());
+            
+            // reactive systems
+            Add(systemFactory.Create<EnableStatsSliderOnPlacementSystem>());
+            Add(systemFactory.Create<DisableStatsSliderOnWindowSelectionSystem>());
+            Add(systemFactory.Create<DisableStatsSliderOnDeathSystem>());
 
             // cleanup
         }

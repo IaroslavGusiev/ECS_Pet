@@ -1,7 +1,7 @@
 using Entitas;
 using System.Collections.Generic;
 
-namespace Code.Gameplay.Fighter
+namespace Code.Gameplay.Combat
 {
     public class DisableStatsSliderOnWindowSelectionSystem : ReactiveSystem<GameEntity>
     {
@@ -20,11 +20,11 @@ namespace Code.Gameplay.Fighter
 
         protected override bool Filter(GameEntity entity) => true;
 
-        protected override void Execute(List<GameEntity> fighters)
+        protected override void Execute(List<GameEntity> combatants)
         {
-            foreach (GameEntity fighter in fighters)
+            foreach (GameEntity combatant in combatants)
             {
-                fighter.StatsSliderHolder.Disable();
+                combatant.StatsSliderHolder.Disable();
             }
         }
     }

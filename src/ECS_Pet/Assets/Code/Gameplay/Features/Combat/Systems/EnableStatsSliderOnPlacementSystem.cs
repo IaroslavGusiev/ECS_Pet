@@ -1,7 +1,7 @@
 using Entitas;
 using System.Collections.Generic;
 
-namespace Code.Gameplay.Fighter
+namespace Code.Gameplay.Combat
 {
     public class EnableStatsSliderOnPlacementSystem : ReactiveSystem<GameEntity>
     {

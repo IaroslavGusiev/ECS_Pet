@@ -11,7 +11,7 @@ namespace Code.Gameplay.Fighter
             _fighters = game.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
                 GameMatcher.Fighter, 
-                GameMatcher.FighterAnimator
+                GameMatcher.CombatantAnimator
             }));
         }
 
@@ -21,11 +21,11 @@ namespace Code.Gameplay.Fighter
             {
                 if (fighter.isMoving)
                 {
-                    fighter.FighterAnimator.Walk();
+                    fighter.CombatantAnimator.Walk();
                 }
                 else
                 {
-                    fighter.FighterAnimator.Idle();
+                    fighter.CombatantAnimator.Idle();
                 }
             }
         }

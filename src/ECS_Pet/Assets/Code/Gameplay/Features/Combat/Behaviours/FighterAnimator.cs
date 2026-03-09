@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Code.Gameplay.Fighter
+namespace Code.Gameplay.Features.Combat
 {
-    public class FighterAnimator : MonoBehaviour
+    public class CombatantAnimator : MonoBehaviour
     {
         private static readonly int MovingHash = Animator.StringToHash("Walk");
         private static readonly int DeathHash = Animator.StringToHash("Death");

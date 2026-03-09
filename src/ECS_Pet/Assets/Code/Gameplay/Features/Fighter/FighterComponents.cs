@@ -1,5 +1,6 @@
 using Entitas;
 using Code.StaticData;
+using Code.Gameplay.Features.Combat;
 
 namespace Code.Gameplay.Fighter
 {
@@ -12,7 +13,7 @@ namespace Code.Gameplay.Fighter
         [Game] public class Placed : IComponent {  }
         
         [Game] public class StatsSliderHolderComponent : IComponent { public StatsSliderHolder Value; }
-        [Game] public class FighterAnimatorComponent : IComponent { public FighterAnimator Value; }
+        [Game] public class CombatantAnimatorComponent : IComponent { public CombatantAnimator Value; }
         
         [Game] public class BasicAbilityId : IComponent { public int Value; }
         [Game] public class SpecialAbilityId : IComponent { public int Value; }

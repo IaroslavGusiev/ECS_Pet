@@ -51,34 +51,35 @@ public static class GameComponentsLookup {
     public const int MovementAvailable = 40;
     public const int MovementTarget = 41;
     public const int Moving = 42;
-    public const int BasicAbilityId = 43;
-    public const int Fighter = 44;
-    public const int FighterAnimator = 45;
-    public const int FighterRequest = 46;
-    public const int FighterTypeId = 47;
-    public const int Placed = 48;
-    public const int Selected = 49;
-    public const int SpecialAbilityId = 50;
-    public const int StatsSliderHolder = 51;
-    public const int CurrentHp = 52;
-    public const int Dead = 53;
-    public const int MaxHp = 54;
-    public const int ProcessingDeath = 55;
-    public const int CurrentMana = 56;
-    public const int MaxMana = 57;
-    public const int Monster = 58;
-    public const int MonsterTypeId = 59;
-    public const int ProducerId = 60;
-    public const int ReadyToCollectTargets = 61;
-    public const int TargetBuffer = 62;
-    public const int TargetId = 63;
-    public const int DamageEffect = 64;
-    public const int Effect = 65;
-    public const int EffectConfigs = 66;
-    public const int EffectValue = 67;
-    public const int HealEffect = 68;
+    public const int Speed = 43;
+    public const int BasicAbilityId = 44;
+    public const int CombatantAnimator = 45;
+    public const int Fighter = 46;
+    public const int FighterRequest = 47;
+    public const int FighterTypeId = 48;
+    public const int Placed = 49;
+    public const int Selected = 50;
+    public const int SpecialAbilityId = 51;
+    public const int StatsSliderHolder = 52;
+    public const int CurrentHp = 53;
+    public const int Dead = 54;
+    public const int MaxHp = 55;
+    public const int ProcessingDeath = 56;
+    public const int CurrentMana = 57;
+    public const int MaxMana = 58;
+    public const int Monster = 59;
+    public const int MonsterTypeId = 60;
+    public const int ProducerId = 61;
+    public const int ReadyToCollectTargets = 62;
+    public const int TargetBuffer = 63;
+    public const int TargetId = 64;
+    public const int DamageEffect = 65;
+    public const int Effect = 66;
+    public const int EffectConfigs = 67;
+    public const int EffectValue = 68;
+    public const int HealEffect = 69;
 
-    public const int TotalComponents = 69;
+    public const int TotalComponents = 70;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -124,9 +125,10 @@ public static class GameComponentsLookup {
         "MovementAvailable",
         "MovementTarget",
         "Moving",
+        "Speed",
         "BasicAbilityId",
+        "CombatantAnimator",
         "Fighter",
-        "FighterAnimator",
         "FighterRequest",
         "FighterTypeId",
         "Placed",
@@ -196,9 +198,10 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.MovementTarget),
         typeof(Code.Gameplay.Features.Movement.Moving),
+        typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Fighter.FighterComponents.BasicAbilityId),
+        typeof(Code.Gameplay.Fighter.FighterComponents.CombatantAnimatorComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.Fighter),
-        typeof(Code.Gameplay.Fighter.FighterComponents.FighterAnimatorComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterRequest),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterTypeIdComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.Placed),

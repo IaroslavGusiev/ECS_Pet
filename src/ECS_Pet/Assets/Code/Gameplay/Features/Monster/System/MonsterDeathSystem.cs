@@ -4,7 +4,7 @@ namespace Code.Gameplay.Monster
 {
     public class MonsterDeathSystem : IExecuteSystem
     {
-        private const float DeathAnimationTime = 2.5f; // TODO: take it from config
+        private const float DeathAnimationTime = 2f; // TODO: take it from config
         
         private readonly IGroup<GameEntity> _monsters;
 
@@ -26,9 +26,9 @@ namespace Code.Gameplay.Monster
                 
                 // monster.RemoveTargetCollectionComponents();
 
-                if (monster.hasFighterAnimator)
+                if (monster.hasCombatantAnimator)
                 {
-                    monster.FighterAnimator.PlayDied();
+                    monster.CombatantAnimator.PlayDied();
                 }
 
                 monster.ReplaceSelfDestructTimer(DeathAnimationTime);

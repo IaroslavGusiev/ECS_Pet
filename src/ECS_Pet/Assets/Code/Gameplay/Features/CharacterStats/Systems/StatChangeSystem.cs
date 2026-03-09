@@ -3,16 +3,16 @@ using Code.Gameplay.Common.Time.EntityIndices;
 
 namespace Code.Gameplay.CharacterStats
 {
-    public class StatChangeSystem : IExecuteSystem // TODO: execute in own feature
+    public class StatChangeSystem : IExecuteSystem 
     {
-        private readonly GameContext _game;
+        private readonly GameContext _gameContext;
         private readonly IGroup<GameEntity> _statOwners;
 
-        public StatChangeSystem(GameContext game)
+        public StatChangeSystem(GameContext gameContext)
         {
-            _game = game;
+            _gameContext = gameContext;
 
-            _statOwners = game.GetGroup(GameMatcher.AllOf(matchers: new[]
+            _statOwners = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
                 GameMatcher.Id,
                 GameMatcher.BaseStats,
@@ -26,7 +26,8 @@ namespace Code.Gameplay.CharacterStats
             foreach (Stats stat in owner.BaseStats.Keys)
             {
                 owner.StatModifiers[stat] = 0;
-                foreach (GameEntity statChange in _game.TargetStatChanges(stat, owner.Id))
+                
+                foreach (GameEntity statChange in _gameContext.TargetStatChanges(stat, owner.Id))
                 {
                     owner.StatModifiers[stat] += statChange.EffectValue;
                 }

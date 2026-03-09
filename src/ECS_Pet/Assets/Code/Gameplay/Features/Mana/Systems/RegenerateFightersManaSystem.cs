@@ -5,16 +5,16 @@ using Code.Gameplay.CharacterStats;
 
 namespace Code.Gameplay.Mana
 {
-    public class RegenerateFightersManaSystem : IExecuteSystem 
+    public class RegenerateManaSystem : IExecuteSystem 
     {
-        private readonly IGroup<GameEntity> _fighters;
         private readonly IGroup<GameEntity> _tick;
+        private readonly IGroup<GameEntity> _fighters;
 
-        public RegenerateFightersManaSystem(GameContext game)
+        public RegenerateManaSystem(GameContext gameContext)
         {
-            _tick = game.GetGroup(GameMatcher.Tick);
+            _tick = gameContext.GetGroup(GameMatcher.Tick);
             
-            _fighters = game.GetGroup(GameMatcher.AllOf(matchers: new[]
+            _fighters = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
                 GameMatcher.Placed,
                 GameMatcher.MaxMana,

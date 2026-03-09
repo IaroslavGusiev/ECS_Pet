@@ -1,5 +1,4 @@
 using Entitas;
-using System.Linq;
 using Code.StaticData;
 using Code.Common.Extensions;
 using Code.Gameplay.Common.Time;
@@ -31,24 +30,19 @@ namespace Code.Gameplay.TargetCollection
         {
             foreach (GameEntity entity in _ready.GetEntities(_buffer))
             {
-                List<int> targetsInRadius = TargetsInRadius(entity);
-
-                // foreach (int targetId in targetsInRadius)
-                // {
-                //     Debug.Log($"<color=yellow>{targetId}</color>");
-                // }
-
-                entity.TargetBuffer.AddRange(targetsInRadius);
+                FillTargetBuffer(entity);
             }
         }
     
-        private List<int> TargetsInRadius(GameEntity entity)
+        private void FillTargetBuffer(GameEntity entity)
         {
-            return _physicsService
-                .SphereRaycast(entity.WorldPosition, entity.Radius, CollisionLayer.Monster.AsMask())
-                .Where(target => target.isDead == false) 
-                .Select(target => target.Id)
-                .ToList();
+            foreach (GameEntity target in _physicsService.SphereRaycast(entity.WorldPosition, entity.Radius, CollisionLayer.Monster.AsMask()))
+            {
+                if (target.isDead == false)
+                {
+                    entity.TargetBuffer.Add(target.Id);
+                }
+            }
         }
     }
 }

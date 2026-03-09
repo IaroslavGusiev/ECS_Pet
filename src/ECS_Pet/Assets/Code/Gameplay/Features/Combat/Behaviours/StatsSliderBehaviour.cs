@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using Code.Common.Extensions;
 using Code.Gameplay.CharacterStats;
 
-namespace Code.Gameplay.Fighter
+namespace Code.Gameplay.Features.Combat
 {
     public class StatsSliderBehaviour : MonoBehaviour
     {

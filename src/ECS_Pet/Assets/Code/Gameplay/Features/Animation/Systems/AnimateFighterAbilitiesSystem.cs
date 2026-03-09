@@ -40,9 +40,9 @@ namespace Code.Gameplay.Animation
             {
                 GameEntity producer = _gameContext.GetEntityWithId(request.ProducerId);
                 
-                if (producer is { hasFighterAnimator: true })
+                if (producer is { hasCombatantAnimator: true })
                 {
-                    producer.FighterAnimator.AnimateBasicAbility();
+                    producer.CombatantAnimator.AnimateBasicAbility();
                 }
 
                 request.isDestructed = true;
@@ -55,9 +55,9 @@ namespace Code.Gameplay.Animation
             {
                 GameEntity producer = _gameContext.GetEntityWithId(request.ProducerId);
         
-                if (producer is { hasFighterAnimator: true })
+                if (producer is { hasCombatantAnimator: true })
                 {
-                    producer.FighterAnimator.AnimateSpecialAbility();} 
+                    producer.CombatantAnimator.AnimateSpecialAbility();} 
 
                 request.isDestructed = true;
             }

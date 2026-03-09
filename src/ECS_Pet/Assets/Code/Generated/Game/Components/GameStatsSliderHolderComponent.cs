@@ -34,10 +34,10 @@ public sealed partial class GameMatcher {
 public partial class GameEntity {
 
     public Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent statsSliderHolder { get { return (Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent)GetComponent(GameComponentsLookup.StatsSliderHolder); } }
-    public Code.Gameplay.Fighter.StatsSliderHolder StatsSliderHolder { get { return statsSliderHolder.Value; } }
+    public Code.Gameplay.Features.Combat.StatsSliderHolder StatsSliderHolder { get { return statsSliderHolder.Value; } }
     public bool hasStatsSliderHolder { get { return HasComponent(GameComponentsLookup.StatsSliderHolder); } }
 
-    public GameEntity AddStatsSliderHolder(Code.Gameplay.Fighter.StatsSliderHolder newValue) {
+    public GameEntity AddStatsSliderHolder(Code.Gameplay.Features.Combat.StatsSliderHolder newValue) {
         var index = GameComponentsLookup.StatsSliderHolder;
         var component = (Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent)CreateComponent(index, typeof(Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent));
         component.Value = newValue;
@@ -45,7 +45,7 @@ public partial class GameEntity {
         return this;
     }
 
-    public GameEntity ReplaceStatsSliderHolder(Code.Gameplay.Fighter.StatsSliderHolder newValue) {
+    public GameEntity ReplaceStatsSliderHolder(Code.Gameplay.Features.Combat.StatsSliderHolder newValue) {
         var index = GameComponentsLookup.StatsSliderHolder;
         var component = (Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent)CreateComponent(index, typeof(Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent));
         component.Value = newValue;

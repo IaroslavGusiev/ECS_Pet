@@ -29,7 +29,7 @@ namespace Code.Gameplay.Fighter
         {
             FighterConfig fighterConfig = _staticDataService.GetFighterConfig(fighterTypeId);
 
-            Dictionary<Stats, float> baseStates = FillBaseStatsFromConfig(fighterConfig);
+            Dictionary<Stats, float> baseStats = FillBaseStatsFromConfig(fighterConfig);
 
             GameEntity fighter = _entityFactory
                 .CreateEntity<GameEntity>(needToSetId: true)
@@ -37,15 +37,16 @@ namespace Code.Gameplay.Fighter
                 .AddFighterTypeId(fighterTypeId)
                 .AddWorldPosition(at)
                 .AddWorldRotation(Quaternion.identity)
-                .AddBaseStats(baseStates)
+                .AddBaseStats(baseStats)
                 .AddStatModifiers(InitStats.EmptyStatDictionary())
-                .AddMaxHp(baseStates[Stats.MaxHp])
-                .AddCurrentHp(baseStates[Stats.MaxHp])
-                .AddMaxMana(baseStates[Stats.MaxMana])
+                .AddMaxHp(baseStats[Stats.MaxHp])
+                .AddCurrentHp(baseStats[Stats.MaxHp])
+                .AddMaxMana(baseStats[Stats.MaxMana])
                 .AddCurrentMana(0)
                 .AddAttackRange(fighterConfig.AttackRange)
                 .AddTargetBuffer(new List<int>(capacity: 16))
                 .AddRadius(fighterConfig.TargetDetectionRadius)
+                .AddSpeed(baseStats[Stats.Speed])
                 .With(entity => entity.isFighter = true)
                 .With(entity => entity.isSelected = true);
             
@@ -65,6 +66,7 @@ namespace Code.Gameplay.Fighter
             return InitStats.EmptyStatDictionary()
                 .With(dictionary => dictionary[Stats.MaxHp] = fighterConfig.MaxHp)
                 .With(dictionary => dictionary[Stats.Damage] = fighterConfig.Damage)
+                .With(dictionary => dictionary[Stats.Speed] = fighterConfig.MoveSpeed)
                 .With(dictionary => dictionary[Stats.MaxMana] = fighterConfig.MaxMana)
                 .With(dictionary => dictionary[Stats.ManaRegen] = fighterConfig.ManaRegen);
         }

@@ -6,8 +6,6 @@ namespace Code.Gameplay.Features.Movement
 {
     public class ApplyMovementToTargetSystem : IExecuteSystem
     {
-        private const float MoveSpeed = 2.0f; // TODO: will take from component
-
         private readonly ITimeService _timeService;
         private readonly IGroup<GameEntity> _movers;
 
@@ -32,7 +30,7 @@ namespace Code.Gameplay.Features.Movement
                 Vector3 currentPosition = mover.WorldPosition;
                 float distanceToTarget = mover.DistanceToTarget;
                 
-                float moveDistance = MoveSpeed * _timeService.DeltaTime;
+                float moveDistance = mover.Speed * _timeService.DeltaTime;
                 
                 float actualMoveDistance = Mathf.Min(moveDistance, distanceToTarget);
                 

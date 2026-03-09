@@ -1,7 +1,7 @@
 using UnityEngine;
 using Code.Common.View;
 
-namespace Code.Gameplay.Fighter.Registrars
+namespace Code.Gameplay.Features.Combat
 {
     public class StatsSliderHolderRegistrar : EntityComponentRegistrar
     {
