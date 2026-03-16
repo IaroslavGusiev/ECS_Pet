@@ -5,6 +5,7 @@ using Code.Gameplay.Fighter;
 using Code.Gameplay.Monster;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using Code.Gameplay.Abilities.Configs;
 using Code.Gameplay.Features.GameBoard;
 
 namespace Code.Infrastructure.Services
@@ -45,6 +46,12 @@ namespace Code.Infrastructure.Services
         
         public MonsterConfig GetMonsterConfig(MonsterTypeId monsterTypeId) => 
             _monsterConfigs.GetValueOrDefault(monsterTypeId);
+
+        public AbilityConfig GetBasicAbilityConfig(FighterTypeId fighterTypeId) => 
+            GetFighterConfig(fighterTypeId).BasicAbilityConfig;
+
+        public AbilityConfig GetSpecialAbilityConfig(FighterTypeId fighterTypeId) => 
+            GetFighterConfig(fighterTypeId).SpecialAbilityConfig;
 
         private async UniTask LoadGameBoardConfigs()
         {

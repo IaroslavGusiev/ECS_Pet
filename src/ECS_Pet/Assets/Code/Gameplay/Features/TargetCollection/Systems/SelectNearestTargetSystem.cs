@@ -8,15 +8,13 @@ namespace Code.Gameplay.TargetCollection
         private readonly GameContext _gameContext;
         private readonly IGroup<GameEntity> _entities;
 
-        public SelectNearestTargetSystem(GameContext game, GameContext gameContext)
+        public SelectNearestTargetSystem(GameContext gameContext)
         {
             _gameContext = gameContext;
             
-            _entities = game.GetGroup(GameMatcher.AllOf(matchers: new[]
-            {
+            _entities = _gameContext.GetGroup(GameMatcher.AllOf(
                 GameMatcher.TargetBuffer, 
-                GameMatcher.WorldPosition
-            }));
+                GameMatcher.WorldPosition));
         }
 
         public void Execute()

@@ -24,7 +24,7 @@ namespace Code.GameplayEffects.Systems
                 
                 effect.isProcessed = true;
 
-                if (target.isDead) // TODO: need to make dead system
+                if (target.isDead) 
                 {
                     continue;
                 }

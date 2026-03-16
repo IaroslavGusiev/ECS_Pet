@@ -59,6 +59,14 @@ namespace Code.Gameplay.Fighter
         {
             GameEntity basicAbility = _abilityFactory.CreateBasicAbility(fighterConfig.BasicAbilityConfig, fighter.Id);
             fighter.AddBasicAbilityId(basicAbility.Id);
+
+            if (fighterConfig.SpecialAbilityConfig == null)
+            {
+                return;
+            }
+            
+            GameEntity special = _abilityFactory.CreateSpecialAbility(fighterConfig.SpecialAbilityConfig, fighter.Id);
+            fighter.AddSpecialAbilityId(special.Id);
         }
 
         private static Dictionary<Stats, float> FillBaseStatsFromConfig(FighterConfig fighterConfig)

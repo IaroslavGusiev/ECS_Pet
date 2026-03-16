@@ -2,6 +2,7 @@ using Entitas;
 using Code.GameplayEffects;
 using Code.Gameplay.Common.Time;
 using System.Collections.Generic;
+using Code.Gameplay.Armaments.Factory;
 
 namespace Code.Gameplay.Abilities
 {
@@ -10,26 +11,28 @@ namespace Code.Gameplay.Abilities
         private readonly GameContext _gameContext;
         private readonly ITimeService _timeService;
         private readonly IEffectFactory _effectFactory;
-        
+        private readonly IArmamentFactory _armamentFactory;
+
         private readonly IGroup<GameEntity> _abilities;
         private readonly List<GameEntity> _buffer = new(16);
 
         public ProcessEffectTimersSystem(
             GameContext gameContext, 
             ITimeService timeService, 
-            IEffectFactory effectFactory)
+            IEffectFactory effectFactory, 
+            IArmamentFactory armamentFactory)
         {
             _gameContext = gameContext;
             _timeService = timeService;
             _effectFactory = effectFactory;
+            _armamentFactory = armamentFactory;
 
-            _abilities = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
-            {
+            _abilities = gameContext.GetGroup(GameMatcher.AllOf(
                 GameMatcher.Ability, 
-                GameMatcher.ReadyToUse,
-                GameMatcher.AnimationDelay,
-                GameMatcher.AnimationDelayLeft
-            }));
+                GameMatcher.TargetId, 
+                GameMatcher.ReadyToUse, 
+                GameMatcher.AnimationDelay, 
+                GameMatcher.AnimationDelayLeft));
         }
 
         public void Execute()
@@ -45,14 +48,21 @@ namespace Code.Gameplay.Abilities
                     
                     GameEntity owner = _gameContext.GetEntityWithId(ability.OwnerLink);
 
-                    if (owner.hasTargetId == false)
+                    if (owner == null || owner.isDead)
                     {
                         continue;
                     }
 
-                    foreach (EffectConfig config in ability.EffectConfigs)
+                    if (ability.isRangedAttackAbility)
                     {
-                        _effectFactory.CreateEffect(config, ProducerId(owner), owner.TargetId);
+                        _armamentFactory.CreateProjectile(owner, ability);
+                    }
+                    else
+                    {
+                        foreach (EffectConfig config in ability.EffectConfigs)
+                        {
+                            _effectFactory.CreateEffect(config, ProducerId(owner), ability.TargetId);
+                        }
                     }
                 }
             }

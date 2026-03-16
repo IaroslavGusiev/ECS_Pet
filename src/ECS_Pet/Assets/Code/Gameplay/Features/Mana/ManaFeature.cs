@@ -9,11 +9,13 @@ namespace Code.Gameplay.Mana
             // initialize   
 
             // execute
-            Add(systemFactory.Create<UpdateManaSliderSystem>());
             Add(systemFactory.Create<RegenerateManaSystem>());
+            Add(systemFactory.Create<UpdateManaSliderSystem>());
+
+            // reactive
+            Add(systemFactory.Create<ResetManaOnSpecialAbilityUseSystem>());
 
             // cleanup
-            
         }
     }
 }

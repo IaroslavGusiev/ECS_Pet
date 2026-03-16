@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e7934e04d5441798cbb61a7a69bf525, type: 3}
-  m_Name: Minotaur_BasicAbility
+  m_Name: Rat_BasicAbility
   m_EditorClassIdentifier: 
-  <AbilityTypeId>k__BackingField: 1
-  EffectConfigs:
+  <AbilityTypeId>k__BackingField: 2
+  <EffectConfigs>k__BackingField:
   - EffectTypeId: 1
     Value: 10
-  <Cooldown>k__BackingField: 1.5
-  <AnimationDelay>k__BackingField: 0.66
+  <Cooldown>k__BackingField: 3
+  <AnimationDelay>k__BackingField: 0.6
+  <ViewPrefab>k__BackingField: {fileID: 0}

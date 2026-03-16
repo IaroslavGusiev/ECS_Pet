@@ -5,7 +5,7 @@ namespace Code.Gameplay.Features.Movement
 {
     public class StopMovementOnArrivalSystem : IExecuteSystem
     {
-        private const float ReachDistance = 0.3f; 
+        private const float ReachDistance = 0.5f; 
         
         private readonly IGroup<GameEntity> _movers;
         private readonly List<GameEntity> _buffer = new(capacity: 32);
@@ -30,6 +30,7 @@ namespace Code.Gameplay.Features.Movement
                 if (distanceToTarget <= ReachDistance)
                 {
                     mover.isMoving = false;
+                    mover.isReachedTarget = true;
                     mover.isMovementAvailable = false;
                 }
             }

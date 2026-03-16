@@ -24,4 +24,4 @@ MonoBehaviour:
   <AttackRange>k__BackingField: 1.5
   <TargetDetectionRadius>k__BackingField: 3
   <BasicAbilityConfig>k__BackingField: {fileID: 11400000, guid: 1b2bc8bab57a82b4a886b9035da0f122, type: 2}
-  <SpecialAbilityConfig>k__BackingField: {fileID: 0}
+  <SpecialAbilityConfig>k__BackingField: {fileID: 11400000, guid: f4b2c2d1ad5e9024390d3c0071c16a52, type: 2}

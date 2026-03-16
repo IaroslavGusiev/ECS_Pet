@@ -40,7 +40,7 @@ namespace Code.Infrastructure
         {
             //List<FighterTypeId> randomFighters = EnumExtensions.GetRandomEnumValues(count: 6, excludeValues: FighterTypeId.Unknown);
             
-            List<FighterTypeId> randomFighters = new List<FighterTypeId> { FighterTypeId.Minotaur, FighterTypeId.Bee, FighterTypeId.Eagle, FighterTypeId.Ent, FighterTypeId.EvilWitch, FighterTypeId.Golem };
+            List<FighterTypeId> randomFighters = new List<FighterTypeId> { FighterTypeId.Minotaur, FighterTypeId.Rat, FighterTypeId.Eagle, FighterTypeId.Ent, FighterTypeId.EvilWitch, FighterTypeId.Golem };
             
             var data = new SelectFighterWindowData(randomFighters);
             await _windowService.ShowWindow<SelectFighterWindow, SelectFighterWindowData>(data);

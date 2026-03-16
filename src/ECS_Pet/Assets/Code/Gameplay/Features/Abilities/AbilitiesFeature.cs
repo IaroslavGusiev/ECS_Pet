@@ -10,6 +10,8 @@ namespace Code.Gameplay.Abilities
             // initialize
 
             // execute
+            Add(systemFactory.Create<MarkSpecialAbilityReadyOnFullManaSystem>());
+            Add(systemFactory.Create<SyncAbilityTargetSystem>());
             Add(systemFactory.Create<ProcessEffectTimersSystem>());
             Add(systemFactory.Create<CooldownSystem>());
 

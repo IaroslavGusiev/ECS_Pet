@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Gameplay
   m_GUID: 7c8d0111764ffe64c818f2836f59b53a
   m_SerializeEntries:
+  - m_GUID: 034e091acdd4e5a47bcb8cb227c0f281
+    m_Address: RatStone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c71d164959e3da4a805aad8c387152b
     m_Address: BoardCell
     m_ReadOnly: 0

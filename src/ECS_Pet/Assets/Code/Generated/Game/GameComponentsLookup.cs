@@ -18,68 +18,74 @@ public static class GameComponentsLookup {
     public const int AnimationDelay = 7;
     public const int AnimationDelayLeft = 8;
     public const int BasicAbility = 9;
-    public const int MeleeAttackAbility = 10;
-    public const int OwnerLink = 11;
-    public const int SpecialAbility = 12;
-    public const int BaseStats = 13;
-    public const int StatChange = 14;
-    public const int StatModifiers = 15;
-    public const int Attacking = 16;
-    public const int AttackRange = 17;
-    public const int TimeLeft = 18;
-    public const int AnimationRequest = 19;
-    public const int Id = 20;
-    public const int LayerMask = 21;
-    public const int MaterialChangeRequest = 22;
-    public const int MeshRenderer = 23;
-    public const int Processed = 24;
-    public const int ReadyToUse = 25;
-    public const int SkinnedMeshRenderer = 26;
-    public const int Tick = 27;
-    public const int Transform = 28;
-    public const int WorldPosition = 29;
-    public const int WorldRotation = 30;
-    public const int Cooldown = 31;
-    public const int CooldownLeft = 32;
-    public const int CooldownUp = 33;
-    public const int CellId = 34;
-    public const int GameBoardCell = 35;
-    public const int Occupied = 36;
-    public const int SuccessfulCellRequest = 37;
-    public const int Direction = 38;
-    public const int DistanceToTarget = 39;
-    public const int MovementAvailable = 40;
-    public const int MovementTarget = 41;
-    public const int Moving = 42;
-    public const int Speed = 43;
-    public const int BasicAbilityId = 44;
-    public const int CombatantAnimator = 45;
-    public const int Fighter = 46;
-    public const int FighterRequest = 47;
-    public const int FighterTypeId = 48;
-    public const int Placed = 49;
-    public const int Selected = 50;
-    public const int SpecialAbilityId = 51;
-    public const int StatsSliderHolder = 52;
-    public const int CurrentHp = 53;
-    public const int Dead = 54;
-    public const int MaxHp = 55;
-    public const int ProcessingDeath = 56;
-    public const int CurrentMana = 57;
-    public const int MaxMana = 58;
-    public const int Monster = 59;
-    public const int MonsterTypeId = 60;
-    public const int ProducerId = 61;
-    public const int ReadyToCollectTargets = 62;
-    public const int TargetBuffer = 63;
-    public const int TargetId = 64;
-    public const int DamageEffect = 65;
-    public const int Effect = 66;
-    public const int EffectConfigs = 67;
-    public const int EffectValue = 68;
-    public const int HealEffect = 69;
+    public const int HealingAbility = 10;
+    public const int ManaSufficient = 11;
+    public const int MeleeAttackAbility = 12;
+    public const int OwnerLink = 13;
+    public const int RangedAttackAbility = 14;
+    public const int SpecialAbility = 15;
+    public const int ProjectileArmament = 16;
+    public const int BaseStats = 17;
+    public const int StatChange = 18;
+    public const int StatModifiers = 19;
+    public const int Attacking = 20;
+    public const int AttackRange = 21;
+    public const int CombatantAnimator = 22;
+    public const int CombatantProjectileHolder = 23;
+    public const int StatsSliderHolder = 24;
+    public const int TimeLeft = 25;
+    public const int AnimationRequest = 26;
+    public const int Id = 27;
+    public const int LayerMask = 28;
+    public const int MaterialChangeRequest = 29;
+    public const int MeshRenderer = 30;
+    public const int Processed = 31;
+    public const int ReadyToUse = 32;
+    public const int SkinnedMeshRenderer = 33;
+    public const int Tick = 34;
+    public const int Transform = 35;
+    public const int WorldPosition = 36;
+    public const int WorldRotation = 37;
+    public const int Cooldown = 38;
+    public const int CooldownLeft = 39;
+    public const int CooldownUp = 40;
+    public const int CellId = 41;
+    public const int GameBoardCell = 42;
+    public const int Occupied = 43;
+    public const int SuccessfulCellRequest = 44;
+    public const int Direction = 45;
+    public const int DistanceToTarget = 46;
+    public const int MovementAvailable = 47;
+    public const int MovementTarget = 48;
+    public const int Moving = 49;
+    public const int ReachedTarget = 50;
+    public const int Speed = 51;
+    public const int BasicAbilityId = 52;
+    public const int Fighter = 53;
+    public const int FighterRequest = 54;
+    public const int FighterTypeId = 55;
+    public const int Placed = 56;
+    public const int Selected = 57;
+    public const int SpecialAbilityId = 58;
+    public const int CurrentHp = 59;
+    public const int Dead = 60;
+    public const int MaxHp = 61;
+    public const int ProcessingDeath = 62;
+    public const int CurrentMana = 63;
+    public const int MaxMana = 64;
+    public const int Monster = 65;
+    public const int MonsterTypeId = 66;
+    public const int ProducerId = 67;
+    public const int ReadyToCollectTargets = 68;
+    public const int TargetBuffer = 69;
+    public const int TargetId = 70;
+    public const int DamageEffect = 71;
+    public const int Effect = 72;
+    public const int EffectConfigs = 73;
+    public const int EffectValue = 74;
+    public const int HealEffect = 75;
 
-    public const int TotalComponents = 70;
+    public const int TotalComponents = 76;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -92,14 +98,21 @@ public static class GameComponentsLookup {
         "AnimationDelay",
         "AnimationDelayLeft",
         "BasicAbility",
+        "HealingAbility",
+        "ManaSufficient",
         "MeleeAttackAbility",
         "OwnerLink",
+        "RangedAttackAbility",
         "SpecialAbility",
+        "ProjectileArmament",
         "BaseStats",
         "StatChange",
         "StatModifiers",
         "Attacking",
         "AttackRange",
+        "CombatantAnimator",
+        "CombatantProjectileHolder",
+        "StatsSliderHolder",
         "TimeLeft",
         "AnimationRequest",
         "Id",
@@ -125,16 +138,15 @@ public static class GameComponentsLookup {
         "MovementAvailable",
         "MovementTarget",
         "Moving",
+        "ReachedTarget",
         "Speed",
         "BasicAbilityId",
-        "CombatantAnimator",
         "Fighter",
         "FighterRequest",
         "FighterTypeId",
         "Placed",
         "Selected",
         "SpecialAbilityId",
-        "StatsSliderHolder",
         "CurrentHp",
         "Dead",
         "MaxHp",
@@ -165,14 +177,21 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Abilities.AnimationDelay),
         typeof(Code.Gameplay.Abilities.AnimationDelayLeft),
         typeof(Code.Gameplay.Abilities.BasicAbility),
+        typeof(Code.Gameplay.Abilities.HealingAbility),
+        typeof(Code.Gameplay.Abilities.ManaSufficient),
         typeof(Code.Gameplay.Abilities.MeleeAttackAbility),
         typeof(Code.Gameplay.Abilities.OwnerLink),
+        typeof(Code.Gameplay.Abilities.RangedAttackAbility),
         typeof(Code.Gameplay.Abilities.SpecialAbility),
+        typeof(Code.Gameplay.Armaments.ArmamentsComponents.ProjectileArmament),
         typeof(Code.Gameplay.CharacterStats.BaseStats),
         typeof(Code.Gameplay.CharacterStats.StatChange),
         typeof(Code.Gameplay.CharacterStats.StatModifiers),
         typeof(Code.Gameplay.Combat.Attacking),
         typeof(Code.Gameplay.Combat.AttackRange),
+        typeof(Code.Gameplay.Combat.CombatantAnimatorComponent),
+        typeof(Code.Gameplay.Combat.CombatantProjectileHolderComponent),
+        typeof(Code.Gameplay.Combat.StatsSliderHolderComponent),
         typeof(Code.Gameplay.Combat.TimeLeft),
         typeof(Code.Gameplay.Common.Time.CommonComponents.AnimationRequest),
         typeof(Code.Gameplay.Common.Time.CommonComponents.Id),
@@ -198,16 +217,15 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.MovementTarget),
         typeof(Code.Gameplay.Features.Movement.Moving),
+        typeof(Code.Gameplay.Features.Movement.ReachedTarget),
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Fighter.FighterComponents.BasicAbilityId),
-        typeof(Code.Gameplay.Fighter.FighterComponents.CombatantAnimatorComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.Fighter),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterRequest),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterTypeIdComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.Placed),
         typeof(Code.Gameplay.Fighter.FighterComponents.Selected),
         typeof(Code.Gameplay.Fighter.FighterComponents.SpecialAbilityId),
-        typeof(Code.Gameplay.Fighter.FighterComponents.StatsSliderHolderComponent),
         typeof(Code.Gameplay.Lifetime.CurrentHp),
         typeof(Code.Gameplay.Lifetime.Dead),
         typeof(Code.Gameplay.Lifetime.MaxHp),

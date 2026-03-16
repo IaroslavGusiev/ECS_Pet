@@ -10,6 +10,7 @@ using Code.Gameplay.Monster;
 using Code.Gameplay.Lifetime;
 using Code.Gameplay.Abilities;
 using Code.Gameplay.Animation;
+using Code.Gameplay.Armaments;
 using Code.Gameplay.Common.Time;
 using Code.Infrastructure.Systems;
 using Code.Gameplay.CharacterStats;
@@ -34,6 +35,7 @@ namespace Code.Gameplay
             Add(systemFactory.Create<MovementFeature>());
             Add(systemFactory.Create<CombatFeature>());
             Add(systemFactory.Create<AbilitiesFeature>());
+            Add(systemFactory.Create<ArmamentFeature>());
             
             Add(systemFactory.Create<FighterFeature>());
             Add(systemFactory.Create<MonsterFeature>());

@@ -1,28 +1,29 @@
 using Entitas;
-using UnityEngine;
 using Code.Infrastructure;
 using Code.Common.Extensions;
 using Code.Gameplay.Cooldowns;
 
 namespace Code.Gameplay.Combat
 {
-    public class AttackStartDecisionSystem : IExecuteSystem
+    public class AbilityActivationSystem : IExecuteSystem
     {
         private readonly GameContext _gameContext;
         private readonly IGroup<GameEntity> _attackers;
         private readonly IEntityFactory _entityFactory;
 
-        public AttackStartDecisionSystem( GameContext gameContext, IEntityFactory entityFactory)
+        public AbilityActivationSystem(GameContext gameContext, IEntityFactory entityFactory)
         {
             _gameContext = gameContext;
             _entityFactory = entityFactory;
 
-            _attackers = _gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
-            {
-                GameMatcher.TargetId,
-                GameMatcher.Attacking,
-                GameMatcher.BasicAbilityId, // GameMatcher.SpecialAbilityId
-            }));
+            _attackers = _gameContext
+                .GetGroup(GameMatcher
+                    .AllOf(
+                GameMatcher.TargetId, 
+                GameMatcher.Attacking)
+                    .AnyOf(
+                GameMatcher.BasicAbilityId, 
+                GameMatcher.SpecialAbilityId));
         }
 
         public void Execute()
@@ -34,25 +35,33 @@ namespace Code.Gameplay.Combat
                     continue;
                 }
                 
+                if (attacker.hasSpecialAbilityId)
+                {
+                    GameEntity specialAbility = _gameContext.GetEntityWithId(attacker.SpecialAbilityId);
+                    if (TryActivateAbility(specialAbility))
+                    {
+                        continue;
+                    }
+                }
+                
                 if (attacker.hasBasicAbilityId)
                 {
                     GameEntity basicAbility = _gameContext.GetEntityWithId(attacker.BasicAbilityId);
                     TryActivateAbility(basicAbility);
                 }
-                
-                if (attacker.hasSpecialAbilityId)
-                {
-                    GameEntity specialAbility = _gameContext.GetEntityWithId(attacker.SpecialAbilityId);
-                    TryActivateAbility(specialAbility);
-                }
             }
         }
         
-        private void TryActivateAbility(GameEntity ability)
+        private bool TryActivateAbility(GameEntity ability)
         {
             if (ability is not { isCooldownUp: true })
             {
-                return;
+                return false;
+            }
+
+            if (ability.isSpecialAbility && ability.isManaSufficient == false)
+            {
+                return false;
             }
 
             ability
@@ -60,8 +69,7 @@ namespace Code.Gameplay.Combat
                 .With(entity => entity.isReadyToUse = true);
 
             CreateAnimationRequest(ability);
-
-            Debug.Log($"<color=green>Ability {ability.AbilityTypeId} activated (ID {ability.Id})</color>");
+            return true;
         }
 
         private void CreateAnimationRequest(GameEntity ability)
@@ -69,7 +77,8 @@ namespace Code.Gameplay.Combat
             _entityFactory
                 .CreateEntity<GameEntity>()
                 .AddProducerId(ability.OwnerLink)
-                .With(request => request.isBasicAbility = true)
+                .With(request => request.isBasicAbility = true, when: ability.isBasicAbility)
+                .With(request => request.isSpecialAbility = true, when: ability.isSpecialAbility)
                 .With(request => request.isAnimationRequest = true);
         }
     }

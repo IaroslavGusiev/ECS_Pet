@@ -10,6 +10,7 @@ using Code.Gameplay.Abilities;
 using Code.Gameplay.Common.Time;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
+using Code.Gameplay.Armaments.Factory;
 using Code.Gameplay.Features.GameBoard;
 using Code.Gameplay.Common.Time.EntityIndices;
 
@@ -42,6 +43,7 @@ namespace Code.Infrastructure.CompositionRoot
             Container.Bind<IMonsterFactory>().To<MonsterFactory>().AsSingle();
             Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
             Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle();
+            Container.Bind<IArmamentFactory>().To<ArmamentFactory>().AsSingle();
         }
 
         protected override void BindStates()
@@ -62,8 +64,8 @@ namespace Code.Infrastructure.CompositionRoot
         private void BindCommonServices()
         {
             Container.Bind<IIdProvider>().To<IdProvider>().AsSingle();
-            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle(); // can be moved to gameplay installer
-            Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle(); // can be moved to gameplay installer
+            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle(); 
+            Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle(); 
             Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
             Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
         }

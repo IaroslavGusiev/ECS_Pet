@@ -6,19 +6,19 @@ namespace Code.Gameplay.Combat
     public class ClearDeadTargetSystem : IExecuteSystem
     {
         private readonly GameContext _gameContext;
-        private readonly IGroup<GameEntity> _targets;
+        private readonly IGroup<GameEntity> _entitiesWithTarget;
         private readonly List<GameEntity> _buffer = new(capacity: 16);
 
         public ClearDeadTargetSystem(GameContext gameContext)
         {
             _gameContext = gameContext;
             
-            _targets = _gameContext.GetGroup(GameMatcher.AllOf(matchers: GameMatcher.TargetId));
+            _entitiesWithTarget = _gameContext.GetGroup(GameMatcher.AllOf(matchers: GameMatcher.TargetId));
         }
 
         public void Execute()
         {
-            foreach (GameEntity target in _targets.GetEntities(_buffer))
+            foreach (GameEntity target in _entitiesWithTarget.GetEntities(_buffer))
             {
                 GameEntity targetEntity = _gameContext.GetEntityWithId(target.TargetId);
                 

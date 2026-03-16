@@ -28,7 +28,7 @@ namespace Code.GameplayEffects
 
         private GameEntity CreateDamage(int producerId, int targetId, float value)
         {
-            Debug.Log($"<color=yellow>Create Damage Effect. Producer id: {producerId}, targetId: {targetId}</color>");
+            Debug.Log($"<color=yellow>Create Damage Effect. Producer id: {producerId}, targetId: {targetId}, value: {value}</color>");
             
             return _entityFactory
                 .CreateEntity<GameEntity>(needToSetId: true)

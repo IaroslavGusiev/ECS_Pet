@@ -14,4 +14,7 @@ namespace Code.Gameplay.Abilities
     
     [Game] public class AbilityTypeIdComponent : IComponent { public AbilityTypeId Value; }
     [Game] public class MeleeAttackAbility : IComponent { }
+    [Game] public class RangedAttackAbility : IComponent { }
+    [Game] public class HealingAbility : IComponent { }
+    [Game] public class ManaSufficient : IComponent {  }
 }

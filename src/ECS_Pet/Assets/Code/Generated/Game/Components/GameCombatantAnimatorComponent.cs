@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Fighter.FighterComponents.CombatantAnimatorComponent combatantAnimator { get { return (Code.Gameplay.Fighter.FighterComponents.CombatantAnimatorComponent)GetComponent(GameComponentsLookup.CombatantAnimator); } }
+    public Code.Gameplay.Combat.CombatantAnimatorComponent combatantAnimator { get { return (Code.Gameplay.Combat.CombatantAnimatorComponent)GetComponent(GameComponentsLookup.CombatantAnimator); } }
     public Code.Gameplay.Features.Combat.CombatantAnimator CombatantAnimator { get { return combatantAnimator.Value; } }
     public bool hasCombatantAnimator { get { return HasComponent(GameComponentsLookup.CombatantAnimator); } }
 
     public GameEntity AddCombatantAnimator(Code.Gameplay.Features.Combat.CombatantAnimator newValue) {
         var index = GameComponentsLookup.CombatantAnimator;
-        var component = (Code.Gameplay.Fighter.FighterComponents.CombatantAnimatorComponent)CreateComponent(index, typeof(Code.Gameplay.Fighter.FighterComponents.CombatantAnimatorComponent));
+        var component = (Code.Gameplay.Combat.CombatantAnimatorComponent)CreateComponent(index, typeof(Code.Gameplay.Combat.CombatantAnimatorComponent));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceCombatantAnimator(Code.Gameplay.Features.Combat.CombatantAnimator newValue) {
         var index = GameComponentsLookup.CombatantAnimator;
-        var component = (Code.Gameplay.Fighter.FighterComponents.CombatantAnimatorComponent)CreateComponent(index, typeof(Code.Gameplay.Fighter.FighterComponents.CombatantAnimatorComponent));
+        var component = (Code.Gameplay.Combat.CombatantAnimatorComponent)CreateComponent(index, typeof(Code.Gameplay.Combat.CombatantAnimatorComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

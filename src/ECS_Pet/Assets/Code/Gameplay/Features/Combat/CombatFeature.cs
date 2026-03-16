@@ -11,7 +11,7 @@ namespace Code.Gameplay.Combat
             // execute
             Add(systemFactory.Create<ClearDeadTargetSystem>());
             Add(systemFactory.Create<AttackRangeCheckSystem>());
-            Add(systemFactory.Create<AttackStartDecisionSystem>());
+            Add(systemFactory.Create<AbilityActivationSystem>());
             Add(systemFactory.Create<StopAttackOnNoTargetSystem>());
             
             // reactive systems
