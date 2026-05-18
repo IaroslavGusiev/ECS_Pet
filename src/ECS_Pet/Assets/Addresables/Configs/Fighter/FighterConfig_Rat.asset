@@ -19,7 +19,7 @@ MonoBehaviour:
   <MaxHp>k__BackingField: 45
   <MaxMana>k__BackingField: 10
   <Damage>k__BackingField: 14
-  <ManaRegen>k__BackingField: 0.5
+  <ManaRegen>k__BackingField: 0.8
   <MoveSpeed>k__BackingField: 2
   <AttackRange>k__BackingField: 5
   <TargetDetectionRadius>k__BackingField: 5

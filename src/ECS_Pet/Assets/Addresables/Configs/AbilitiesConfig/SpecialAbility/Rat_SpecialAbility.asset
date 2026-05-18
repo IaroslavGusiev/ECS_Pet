@@ -16,6 +16,6 @@ MonoBehaviour:
   <EffectConfigs>k__BackingField:
   - EffectTypeId: 2
     Value: 10
-  <Cooldown>k__BackingField: 15
+  <Cooldown>k__BackingField: 6
   <AnimationDelay>k__BackingField: 0.66
   <ViewPrefab>k__BackingField: {fileID: 0}

@@ -19,8 +19,9 @@ namespace Code.GameplayEffects
             {
                 case EffectTypeId.Damage:
                     return CreateDamage(producerId, targetId, effectConfig.Value);
+                
                 case EffectTypeId.Heal:
-                    break;
+                    return CreateHeal(producerId, targetId, effectConfig.Value);
             }
             
             throw new Exception($"Effect with type id {effectConfig.EffectTypeId} does not exist");
@@ -34,6 +35,19 @@ namespace Code.GameplayEffects
                 .CreateEntity<GameEntity>(needToSetId: true)
                 .With(x => x.isEffect = true)
                 .With(x => x.isDamageEffect = true)
+                .AddEffectValue(value)
+                .AddProducerId(producerId)
+                .AddTargetId(targetId);
+        }
+
+        private GameEntity CreateHeal(int producerId, int targetId, float value)
+        {
+            Debug.Log($"<color=yellow>Create Heal Effect. Producer id: {producerId}, targetId: {targetId}, value: {value}</color>");
+
+            return _entityFactory
+                .CreateEntity<GameEntity>(needToSetId: true)
+                .With(x => x.isEffect = true)
+                .With(x => x.isHealEffect = true)
                 .AddEffectValue(value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId);
