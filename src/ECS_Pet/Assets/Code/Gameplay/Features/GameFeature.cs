@@ -11,6 +11,7 @@ using Code.Gameplay.Lifetime;
 using Code.Gameplay.Abilities;
 using Code.Gameplay.Animation;
 using Code.Gameplay.Armaments;
+using Code.Gameplay.Healing;
 using Code.Gameplay.Common.Time;
 using Code.Infrastructure.Systems;
 using Code.Gameplay.CharacterStats;
@@ -33,6 +34,8 @@ namespace Code.Gameplay
             Add(systemFactory.Create<GameBoardFeature>());
             Add(systemFactory.Create<FighterSelectionFeature>());
             Add(systemFactory.Create<MovementFeature>());
+            Add(systemFactory.Create<CollectTargetsFeature>());
+            Add(systemFactory.Create<HealingFeature>());
             Add(systemFactory.Create<CombatFeature>());
             Add(systemFactory.Create<AbilitiesFeature>());
             Add(systemFactory.Create<ArmamentFeature>());
@@ -44,7 +47,6 @@ namespace Code.Gameplay
             Add(systemFactory.Create<ManaFeature>());
             Add(systemFactory.Create<AnimationFeature>());
 
-            Add(systemFactory.Create<CollectTargetsFeature>());
             Add(systemFactory.Create<EffectFeature>());
             
             Add(systemFactory.Create<CleanupTickSystem>());

@@ -1,14 +1,14 @@
 using Entitas;
 
-namespace Code.Gameplay.TargetCollection
+namespace Code.Gameplay.Healing
 {
-    public class SelectLowestHpAllySystem : IExecuteSystem
+    public class SelectHealingTargetSystem : IExecuteSystem
     {
         private readonly GameContext _gameContext;
         private readonly IGroup<GameEntity> _allies;
         private readonly IGroup<GameEntity> _healingAbilities;
 
-        public SelectLowestHpAllySystem(GameContext gameContext)
+        public SelectHealingTargetSystem(GameContext gameContext)
         {
             _gameContext = gameContext;
             
@@ -49,11 +49,12 @@ namespace Code.Gameplay.TargetCollection
         private GameEntity FindLowestHpAlly(GameEntity healer)
         {
             GameEntity lowest = null;
+            
             var lowestRatio = float.MaxValue;
 
             foreach (GameEntity ally in _allies)
             {
-                if (ally.isDead || ally.Id == healer.Id)
+                if (ally.isDead || ally.Id == healer.Id || ally.CurrentHp >= ally.MaxHp)
                 {
                     continue;
                 }

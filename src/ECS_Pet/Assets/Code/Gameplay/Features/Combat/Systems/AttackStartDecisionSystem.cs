@@ -54,6 +54,11 @@ namespace Code.Gameplay.Combat
         
         private bool TryActivateAbility(GameEntity ability)
         {
+            if (ability is { isHealingAbility: true })
+            {
+                return false;
+            }
+
             if (ability is not { isCooldownUp: true })
             {
                 return false;
