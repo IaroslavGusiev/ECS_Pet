@@ -75,17 +75,17 @@ public static class GameComponentsLookup {
     public const int MaxMana = 64;
     public const int Monster = 65;
     public const int MonsterTypeId = 66;
-    public const int ProducerId = 67;
-    public const int ReadyToCollectTargets = 68;
-    public const int TargetBuffer = 69;
-    public const int TargetId = 70;
-    public const int DamageEffect = 71;
-    public const int Effect = 72;
-    public const int EffectConfigs = 73;
-    public const int EffectValue = 74;
-    public const int HealEffect = 75;
-    public const int Gold = 76;
-    public const int Storage = 77;
+    public const int Gold = 67;
+    public const int Storage = 68;
+    public const int ProducerId = 69;
+    public const int ReadyToCollectTargets = 70;
+    public const int TargetBuffer = 71;
+    public const int TargetId = 72;
+    public const int DamageEffect = 73;
+    public const int Effect = 74;
+    public const int EffectConfigs = 75;
+    public const int EffectValue = 76;
+    public const int HealEffect = 77;
 
     public const int TotalComponents = 78;
 
@@ -157,6 +157,8 @@ public static class GameComponentsLookup {
         "MaxMana",
         "Monster",
         "MonsterTypeId",
+        "Gold",
+        "Storage",
         "ProducerId",
         "ReadyToCollectTargets",
         "TargetBuffer",
@@ -165,9 +167,7 @@ public static class GameComponentsLookup {
         "Effect",
         "EffectConfigs",
         "EffectValue",
-        "HealEffect",
-        "Gold",
-        "Storage"
+        "HealEffect"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -238,6 +238,8 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Mana.MaxMana),
         typeof(Code.Gameplay.Monster.Monster),
         typeof(Code.Gameplay.Monster.MonsterTypeIdComponent),
+        typeof(Code.Gameplay.Storage.Gold),
+        typeof(Code.Gameplay.Storage.Storage),
         typeof(Code.Gameplay.TargetCollection.ProducerId),
         typeof(Code.Gameplay.TargetCollection.ReadyToCollectTargets),
         typeof(Code.Gameplay.TargetCollection.TargetBuffer),
@@ -246,8 +248,6 @@ public static class GameComponentsLookup {
         typeof(Code.GameplayEffects.Effect),
         typeof(Code.GameplayEffects.EffectConfigs),
         typeof(Code.GameplayEffects.EffectValue),
-        typeof(Code.GameplayEffects.HealEffect),
-        typeof(Code.Gameplay.Storage.Gold),
-        typeof(Code.Gameplay.Storage.Storage)
+        typeof(Code.GameplayEffects.HealEffect)
     };
 }
