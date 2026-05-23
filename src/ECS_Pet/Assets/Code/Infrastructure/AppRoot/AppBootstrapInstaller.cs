@@ -8,9 +8,11 @@ using Code.UI.LoadingCurtain;
 using Code.Common.View.Factory;
 using Code.Gameplay.Abilities;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.UI.Gold;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
 using Code.Gameplay.Armaments.Factory;
+using Code.Gameplay.Features.Vfx.Factory;
 using Code.Gameplay.Features.GameBoard;
 using Code.Gameplay.Common.Time.EntityIndices;
 
@@ -44,6 +46,7 @@ namespace Code.Infrastructure.CompositionRoot
             Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
             Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle();
             Container.Bind<IArmamentFactory>().To<ArmamentFactory>().AsSingle();
+            Container.Bind<IVfxFactory>().To<VfxFactory>().AsSingle();
         }
 
         protected override void BindStates()
@@ -81,6 +84,7 @@ namespace Code.Infrastructure.CompositionRoot
             Container.Bind<IHUDRoot>().FromComponentInNewPrefabResource(CorePrefabPath.HudRootPath).AsSingle();
             Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+            Container.Bind<IStorageUIService>().To<StorageUIService>().AsSingle();
         }
 
         private void BindFactories()

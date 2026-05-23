@@ -13,6 +13,7 @@ using Code.Gameplay.Animation;
 using Code.Gameplay.Armaments;
 using Code.Gameplay.Healing;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Vfx;
 using Code.Infrastructure.Systems;
 using Code.Gameplay.CharacterStats;
 using Code.Gameplay.FighterSelection;
@@ -48,6 +49,7 @@ namespace Code.Gameplay
             Add(systemFactory.Create<AnimationFeature>());
 
             Add(systemFactory.Create<EffectFeature>());
+            Add(systemFactory.Create<VfxFeature>());
             
             Add(systemFactory.Create<CleanupTickSystem>());
             Add(systemFactory.Create<ProcessDestructedFeature>());

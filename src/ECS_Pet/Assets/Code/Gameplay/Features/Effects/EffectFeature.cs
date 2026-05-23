@@ -14,7 +14,6 @@ namespace Code.GameplayEffects
             Add(systemFactory.Create<ApplyEffectsOnTargetsSystem>());
             Add(systemFactory.Create<ProcessDamageEffectSystem>());
             Add(systemFactory.Create<ProcessHealEffectSystem>());
-            Add(systemFactory.Create<CreateHealVfxOnProcessedHealSystem>());
 
             // cleanup
             Add(systemFactory.Create<CleanupProcessedEffects>());

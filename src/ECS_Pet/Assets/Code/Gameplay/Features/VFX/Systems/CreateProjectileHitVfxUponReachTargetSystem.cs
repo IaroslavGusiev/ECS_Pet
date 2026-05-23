@@ -1,33 +1,28 @@
 using Entitas;
 using UnityEngine;
-using Code.Infrastructure;
 using System.Collections.Generic;
+using Code.Gameplay.Features.Vfx.Factory;
 
-namespace Code.Gameplay.Armaments
+namespace Code.Gameplay.Features.Vfx
 {
     public class CreateProjectileHitVfxUponReachTargetSystem : ReactiveSystem<GameEntity>
     {
-        private const string PoofVfxPath = "VFX/Poof_VFX.prefab";
-        private const float VfxLifetime = 2f;
-
         private readonly GameContext _gameContext;
-        private readonly IEntityFactory _entityFactory;
-        
-        private readonly Vector3 _vfxPositionOffset = new(0, 0.5f, 0);
+        private readonly IVfxFactory _vfxFactory;
 
         public CreateProjectileHitVfxUponReachTargetSystem(
             GameContext gameContext,
-            IEntityFactory entityFactory)
+            IVfxFactory vfxFactory)
             : base(gameContext)
         {
             _gameContext = gameContext;
-            _entityFactory = entityFactory;
+            _vfxFactory = vfxFactory;
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context) =>
             context.CreateCollector(GameMatcher.ReachedTarget.Added());
 
-        protected override bool Filter(GameEntity entity) => 
+        protected override bool Filter(GameEntity entity) =>
             entity.isProjectileArmament && entity.hasTargetId;
 
         protected override void Execute(List<GameEntity> projectiles)
@@ -51,14 +46,11 @@ namespace Code.Gameplay.Armaments
 
         private void CreateVfxEntity(GameEntity target)
         {
-            _entityFactory
-                .CreateEntity<GameEntity>()
-                .AddViewPath(PoofVfxPath)
-                .AddWorldPosition(target.WorldPosition + _vfxPositionOffset)
-                .AddWorldRotation(target.hasWorldRotation
-                    ? target.WorldRotation
-                    : Quaternion.identity)
-                .AddSelfDestructTimer(VfxLifetime);
+            _vfxFactory.CreateVfx(
+                VfxConstants.ProjectileHit.Path,
+                target.WorldPosition + VfxConstants.ProjectileHit.PositionOffset,
+                target.hasWorldRotation ? target.WorldRotation : Quaternion.identity,
+                VfxConstants.ProjectileHit.Lifetime);
         }
     }
 }

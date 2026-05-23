@@ -11,7 +11,6 @@ namespace Code.Gameplay.Armaments
             // execute
             
             // react
-            Add(systemFactory.Create<CreateProjectileHitVfxUponReachTargetSystem>());
             Add(systemFactory.Create<CreateEffectsUponReachTargetSystem>());
             
             // cleanup

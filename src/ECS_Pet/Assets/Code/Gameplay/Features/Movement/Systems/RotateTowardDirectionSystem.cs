@@ -18,9 +18,10 @@ namespace Code.Gameplay.Features.Movement
             _entities = game.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
                 GameMatcher.Direction,
-                GameMatcher.WorldRotation,
-                GameMatcher.MovementAvailable
-            }));
+                GameMatcher.WorldRotation
+            }).AnyOf(
+                GameMatcher.MovementAvailable,
+                GameMatcher.Attacking));
         }
 
         public void Execute()
