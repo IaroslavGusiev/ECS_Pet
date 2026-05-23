@@ -6,5 +6,6 @@ namespace Code.Gameplay.UI.Gold
     {
         event Action GoldChanged;
         float CurrentGold { get; }
+        void UpdateCurrentGold(float gold);
     }
 }

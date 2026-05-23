@@ -75,6 +75,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Gameplay
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad0ddc7540be504478cd01a402a73490
+    m_Address: CurrentGoldWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b154d36796f7cc348888b46d446199db
     m_Address: Minotaur
     m_ReadOnly: 0

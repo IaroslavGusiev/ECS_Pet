@@ -7,11 +7,12 @@ using Code.Gameplay.Combat;
 using Code.GameplayEffects;
 using Code.Gameplay.Fighter;
 using Code.Gameplay.Monster;
+using Code.Gameplay.UI.Gold;
+using Code.Gameplay.Healing;
 using Code.Gameplay.Lifetime;
 using Code.Gameplay.Abilities;
-using Code.Gameplay.Animation;
 using Code.Gameplay.Armaments;
-using Code.Gameplay.Healing;
+using Code.Gameplay.Animation;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Vfx;
 using Code.Infrastructure.Systems;
@@ -50,6 +51,7 @@ namespace Code.Gameplay
 
             Add(systemFactory.Create<EffectFeature>());
             Add(systemFactory.Create<VfxFeature>());
+            Add(systemFactory.Create<RefreshGoldSystem>());
             
             Add(systemFactory.Create<CleanupTickSystem>());
             Add(systemFactory.Create<ProcessDestructedFeature>());

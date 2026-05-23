@@ -84,8 +84,10 @@ public static class GameComponentsLookup {
     public const int EffectConfigs = 73;
     public const int EffectValue = 74;
     public const int HealEffect = 75;
+    public const int Gold = 76;
+    public const int Storage = 77;
 
-    public const int TotalComponents = 76;
+    public const int TotalComponents = 78;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -163,7 +165,9 @@ public static class GameComponentsLookup {
         "Effect",
         "EffectConfigs",
         "EffectValue",
-        "HealEffect"
+        "HealEffect",
+        "Gold",
+        "Storage"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -242,6 +246,8 @@ public static class GameComponentsLookup {
         typeof(Code.GameplayEffects.Effect),
         typeof(Code.GameplayEffects.EffectConfigs),
         typeof(Code.GameplayEffects.EffectValue),
-        typeof(Code.GameplayEffects.HealEffect)
+        typeof(Code.GameplayEffects.HealEffect),
+        typeof(Code.Gameplay.Storage.Gold),
+        typeof(Code.Gameplay.Storage.Storage)
     };
 }

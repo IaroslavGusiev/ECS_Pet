@@ -29,9 +29,7 @@ namespace Code.Gameplay.UI.Gold
             }
         }
 
-        private void RefreshGold()
-        {
+        private void RefreshGold() => 
             coinCountText.text = _storageUIService.CurrentGold.ToString("0");
-        }
     }
 }

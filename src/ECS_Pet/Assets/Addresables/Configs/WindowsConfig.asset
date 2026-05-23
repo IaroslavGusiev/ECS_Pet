@@ -15,3 +15,4 @@ MonoBehaviour:
   windowPrefabsMap:
     windows:
     - {fileID: 7532432648143638913, guid: c3016404caa8d7a498ca27aaf8f902a3, type: 3}
+    - {fileID: 1178921976450164400, guid: ad0ddc7540be504478cd01a402a73490, type: 3}
