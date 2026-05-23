@@ -16,6 +16,8 @@ MonoBehaviour:
   <EffectConfigs>k__BackingField:
   - EffectTypeId: 1
     Value: 10
+  <ProjectileConfig>k__BackingField:
+    Speed: 8
+    ProjectileViewPath: Armaments/RatStone.prefab
   <Cooldown>k__BackingField: 3
   <AnimationDelay>k__BackingField: 0.6
-  <ViewPrefab>k__BackingField: {fileID: 0}

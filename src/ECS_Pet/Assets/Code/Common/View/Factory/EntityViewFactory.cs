@@ -20,6 +20,11 @@ namespace Code.Common.View.Factory
         public async UniTask<EntityBehaviour> CreateViewForEntity(GameEntity entity)
         {
             var viewPrefab = await _assetProvider.LoadAndGetComponent<EntityBehaviour>(entity.ViewPath);
+
+            if (entity.hasView)
+            {
+                return entity.View as EntityBehaviour;
+            }
             
             var view = _instantiator.InstantiatePrefabForComponent<EntityBehaviour>(
                 viewPrefab,

@@ -15,7 +15,9 @@ MonoBehaviour:
   <AbilityTypeId>k__BackingField: 1
   <EffectConfigs>k__BackingField:
   - EffectTypeId: 2
-    Value: 10
-  <Cooldown>k__BackingField: 6
+    Value: 50
+  <ProjectileConfig>k__BackingField:
+    Speed: 0
+    ProjectileViewPath: 
+  <Cooldown>k__BackingField: 5
   <AnimationDelay>k__BackingField: 0.66
-  <ViewPrefab>k__BackingField: {fileID: 0}

@@ -22,6 +22,13 @@ namespace Code.Gameplay.Armaments.Factory
             AbilityConfig abilityConfig = ability.isBasicAbility
                 ? _staticDataService.GetBasicAbilityConfig(owner.FighterTypeId)
                 : _staticDataService.GetSpecialAbilityConfig(owner.FighterTypeId);
+
+            ProjectileConfig projectileConfig = abilityConfig.ProjectileConfig;
+
+            if (projectileConfig == null)
+            {
+                return null;
+            }
             
             Vector3 spawnPosition = owner.CombatantProjectileHolder.GetPosition(); 
 
@@ -29,11 +36,11 @@ namespace Code.Gameplay.Armaments.Factory
                 .CreateEntity<GameEntity>(needToSetId: true)
                 .AddEffectConfigs(abilityConfig.EffectConfigs)
                 .AddOwnerLink(owner.Id)
-                .AddViewPath("RatStone")
+                .AddViewPath(projectileConfig.ProjectileViewPath)
                 .AddTargetId(ability.TargetId)
                 .AddWorldPosition(spawnPosition)
                 .AddWorldRotation(Quaternion.identity)
-                .AddSpeed(8f)
+                .AddSpeed(projectileConfig.Speed)
                 .With(entity => entity.isProjectileArmament = true)
                 .With(entity => entity.isMovementAvailable = true)
                 .With(entity => entity.isMoving = true);

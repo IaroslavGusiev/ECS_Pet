@@ -15,12 +15,6 @@ MonoBehaviour:
   m_GroupName: Gameplay
   m_GUID: 7c8d0111764ffe64c818f2836f59b53a
   m_SerializeEntries:
-  - m_GUID: 034e091acdd4e5a47bcb8cb227c0f281
-    m_Address: RatStone
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Gameplay
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c71d164959e3da4a805aad8c387152b
     m_Address: BoardCell
     m_ReadOnly: 0
@@ -41,6 +35,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29d798658304195449f2c764d0441b3c
     m_Address: Mushroom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 554ed1bfbeb18a346ad86fe7afb88c10
+    m_Address: Armaments
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Gameplay
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55a06b0bb4e051443bb9b7213548a1ce
+    m_Address: VFX
     m_ReadOnly: 0
     m_SerializedLabels:
     - Gameplay
