@@ -10,6 +10,9 @@ namespace Code.Gameplay.FighterSelection
 {
     public class SelectFighterView : MonoBehaviour
     {
+        private static readonly Color AvailableIconColor = Color.white;
+        private static readonly Color UnavailableIconColor = new(0.35f, 0.35f, 0.35f, 0.45f);
+
         public FighterTypeId FighterTypeId;
         
         [SerializeField] private TextMeshProUGUI priceText;
@@ -33,5 +36,18 @@ namespace Code.Gameplay.FighterSelection
         
         public void MarkAsSelected(bool isSelected) => 
             selectedView.SetActive(isSelected);
+
+        public void SetInteractable(bool isInteractable)
+        {
+            button.interactable = isInteractable;
+            fighterIcon.color = isInteractable
+                ? AvailableIconColor
+                : UnavailableIconColor;
+
+            if (isInteractable == false)
+            {
+                MarkAsSelected(false);
+            }
+        }
     }
 }

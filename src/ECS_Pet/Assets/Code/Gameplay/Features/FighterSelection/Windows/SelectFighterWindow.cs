@@ -4,6 +4,8 @@ using Code.StaticData;
 using Code.UI.BaseWindow;
 using Code.Infrastructure;
 using Code.Common.Extensions;
+using Code.Gameplay.UI.Gold;
+using Code.Gameplay.Fighter;
 using System.Collections.Generic;
 using Code.Infrastructure.Services;
 
@@ -15,9 +17,13 @@ namespace Code.Gameplay.FighterSelection
         [SerializeField] private SelectFighterView fighterViewPrefab;
 
         private readonly List<SelectFighterView> _fighterViews = new();
-        private IStaticDataService _staticDataService;
-        private IEntityFactory _entityFactory;
+        private readonly Dictionary<FighterTypeId, FighterConfig> _fighterConfigs = new();
+
         private IInstantiator _instantiator;
+        private IEntityFactory _entityFactory;
+        private IStorageUIService _storageUIService;
+        private IStaticDataService _staticDataService;
+        private IFighterPurchaseService _fighterPurchaseService;
         
         private FighterTypeId _selectedFighter;
 
@@ -25,31 +31,60 @@ namespace Code.Gameplay.FighterSelection
         public void Construct(
             IInstantiator instantiator, 
             IEntityFactory entityFactory,
-            IStaticDataService staticDataService)
+            IStorageUIService storageUIService,
+            IStaticDataService staticDataService,
+            IFighterPurchaseService fighterPurchaseService)
         {
             _instantiator = instantiator;
             _entityFactory = entityFactory;
+            _storageUIService = storageUIService;
             _staticDataService = staticDataService;
+            _fighterPurchaseService = fighterPurchaseService;
         }
         
         public override void SetupOnInstantiate(SelectFighterWindowData data)
         {
             foreach (FighterTypeId type in data.FighterTypesToShow)
             {
+                FighterConfig config = _staticDataService.GetFighterConfig(type);
+                _fighterConfigs[type] = config;
+                
                 _instantiator
                     .InstantiatePrefabForComponent<SelectFighterView>(fighterViewPrefab, contentContainer)
-                    .Initialize(_staticDataService.GetFighterConfig(type), HandleClickOnFighterView)
+                    .Initialize(config, HandleClickOnFighterView)
                     .With(view => _fighterViews.Add(view));
+            }
+
+            _storageUIService.GoldChanged += RefreshFighterAvailability;
+            RefreshFighterAvailability();
+        }
+
+        private void OnDestroy()
+        {
+            if (_storageUIService != null)
+            {
+                _storageUIService.GoldChanged -= RefreshFighterAvailability;
             }
         }
 
-        public void DeselectAll() => 
+        public void DeselectAll()
+        {
+            _selectedFighter = FighterTypeId.Unknown;
             _fighterViews.ForEach(view => view.MarkAsSelected(false));
+        }
 
         private void HandleClickOnFighterView(FighterTypeId type)
         {
             if (_selectedFighter == type)
             {
+                return;
+            }
+
+            FighterConfig config = _fighterConfigs[type];
+
+            if (_fighterPurchaseService.CanPurchase(config) == false)
+            {
+                RefreshFighterAvailability();
                 return;
             }
             
@@ -69,6 +104,15 @@ namespace Code.Gameplay.FighterSelection
             _fighterViews
                 .Find(view => view.FighterTypeId == type)
                 .MarkAsSelected(true);
+        }
+
+        private void RefreshFighterAvailability()
+        {
+            foreach (SelectFighterView view in _fighterViews)
+            {
+                bool canPurchase = _fighterPurchaseService.CanPurchase(_fighterConfigs[view.FighterTypeId]);
+                view.SetInteractable(canPurchase);
+            }
         }
     }
 }

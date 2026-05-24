@@ -8,6 +8,7 @@ using Code.Gameplay.UI.Gold;
 using Code.UI.LoadingCurtain;
 using Code.Gameplay.Abilities;
 using Code.Common.View.Factory;
+using Code.Gameplay.FighterSelection;
 using Code.Gameplay.Common.Time;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.Services;
@@ -61,16 +62,17 @@ namespace Code.Infrastructure.CompositionRoot
             Container.Bind<IInputService>().To<InputService>().AsSingle();
             Container.Bind<IGameBoardService>().To<GameBoardService>().AsSingle();
             Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+            Container.Bind<IFighterPurchaseService>().To<FighterPurchaseService>().AsSingle();
             Container.Bind<IFighterPlacementService>().To<FighterPlacementService>().AsSingle();
         }
 
         private void BindCommonServices()
         {
             Container.Bind<IIdProvider>().To<IdProvider>().AsSingle();
-            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle(); 
-            Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle(); 
             Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
             Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
+            Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
+            Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle();
         }
 
         private void BindEntityIndices()
@@ -80,11 +82,11 @@ namespace Code.Infrastructure.CompositionRoot
 
         private void BindUIServices()
         {
-            Container.Bind<ILoadingCurtain>().FromComponentInNewPrefabResource(CorePrefabPath.LoadingCurtainPath).AsSingle();
-            Container.Bind<IHUDRoot>().FromComponentInNewPrefabResource(CorePrefabPath.HudRootPath).AsSingle();
             Container.Bind<IWindowFactory>().To<WindowFactory>().AsSingle();
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IStorageUIService>().To<StorageUIService>().AsSingle();
+            Container.Bind<IHUDRoot>().FromComponentInNewPrefabResource(CorePrefabPath.HudRootPath).AsSingle();
+            Container.Bind<ILoadingCurtain>().FromComponentInNewPrefabResource(CorePrefabPath.LoadingCurtainPath).AsSingle();
         }
 
         private void BindFactories()
