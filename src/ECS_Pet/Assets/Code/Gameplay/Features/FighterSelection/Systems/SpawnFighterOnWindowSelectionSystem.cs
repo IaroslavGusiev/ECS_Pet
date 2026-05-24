@@ -50,10 +50,12 @@ namespace Code.Gameplay.FighterSelection
         private void CleanupPreviousFighter()
         {
             GameEntity fighter = _gameContext.GetEntityWithId(_fighterId);
+            
             if (fighter == null)
             {
                 return;
             }
+            
             fighter.isSelected = false;
             fighter.isDestructed = true;
         }

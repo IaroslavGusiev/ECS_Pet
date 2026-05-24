@@ -1,5 +1,4 @@
 using Entitas;
-using Code.UI.BaseWindow;
 using Code.Gameplay.Fighter;
 using Code.Common.Extensions;
 using System.Collections.Generic;
@@ -11,11 +10,9 @@ namespace Code.Gameplay.FighterSelection
     public class FighterPlacementOnClickSystem : IExecuteSystem
     {
         private readonly GameContext _gameContext;
-        private readonly IWindowService _windowService;
         private readonly IGameBoardService _gameBoardService;
         private readonly IStaticDataService _staticDataService;
         private readonly IFighterPurchaseService _fighterPurchaseService;
-        private readonly IFighterPlacementService _fighterPlacementService;
         
         private readonly IGroup<GameEntity> _selectedFighters;
         private readonly IGroup<InputEntity> _inputs;
@@ -25,18 +22,14 @@ namespace Code.Gameplay.FighterSelection
         public FighterPlacementOnClickSystem(
             GameContext gameContext, 
             InputContext inputContext, 
-            IWindowService windowService, 
             IGameBoardService gameBoardService, 
             IStaticDataService staticDataService,
-            IFighterPurchaseService fighterPurchaseService,
-            IFighterPlacementService fighterPlacementService)
+            IFighterPurchaseService fighterPurchaseService)
         {
             _gameContext = gameContext;
-            _windowService = windowService;
             _gameBoardService = gameBoardService;
             _staticDataService = staticDataService;
             _fighterPurchaseService = fighterPurchaseService;
-            _fighterPlacementService = fighterPlacementService;
 
             _inputs = inputContext.GetGroup(InputMatcher.AllOf(matchers: new[]
             {
@@ -77,25 +70,10 @@ namespace Code.Gameplay.FighterSelection
                         continue;
                     }
                     
-                    _windowService
-                        .GetWindowFromActive<SelectFighterWindow>()
-                        .DeselectAll();
-                    
-                    PlaceFighterToCell(fighter, cell.Id);
+                    fighter.isPlaced = true;
                     SwitchCellToDefaultState(cell.Id);
                 }
             }
-        }
-
-        private void PlaceFighterToCell(GameEntity fighter, int cellId)
-        {
-            fighter
-                .RemoveCellId()
-                .With(entity => entity.isPlaced = true)
-                .With(entity => entity.isSelected = false)
-                .With(entity => entity.isMovementAvailable = true)
-                .With(entity => entity.isReadyToCollectTargets = true)
-                .With(entity => _fighterPlacementService.RegisterFighter(entity.Id, cellId));
         }
 
         private void SwitchCellToDefaultState(int cellId)

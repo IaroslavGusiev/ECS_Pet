@@ -14,34 +14,24 @@ namespace Code.Gameplay.FighterSelection
                 GameMatcher.Gold));
         }
 
-        public bool CanPurchase(FighterConfig fighterConfig)
-        {
-            GameEntity storage = Storage();
-
-            return storage != null && storage.Gold >= fighterConfig.Price;
-        }
+        public bool CanPurchase(FighterConfig fighterConfig) =>
+            Storage() is { } storage && CanAfford(storage, fighterConfig);
 
         public bool TryPurchase(FighterConfig fighterConfig)
         {
-            GameEntity storage = Storage();
-
-            if (storage == null || storage.Gold < fighterConfig.Price)
+            if (Storage() is not { } storage || CanAfford(storage, fighterConfig) == false)
             {
                 return false;
             }
-
+            
             storage.ReplaceGold(storage.Gold - fighterConfig.Price);
             return true;
         }
 
-        private GameEntity Storage()
-        {
-            foreach (GameEntity storage in _storages)
-            {
-                return storage;
-            }
-
-            return null;
-        }
+        private GameEntity Storage() =>
+            _storages.GetSingleEntity();
+        
+        private static bool CanAfford(GameEntity storage, FighterConfig config) =>
+            storage.Gold >= config.Price;
     }
 }

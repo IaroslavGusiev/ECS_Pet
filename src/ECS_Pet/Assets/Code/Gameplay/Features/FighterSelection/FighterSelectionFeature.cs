@@ -12,6 +12,9 @@ namespace Code.Gameplay.FighterSelection
             Add(systemFactory.Create<SpawnFighterOnWindowSelectionSystem>());
             Add(systemFactory.Create<MoveFighterOnSelectionSystem>());
             Add(systemFactory.Create<FighterPlacementOnClickSystem>());
+            Add(systemFactory.Create<FinalizeFighterPlacementSystem>());
+            Add(systemFactory.Create<DeselectFighterWindowOnPlacementSystem>());
+            Add(systemFactory.Create<DeselectFighterWindowOnCancelSystem>());
             Add(systemFactory.Create<DestroyFighterOnCancelSystem>());
 
             // cleanup

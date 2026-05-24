@@ -8,9 +8,6 @@ namespace Code.Gameplay.Fighter
         
         public void RegisterFighter(int fighterId, int cellId) => 
             _towersToCells[fighterId] = cellId;
-
-        public void UnregisterFighter(int cellId) => 
-            _towersToCells.Remove(cellId);
         
         public bool IsFighterPlaced(int fighterId) => 
             _towersToCells.ContainsKey(fighterId);
