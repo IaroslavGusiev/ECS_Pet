@@ -52,42 +52,43 @@ public static class GameComponentsLookup {
     public const int CellId = 41;
     public const int GameBoardCell = 42;
     public const int Occupied = 43;
-    public const int SuccessfulCellRequest = 44;
-    public const int Direction = 45;
-    public const int DistanceToTarget = 46;
-    public const int MovementAvailable = 47;
-    public const int MovementTarget = 48;
-    public const int Moving = 49;
-    public const int ReachedTarget = 50;
-    public const int Speed = 51;
-    public const int BasicAbilityId = 52;
-    public const int Fighter = 53;
-    public const int FighterRequest = 54;
-    public const int FighterTypeId = 55;
-    public const int Placed = 56;
-    public const int Selected = 57;
-    public const int SpecialAbilityId = 58;
-    public const int CurrentHp = 59;
-    public const int Dead = 60;
-    public const int MaxHp = 61;
-    public const int ProcessingDeath = 62;
-    public const int CurrentMana = 63;
-    public const int MaxMana = 64;
-    public const int Monster = 65;
-    public const int MonsterTypeId = 66;
-    public const int Gold = 67;
-    public const int Storage = 68;
-    public const int ProducerId = 69;
-    public const int ReadyToCollectTargets = 70;
-    public const int TargetBuffer = 71;
-    public const int TargetId = 72;
-    public const int DamageEffect = 73;
-    public const int Effect = 74;
-    public const int EffectConfigs = 75;
-    public const int EffectValue = 76;
-    public const int HealEffect = 77;
+    public const int PlacedCellId = 44;
+    public const int SuccessfulCellRequest = 45;
+    public const int Direction = 46;
+    public const int DistanceToTarget = 47;
+    public const int MovementAvailable = 48;
+    public const int MovementTarget = 49;
+    public const int Moving = 50;
+    public const int ReachedTarget = 51;
+    public const int Speed = 52;
+    public const int BasicAbilityId = 53;
+    public const int Fighter = 54;
+    public const int FighterRequest = 55;
+    public const int FighterTypeId = 56;
+    public const int Placed = 57;
+    public const int Selected = 58;
+    public const int SpecialAbilityId = 59;
+    public const int CurrentHp = 60;
+    public const int Dead = 61;
+    public const int MaxHp = 62;
+    public const int ProcessingDeath = 63;
+    public const int CurrentMana = 64;
+    public const int MaxMana = 65;
+    public const int Monster = 66;
+    public const int MonsterTypeId = 67;
+    public const int Gold = 68;
+    public const int Storage = 69;
+    public const int ProducerId = 70;
+    public const int ReadyToCollectTargets = 71;
+    public const int TargetBuffer = 72;
+    public const int TargetId = 73;
+    public const int DamageEffect = 74;
+    public const int Effect = 75;
+    public const int EffectConfigs = 76;
+    public const int EffectValue = 77;
+    public const int HealEffect = 78;
 
-    public const int TotalComponents = 78;
+    public const int TotalComponents = 79;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -134,6 +135,7 @@ public static class GameComponentsLookup {
         "CellId",
         "GameBoardCell",
         "Occupied",
+        "PlacedCellId",
         "SuccessfulCellRequest",
         "Direction",
         "DistanceToTarget",
@@ -215,6 +217,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.GameBoard.CellId),
         typeof(Code.Gameplay.Features.GameBoard.GameBoardCell),
         typeof(Code.Gameplay.Features.GameBoard.Occupied),
+        typeof(Code.Gameplay.Features.GameBoard.PlacedCellId),
         typeof(Code.Gameplay.Features.GameBoard.SuccessfulCellRequest),
         typeof(Code.Gameplay.Features.Movement.Direction),
         typeof(Code.Gameplay.Features.Movement.DistanceToTarget),

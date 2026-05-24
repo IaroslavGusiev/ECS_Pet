@@ -9,7 +9,6 @@ namespace Code.Gameplay.FighterSelection
     {
         private readonly GameContext _gameContext;
         private readonly IFighterFactory _fighterFactory;
-        private readonly IFighterPlacementService _fighterPlacementService;
 
         private readonly IGroup<GameEntity> _fighterRequests;
         private readonly List<GameEntity> _buffer = new(capacity: 4);
@@ -19,12 +18,10 @@ namespace Code.Gameplay.FighterSelection
 
         public SpawnFighterOnWindowSelectionSystem(
             GameContext gameContext, 
-            IFighterFactory fighterFactory, 
-            IFighterPlacementService fighterPlacementService)
+            IFighterFactory fighterFactory)
         {
             _gameContext = gameContext;
             _fighterFactory = fighterFactory;
-            _fighterPlacementService = fighterPlacementService;
 
             _fighterRequests = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
@@ -37,11 +34,7 @@ namespace Code.Gameplay.FighterSelection
         {
             foreach (GameEntity request in _fighterRequests.GetEntities(_buffer))
             {
-                if (_fighterPlacementService.IsFighterPlaced(_fighterId) == false)
-                {
-                    CleanupPreviousFighter();
-                }
-                
+                CleanupPreviousFighter();
                 CreateFighterForSelection(request);
                 CleanUpRequest(request);
             }
@@ -51,7 +44,7 @@ namespace Code.Gameplay.FighterSelection
         {
             GameEntity fighter = _gameContext.GetEntityWithId(_fighterId);
             
-            if (fighter == null)
+            if (fighter == null || fighter.isPlaced)
             {
                 return;
             }
@@ -66,7 +59,7 @@ namespace Code.Gameplay.FighterSelection
             _fighterId = fighter.Id;
         }
 
-        private void CleanUpRequest(GameEntity request)
+        private static void CleanUpRequest(GameEntity request)
         {
             request.isFighterRequest = false;
             request.isDestructed = true;

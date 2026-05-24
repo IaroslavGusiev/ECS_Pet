@@ -63,7 +63,6 @@ namespace Code.Infrastructure.CompositionRoot
             Container.Bind<IGameBoardService>().To<GameBoardService>().AsSingle();
             Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
             Container.Bind<IFighterPurchaseService>().To<FighterPurchaseService>().AsSingle();
-            Container.Bind<IFighterPlacementService>().To<FighterPlacementService>().AsSingle();
         }
 
         private void BindCommonServices()
