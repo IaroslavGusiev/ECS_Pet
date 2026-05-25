@@ -54,6 +54,11 @@ namespace Code.Gameplay.FighterSelection
                     return;
                 }
 
+                if (_lastHitCellIndex == -1 && fighter.hasCellId)
+                {
+                    _lastHitCellIndex = fighter.CellId;
+                }
+
                 if (_lastHitCellIndex != -1 && _lastHitCellIndex == hitCell.Id)
                 {
                     return;
@@ -74,14 +79,29 @@ namespace Code.Gameplay.FighterSelection
         private void SwitchPreviousCellToDefaultState()
         {
             GameEntity lastHitCell = GetEntityById(_lastHitCellIndex);
-            lastHitCell?.AddMaterialChangeRequest(_gameBoardService.GetCurrentCellMaterial());
+            
+            if (lastHitCell != null)
+            {
+                RequestMaterialChange(lastHitCell, _gameBoardService.GetCurrentCellMaterial());
+            }
         }
 
         private void HandleMaterialChangeOfCurrentHitCell(GameEntity hitCell)
         {
-            hitCell.AddMaterialChangeRequest(hitCell.isOccupied == false
+            RequestMaterialChange(hitCell, hitCell.isOccupied == false
                 ? _gameBoardService.GetGreenCellMaterial()
                 : _gameBoardService.GetRedCellMaterial());
+        }
+
+        private static void RequestMaterialChange(GameEntity cell, Material material)
+        {
+            if (cell.hasMaterialChangeRequest)
+            {
+                cell.ReplaceMaterialChangeRequest(material);
+                return;
+            }
+
+            cell.AddMaterialChangeRequest(material);
         }
 
         private GameEntity GetEntityById(int id) => 
