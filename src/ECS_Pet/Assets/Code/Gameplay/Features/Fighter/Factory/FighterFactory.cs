@@ -35,6 +35,7 @@ namespace Code.Gameplay.Fighter
                 .CreateEntity<GameEntity>(needToSetId: true)
                 .AddViewPath(fighterConfig.ViewPath)
                 .AddFighterTypeId(fighterTypeId)
+                .AddPurchasePrice(fighterConfig.Price)
                 .AddWorldPosition(at)
                 .AddWorldRotation(Quaternion.identity)
                 .AddBaseStats(baseStats)

@@ -3,30 +3,19 @@ using Code.Gameplay.Fighter;
 
 namespace Code.Gameplay.FighterSelection
 {
-    public class FighterPurchaseService : IFighterPurchaseService
+    public class FighterAffordabilityService : IFighterAffordabilityService
     {
         private readonly IGroup<GameEntity> _storages;
 
-        public FighterPurchaseService(GameContext gameContext)
+        public FighterAffordabilityService(GameContext gameContext)
         {
             _storages = gameContext.GetGroup(GameMatcher.AllOf(
                 GameMatcher.Storage,
                 GameMatcher.Gold));
         }
 
-        public bool CanPurchase(FighterConfig fighterConfig) =>
+        public bool CanAfford(FighterConfig fighterConfig) =>
             Storage() is { } storage && CanAfford(storage, fighterConfig);
-
-        public bool TryPurchase(FighterConfig fighterConfig)
-        {
-            if (Storage() is not { } storage || CanAfford(storage, fighterConfig) == false)
-            {
-                return false;
-            }
-            
-            storage.ReplaceGold(storage.Gold - fighterConfig.Price);
-            return true;
-        }
 
         private GameEntity Storage() =>
             _storages.GetSingleEntity();

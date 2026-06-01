@@ -8,6 +8,9 @@ namespace Code.Gameplay.Features.GameBoard
         {
             // Initialize
             Add(systemFactory.Create<InitializeGameBoardSystem>());
+            
+            // Execute
+            Add(systemFactory.Create<ApplyBoardCellVisualStateSystem>());
         }
     }
 }

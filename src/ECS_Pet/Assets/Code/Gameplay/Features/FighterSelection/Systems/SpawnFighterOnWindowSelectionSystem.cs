@@ -6,7 +6,6 @@ using Code.Gameplay.Fighter;
 using Code.Common.Extensions;
 using Code.Gameplay.Common.Time;
 using System.Collections.Generic;
-using Code.Gameplay.Features.GameBoard;
 
 namespace Code.Gameplay.FighterSelection
 {
@@ -16,7 +15,6 @@ namespace Code.Gameplay.FighterSelection
         private readonly IInputService _inputService;
         private readonly IPhysicsService _physicsService;
         private readonly IFighterFactory _fighterFactory;
-        private readonly IGameBoardService _gameBoardService;
 
         private readonly IGroup<GameEntity> _fighterRequests;
         private readonly IGroup<GameEntity> _boardCells;
@@ -33,14 +31,12 @@ namespace Code.Gameplay.FighterSelection
             GameContext gameContext, 
             IInputService inputService,
             IPhysicsService physicsService,
-            IFighterFactory fighterFactory,
-            IGameBoardService gameBoardService)
+            IFighterFactory fighterFactory)
         {
             _gameContext = gameContext;
             _inputService = inputService;
             _physicsService = physicsService;
             _fighterFactory = fighterFactory;
-            _gameBoardService = gameBoardService;
 
             _fighterRequests = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
@@ -76,7 +72,7 @@ namespace Code.Gameplay.FighterSelection
 
             if (fighter.hasCellId)
             {
-                SwitchCellToDefaultState(fighter.CellId);
+                fighter.RemoveCellId();
             }
             
             fighter.isSelected = false;
@@ -96,29 +92,9 @@ namespace Code.Gameplay.FighterSelection
             if (initialCell != null)
             {
                 fighter.AddCellId(initialCell.Id);
-                MarkCellForSelection(initialCell);
             }
 
             _fighterId = fighter.Id;
-        }
-
-        private void MarkCellForSelection(GameEntity cell)
-        {
-            RequestMaterialChange(cell, cell.isOccupied == false
-                ? _gameBoardService.GetGreenCellMaterial()
-                : _gameBoardService.GetRedCellMaterial());
-        }
-
-        private void SwitchCellToDefaultState(int cellId)
-        {
-            GameEntity cell = _gameContext.GetEntityWithId(cellId);
-
-            if (cell == null)
-            {
-                return;
-            }
-
-            RequestMaterialChange(cell, _gameBoardService.GetCurrentCellMaterial());
         }
 
         private GameEntity GetInitialCell()
@@ -186,17 +162,6 @@ namespace Code.Gameplay.FighterSelection
         {
             request.isFighterRequest = false;
             request.isDestructed = true;
-        }
-
-        private static void RequestMaterialChange(GameEntity cell, Material material)
-        {
-            if (cell.hasMaterialChangeRequest)
-            {
-                cell.ReplaceMaterialChangeRequest(material);
-                return;
-            }
-
-            cell.AddMaterialChangeRequest(material);
         }
 
         private static bool ShouldDestroyPreviousFighter(GameEntity fighter) => 

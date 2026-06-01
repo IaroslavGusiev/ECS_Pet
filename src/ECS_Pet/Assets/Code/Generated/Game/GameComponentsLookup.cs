@@ -50,45 +50,49 @@ public static class GameComponentsLookup {
     public const int CooldownLeft = 39;
     public const int CooldownUp = 40;
     public const int CellId = 41;
-    public const int GameBoardCell = 42;
-    public const int Occupied = 43;
-    public const int PlacedCellId = 44;
-    public const int SuccessfulCellRequest = 45;
-    public const int Direction = 46;
-    public const int DistanceToTarget = 47;
-    public const int MovementAvailable = 48;
-    public const int MovementTarget = 49;
-    public const int Moving = 50;
-    public const int ReachedTarget = 51;
-    public const int Speed = 52;
-    public const int BasicAbilityId = 53;
-    public const int Fighter = 54;
-    public const int FighterRequest = 55;
-    public const int FighterTypeId = 56;
-    public const int Placed = 57;
-    public const int Selected = 58;
-    public const int SpecialAbilityId = 59;
-    public const int CurrentHp = 60;
-    public const int Dead = 61;
-    public const int MaxHp = 62;
-    public const int ProcessingDeath = 63;
-    public const int CurrentMana = 64;
-    public const int MaxMana = 65;
-    public const int Monster = 66;
-    public const int MonsterTypeId = 67;
-    public const int Gold = 68;
-    public const int Storage = 69;
-    public const int ProducerId = 70;
-    public const int ReadyToCollectTargets = 71;
-    public const int TargetBuffer = 72;
-    public const int TargetId = 73;
-    public const int DamageEffect = 74;
-    public const int Effect = 75;
-    public const int EffectConfigs = 76;
-    public const int EffectValue = 77;
-    public const int HealEffect = 78;
+    public const int CellVisualState = 42;
+    public const int GameBoardCell = 43;
+    public const int Occupied = 44;
+    public const int PlacedCellId = 45;
+    public const int SuccessfulCellRequest = 46;
+    public const int Direction = 47;
+    public const int DistanceToTarget = 48;
+    public const int MovementAvailable = 49;
+    public const int MovementTarget = 50;
+    public const int Moving = 51;
+    public const int ReachedTarget = 52;
+    public const int Speed = 53;
+    public const int BasicAbilityId = 54;
+    public const int Fighter = 55;
+    public const int FighterId = 56;
+    public const int FighterRequest = 57;
+    public const int FighterTypeId = 58;
+    public const int Placed = 59;
+    public const int PurchasePrice = 60;
+    public const int Selected = 61;
+    public const int SpecialAbilityId = 62;
+    public const int FighterPlacementRequest = 63;
+    public const int CurrentHp = 64;
+    public const int Dead = 65;
+    public const int MaxHp = 66;
+    public const int ProcessingDeath = 67;
+    public const int CurrentMana = 68;
+    public const int MaxMana = 69;
+    public const int Monster = 70;
+    public const int MonsterTypeId = 71;
+    public const int Gold = 72;
+    public const int Storage = 73;
+    public const int ProducerId = 74;
+    public const int ReadyToCollectTargets = 75;
+    public const int TargetBuffer = 76;
+    public const int TargetId = 77;
+    public const int DamageEffect = 78;
+    public const int Effect = 79;
+    public const int EffectConfigs = 80;
+    public const int EffectValue = 81;
+    public const int HealEffect = 82;
 
-    public const int TotalComponents = 79;
+    public const int TotalComponents = 83;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -133,6 +137,7 @@ public static class GameComponentsLookup {
         "CooldownLeft",
         "CooldownUp",
         "CellId",
+        "CellVisualState",
         "GameBoardCell",
         "Occupied",
         "PlacedCellId",
@@ -146,11 +151,14 @@ public static class GameComponentsLookup {
         "Speed",
         "BasicAbilityId",
         "Fighter",
+        "FighterId",
         "FighterRequest",
         "FighterTypeId",
         "Placed",
+        "PurchasePrice",
         "Selected",
         "SpecialAbilityId",
+        "FighterPlacementRequest",
         "CurrentHp",
         "Dead",
         "MaxHp",
@@ -215,6 +223,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Cooldowns.CooldownLeft),
         typeof(Code.Gameplay.Cooldowns.CooldownUp),
         typeof(Code.Gameplay.Features.GameBoard.CellId),
+        typeof(Code.Gameplay.Features.GameBoard.CellVisualStateComponent),
         typeof(Code.Gameplay.Features.GameBoard.GameBoardCell),
         typeof(Code.Gameplay.Features.GameBoard.Occupied),
         typeof(Code.Gameplay.Features.GameBoard.PlacedCellId),
@@ -228,11 +237,14 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Fighter.FighterComponents.BasicAbilityId),
         typeof(Code.Gameplay.Fighter.FighterComponents.Fighter),
+        typeof(Code.Gameplay.Fighter.FighterComponents.FighterIdComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterRequest),
         typeof(Code.Gameplay.Fighter.FighterComponents.FighterTypeIdComponent),
         typeof(Code.Gameplay.Fighter.FighterComponents.Placed),
+        typeof(Code.Gameplay.Fighter.FighterComponents.PurchasePrice),
         typeof(Code.Gameplay.Fighter.FighterComponents.Selected),
         typeof(Code.Gameplay.Fighter.FighterComponents.SpecialAbilityId),
+        typeof(Code.Gameplay.FighterSelection.FighterPlacementRequest),
         typeof(Code.Gameplay.Lifetime.CurrentHp),
         typeof(Code.Gameplay.Lifetime.Dead),
         typeof(Code.Gameplay.Lifetime.MaxHp),

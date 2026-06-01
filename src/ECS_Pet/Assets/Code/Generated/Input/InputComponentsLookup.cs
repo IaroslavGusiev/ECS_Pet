@@ -8,19 +8,22 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int ClickInput = 0;
-    public const int EscKeyInput = 1;
-    public const int Input = 2;
+    public const int PointerOverCellId = 0;
+    public const int ClickInput = 1;
+    public const int EscKeyInput = 2;
+    public const int Input = 3;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
+        "PointerOverCellId",
         "ClickInput",
         "EscKeyInput",
         "Input"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.Gameplay.Features.GameBoard.PointerOverCellId),
         typeof(Code.Gameplay.Input.InputComponents.ClickInput),
         typeof(Code.Gameplay.Input.InputComponents.EscKeyInputComponent),
         typeof(Code.Gameplay.Input.InputComponents.InputComponent)

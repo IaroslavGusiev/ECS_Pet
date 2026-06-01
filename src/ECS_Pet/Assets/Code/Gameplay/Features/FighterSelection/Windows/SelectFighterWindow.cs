@@ -23,7 +23,7 @@ namespace Code.Gameplay.FighterSelection
         private IEntityFactory _entityFactory;
         private IStorageUIService _storageUIService;
         private IStaticDataService _staticDataService;
-        private IFighterPurchaseService _fighterPurchaseService;
+        private IFighterAffordabilityService _fighterAffordabilityService;
         
         private FighterTypeId _selectedFighter;
 
@@ -33,13 +33,13 @@ namespace Code.Gameplay.FighterSelection
             IEntityFactory entityFactory,
             IStorageUIService storageUIService,
             IStaticDataService staticDataService,
-            IFighterPurchaseService fighterPurchaseService)
+            IFighterAffordabilityService fighterAffordabilityService)
         {
             _instantiator = instantiator;
             _entityFactory = entityFactory;
             _storageUIService = storageUIService;
             _staticDataService = staticDataService;
-            _fighterPurchaseService = fighterPurchaseService;
+            _fighterAffordabilityService = fighterAffordabilityService;
         }
         
         public override void SetupOnInstantiate(SelectFighterWindowData data)
@@ -82,7 +82,7 @@ namespace Code.Gameplay.FighterSelection
 
             FighterConfig config = _fighterConfigs[type];
 
-            if (_fighterPurchaseService.CanPurchase(config) == false)
+            if (_fighterAffordabilityService.CanAfford(config) == false)
             {
                 RefreshFighterAvailability();
                 return;
@@ -110,7 +110,7 @@ namespace Code.Gameplay.FighterSelection
         {
             foreach (SelectFighterView view in _fighterViews)
             {
-                bool canPurchase = _fighterPurchaseService.CanPurchase(_fighterConfigs[view.FighterTypeId]);
+                bool canPurchase = _fighterAffordabilityService.CanAfford(_fighterConfigs[view.FighterTypeId]);
                 view.SetInteractable(canPurchase);
             }
         }

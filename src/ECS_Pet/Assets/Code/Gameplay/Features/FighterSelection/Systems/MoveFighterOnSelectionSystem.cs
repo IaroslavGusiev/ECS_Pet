@@ -1,34 +1,23 @@
 using Entitas;
 using UnityEngine;
-using Code.StaticData;
-using Code.Gameplay.Input;
-using Code.Common.Extensions;
-using Code.Gameplay.Common.Time;
-using Code.Gameplay.Features.GameBoard;
+using System.Collections.Generic;
 
 namespace Code.Gameplay.FighterSelection
 {
     public class MoveFighterOnSelectionSystem : IExecuteSystem
     {
         private readonly GameContext _gameContext;
-        private readonly IInputService _inputService;
-        private readonly IPhysicsService _physicsService;
-        private readonly IGameBoardService _gameBoardService;
         private readonly IGroup<GameEntity> _selectedFighters;
+        private readonly IGroup<InputEntity> _inputs;
 
         private readonly Vector3 _offsetForGameBoard = new(0f, 0.5f, 0f);
-        private int _lastHitCellIndex = -1;
+        private readonly List<GameEntity> _buffer = new(capacity: 4);
 
         public MoveFighterOnSelectionSystem(
             GameContext gameContext,
-            IInputService inputService, 
-            IPhysicsService physicsService, 
-            IGameBoardService gameBoardService)
+            InputContext inputContext)
         {
             _gameContext = gameContext;
-            _inputService = inputService;
-            _physicsService = physicsService;
-            _gameBoardService = gameBoardService;
 
             _selectedFighters = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
@@ -36,75 +25,43 @@ namespace Code.Gameplay.FighterSelection
                 GameMatcher.Selected,
                 GameMatcher.Fighter
             }));
+            
+            _inputs = inputContext.GetGroup(InputMatcher.AllOf(InputMatcher.PointerOverCellId));
         }
 
         public void Execute()
         {
-            if (_selectedFighters.IsEmpty())
+            InputEntity input = _inputs.GetSingleEntity();
+            
+            if (input == null || _selectedFighters.count == 0)
             {
                 return;
             }
+
+            GameEntity hitCell = _gameContext.GetEntityWithId(input.PointerOverCellId);
             
-            foreach (GameEntity fighter in _selectedFighters)
+            if (hitCell == null)
             {
-                GameEntity hitCell = _physicsService.RaycastFromScreen(_inputService.GetScreenPosition(), CollisionLayer.GameBoard.AsMask());
-                
-                if (hitCell == null)
-                {
-                    return;
-                }
-
-                if (_lastHitCellIndex == -1 && fighter.hasCellId)
-                {
-                    _lastHitCellIndex = fighter.CellId;
-                }
-
-                if (_lastHitCellIndex != -1 && _lastHitCellIndex == hitCell.Id)
-                {
-                    return;
-                }
-
-                SwitchPreviousCellToDefaultState();
-                
-                HandleMaterialChangeOfCurrentHitCell(hitCell);
-                
-                fighter
-                    .ReplaceWorldPosition(hitCell.WorldPosition + _offsetForGameBoard)
-                    .ReplaceCellId(hitCell.Id); 
-                
-                _lastHitCellIndex = hitCell.Id;
-            }
-        }
-
-        private void SwitchPreviousCellToDefaultState()
-        {
-            GameEntity lastHitCell = GetEntityById(_lastHitCellIndex);
-            
-            if (lastHitCell != null)
-            {
-                RequestMaterialChange(lastHitCell, _gameBoardService.GetCurrentCellMaterial());
-            }
-        }
-
-        private void HandleMaterialChangeOfCurrentHitCell(GameEntity hitCell)
-        {
-            RequestMaterialChange(hitCell, hitCell.isOccupied == false
-                ? _gameBoardService.GetGreenCellMaterial()
-                : _gameBoardService.GetRedCellMaterial());
-        }
-
-        private static void RequestMaterialChange(GameEntity cell, Material material)
-        {
-            if (cell.hasMaterialChangeRequest)
-            {
-                cell.ReplaceMaterialChangeRequest(material);
                 return;
             }
 
-            cell.AddMaterialChangeRequest(material);
-        }
+            foreach (GameEntity fighter in _selectedFighters.GetEntities(_buffer))
+            {
+                if (fighter.hasCellId && fighter.CellId == hitCell.Id)
+                {
+                    continue;
+                }
 
-        private GameEntity GetEntityById(int id) => 
-            _gameContext.GetEntityWithId(id);
+                fighter.ReplaceWorldPosition(hitCell.WorldPosition + _offsetForGameBoard);
+
+                if (fighter.hasCellId)
+                {
+                    fighter.ReplaceCellId(hitCell.Id);
+                    continue;
+                }
+
+                fighter.AddCellId(hitCell.Id);
+            }
+        }
     }
 }

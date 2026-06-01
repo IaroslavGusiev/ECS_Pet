@@ -10,21 +10,23 @@ namespace Code.Infrastructure
 {
     public class BattleLoopState : EndOfFrameExitState
     {
+        private readonly GameContext _gameContext;
         private readonly ISceneLoader _sceneLoader;
         private readonly ISystemFactory _systemFactory;
         private readonly ILoadingCurtain _loadingCurtain;
         private readonly IAddressablesAssetProvider _assetProvider;
 
-        private GameContext _gameContext; 
         private GameFeature _gameFeature;
 
         public BattleLoopState(
+            GameContext gameContext, 
             ISceneLoader sceneLoader, 
             ISystemFactory systemFactory, 
             ILoadingCurtain loadingCurtain, 
             IAddressablesAssetProvider assetProvider)
         {
             _sceneLoader = sceneLoader;
+            _gameContext = gameContext;
             _assetProvider = assetProvider;
             _systemFactory = systemFactory;
             _loadingCurtain = loadingCurtain;

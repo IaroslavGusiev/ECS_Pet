@@ -10,12 +10,17 @@ namespace Code.Gameplay.FighterSelection
 
             // execute
             Add(systemFactory.Create<SpawnFighterOnWindowSelectionSystem>());
+            Add(systemFactory.Create<RaycastBoardCellUnderPointerSystem>());
             Add(systemFactory.Create<MoveFighterOnSelectionSystem>());
-            Add(systemFactory.Create<FighterPlacementOnClickSystem>());
+            Add(systemFactory.Create<RequestFighterPlacementOnClickSystem>());
+            Add(systemFactory.Create<ValidateFighterPlacementRequestSystem>());
+            Add(systemFactory.Create<ProcessFighterPlacementPurchaseSystem>());
+            Add(systemFactory.Create<PlaceFighterFromRequestSystem>());
             Add(systemFactory.Create<FinalizeFighterPlacementSystem>());
             Add(systemFactory.Create<DeselectFighterWindowOnPlacementSystem>());
             Add(systemFactory.Create<DeselectFighterWindowOnCancelSystem>());
             Add(systemFactory.Create<DestroyFighterOnCancelSystem>());
+            Add(systemFactory.Create<MarkBoardCellSelectionVisualStateSystem>());
 
             // cleanup
         }

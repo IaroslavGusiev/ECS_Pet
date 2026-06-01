@@ -21,6 +21,7 @@ namespace Code.Gameplay.Features.GameBoard
                 .AddViewPath(viewPath)
                 .AddWorldPosition(position)
                 .AddMaterialChangeRequest(material)
+                .AddCellVisualState(BoardCellVisualState.Default)
                 .AddLayerMask(CollisionLayer.GameBoard.AsMask())
                 .With(entity => entity.isGameBoardCell = true)
                 .With(entity => entity.isOccupied = false);
