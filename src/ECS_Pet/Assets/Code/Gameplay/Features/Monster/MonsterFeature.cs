@@ -10,8 +10,6 @@ namespace Code.Gameplay.Monster
             Add(systemFactory.Create<SpawnMonsterOnInitSystem>());
 
             // execute
-            Add(systemFactory.Create<MonsterDeathSystem>());
-            Add(systemFactory.Create<FinalizeMonsterDeathProcessingSystem>());
 
             // cleanup
         }

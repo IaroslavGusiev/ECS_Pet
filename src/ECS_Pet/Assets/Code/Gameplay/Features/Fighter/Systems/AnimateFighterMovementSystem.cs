@@ -4,28 +4,32 @@ namespace Code.Gameplay.Fighter
 {
     public class AnimateFighterMovementSystem : IExecuteSystem
     {
-        private readonly IGroup<GameEntity> _fighters;
+        private readonly IGroup<GameEntity> _combatants;
 
         public AnimateFighterMovementSystem(GameContext game)
         {
-            _fighters = game.GetGroup(GameMatcher.AllOf(matchers: new[]
+            _combatants = game.GetGroup(GameMatcher.AllOf(matchers: new[]
             {
-                GameMatcher.Fighter, 
                 GameMatcher.CombatantAnimator
             }));
         }
 
         public void Execute()
         {
-            foreach (GameEntity fighter in _fighters)
+            foreach (GameEntity combatant in _combatants)
             {
-                if (fighter.isMoving)
+                if (combatant.isDead)
                 {
-                    fighter.CombatantAnimator.Walk();
+                    continue;
+                }
+
+                if (combatant.isMoving)
+                {
+                    combatant.CombatantAnimator.Walk();
                 }
                 else
                 {
-                    fighter.CombatantAnimator.Idle();
+                    combatant.CombatantAnimator.Idle();
                 }
             }
         }

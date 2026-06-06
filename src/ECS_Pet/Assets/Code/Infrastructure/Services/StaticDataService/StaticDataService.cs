@@ -52,6 +52,12 @@ namespace Code.Infrastructure.Services
 
         public AbilityConfig GetSpecialAbilityConfig(FighterTypeId fighterTypeId) => 
             GetFighterConfig(fighterTypeId).SpecialAbilityConfig;
+        
+        public AbilityConfig GetBasicAbilityConfig(MonsterTypeId monsterTypeId) => 
+            GetMonsterConfig(monsterTypeId).BasicAbilityConfig;
+
+        public AbilityConfig GetSpecialAbilityConfig(MonsterTypeId monsterTypeId) => 
+            GetMonsterConfig(monsterTypeId).SpecialAbilityConfig;
 
         private async UniTask LoadGameBoardConfigs()
         {

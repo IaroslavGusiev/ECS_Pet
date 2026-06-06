@@ -20,5 +20,7 @@ namespace Code.Infrastructure.Services
         
         AbilityConfig GetBasicAbilityConfig(FighterTypeId fighterTypeId);
         AbilityConfig GetSpecialAbilityConfig(FighterTypeId fighterTypeId);
+        AbilityConfig GetBasicAbilityConfig(MonsterTypeId monsterTypeId);
+        AbilityConfig GetSpecialAbilityConfig(MonsterTypeId monsterTypeId);
     }
 }

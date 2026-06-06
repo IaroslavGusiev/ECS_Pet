@@ -47,6 +47,7 @@ namespace Code.Gameplay.Fighter
                 .AddAttackRange(fighterConfig.AttackRange)
                 .AddTargetBuffer(new List<int>(capacity: 16))
                 .AddRadius(fighterConfig.TargetDetectionRadius)
+                .AddLayerMask(CollisionLayer.Monster.AsMask())
                 .AddSpeed(baseStats[Stats.Speed])
                 .With(entity => entity.isFighter = true)
                 .With(entity => entity.isSelected = true);

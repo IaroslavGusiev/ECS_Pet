@@ -18,4 +18,8 @@ MonoBehaviour:
   <MaxMana>k__BackingField: 5
   <Damage>k__BackingField: 3
   <ManaRegen>k__BackingField: 1
+  <MoveSpeed>k__BackingField: 1.5
   <AttackRange>k__BackingField: 1.5
+  <TargetDetectionRadius>k__BackingField: 3
+  <BasicAbilityConfig>k__BackingField: {fileID: 11400000, guid: 4ba5327fe108139478fb1689479dfdd6, type: 2}
+  <SpecialAbilityConfig>k__BackingField: {fileID: 0}

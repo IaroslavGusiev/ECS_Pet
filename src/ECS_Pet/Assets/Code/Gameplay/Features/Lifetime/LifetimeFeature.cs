@@ -10,6 +10,8 @@ namespace Code.Gameplay.Lifetime
 
             // execute
             Add(systemFactory.Create<MarkDeadSystem>());
+            Add(systemFactory.Create<CombatantDeathSystem>());
+            Add(systemFactory.Create<FinalizeCombatantDeathProcessingSystem>());
             Add(systemFactory.Create<UpdateHpSliderSystem>());
 
             // cleanup

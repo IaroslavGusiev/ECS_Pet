@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using Code.Infrastructure;
 using Code.Common.Extensions;
 using Code.Infrastructure.Services;
@@ -19,9 +20,7 @@ namespace Code.Gameplay.Armaments.Factory
         
         public GameEntity CreateProjectile(GameEntity owner, GameEntity ability)
         {
-            AbilityConfig abilityConfig = ability.isBasicAbility
-                ? _staticDataService.GetBasicAbilityConfig(owner.FighterTypeId)
-                : _staticDataService.GetSpecialAbilityConfig(owner.FighterTypeId);
+            AbilityConfig abilityConfig = GetAbilityConfig(owner, ability);
 
             ProjectileConfig projectileConfig = abilityConfig.ProjectileConfig;
 
@@ -44,6 +43,25 @@ namespace Code.Gameplay.Armaments.Factory
                 .With(entity => entity.isProjectileArmament = true)
                 .With(entity => entity.isMovementAvailable = true)
                 .With(entity => entity.isMoving = true);
+        }
+
+        private AbilityConfig GetAbilityConfig(GameEntity owner, GameEntity ability)
+        {
+            if (owner.hasFighterTypeId)
+            {
+                return ability.isBasicAbility
+                    ? _staticDataService.GetBasicAbilityConfig(owner.FighterTypeId)
+                    : _staticDataService.GetSpecialAbilityConfig(owner.FighterTypeId);
+            }
+
+            if (owner.hasMonsterTypeId)
+            {
+                return ability.isBasicAbility
+                    ? _staticDataService.GetBasicAbilityConfig(owner.MonsterTypeId)
+                    : _staticDataService.GetSpecialAbilityConfig(owner.MonsterTypeId);
+            }
+
+            throw new InvalidOperationException($"Owner entity {owner.Id} has no supported combatant type.");
         }
     }
 }

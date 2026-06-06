@@ -16,7 +16,7 @@ namespace Code.Gameplay.Monster
         public void Initialize()
         {
             _monsterFactory.CreateMonster(MonsterTypeId.Skeleton, new Vector3(0, 0, 5));
-            _monsterFactory.CreateMonster(MonsterTypeId.Skeleton, new Vector3(-1, 0, 7));
+            //_monsterFactory.CreateMonster(MonsterTypeId.Skeleton, new Vector3(-1, 0, 7));
         }
     }
 }

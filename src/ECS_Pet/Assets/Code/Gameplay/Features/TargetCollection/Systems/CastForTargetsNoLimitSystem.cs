@@ -1,6 +1,4 @@
 using Entitas;
-using Code.StaticData;
-using Code.Common.Extensions;
 using Code.Gameplay.Common.Time;
 using System.Collections.Generic;
 
@@ -19,6 +17,7 @@ namespace Code.Gameplay.TargetCollection
             _ready = gameContext.GetGroup(GameMatcher.AllOf(matchers: new[]  
                 {
                     GameMatcher.Radius,
+                    GameMatcher.LayerMask,
                     GameMatcher.TargetBuffer,
                     GameMatcher.WorldPosition,
                     GameMatcher.ReadyToCollectTargets
@@ -36,13 +35,16 @@ namespace Code.Gameplay.TargetCollection
     
         private void FillTargetBuffer(GameEntity entity)
         {
-            foreach (GameEntity target in _physicsService.SphereRaycast(entity.WorldPosition, entity.Radius, CollisionLayer.Monster.AsMask()))
+            foreach (GameEntity target in _physicsService.SphereRaycast(entity.WorldPosition, entity.Radius, entity.LayerMask))
             {
-                if (target.isDead == false)
+                if (IsValidTarget(target))
                 {
                     entity.TargetBuffer.Add(target.Id);
                 }
             }
         }
+
+        private static bool IsValidTarget(GameEntity target) =>
+            target is { isDead: false, isPlaced: true };
     }
 }

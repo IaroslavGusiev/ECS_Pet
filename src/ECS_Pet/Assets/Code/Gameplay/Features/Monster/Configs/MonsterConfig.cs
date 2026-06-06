@@ -1,6 +1,7 @@
 using UnityEngine;
 using Code.StaticData;
 using NaughtyAttributes;
+using Code.Gameplay.Abilities.Configs;
 
 namespace Code.Gameplay.Monster
 {
@@ -14,6 +15,13 @@ namespace Code.Gameplay.Monster
         [field: BoxGroup("Stats")][field: SerializeField] public float MaxMana { get; private set; }
         [field: BoxGroup("Stats")][field: SerializeField] public float Damage { get; private set; }
         [field: BoxGroup("Stats")][field: SerializeField] public float ManaRegen { get; private set; }
-        [field: BoxGroup("Stats")] [field: SerializeField] public float AttackRange { get; private set; }
+
+        [field: BoxGroup("Parameters")] [field: SerializeField] public float MoveSpeed { get; private set; }
+        [field: BoxGroup("Parameters")] [field: SerializeField] public float AttackRange { get; private set; }
+        [field: BoxGroup("Parameters")] [field: SerializeField] public float TargetDetectionRadius { get; private set; }
+
+        [field: Space(15)]
+        [field: BoxGroup("Abilities")] [field: SerializeField] public AbilityConfig BasicAbilityConfig { get; private set; }
+        [field: BoxGroup("Abilities")] [field: SerializeField] public AbilityConfig SpecialAbilityConfig { get; private set; }
     }
 }
