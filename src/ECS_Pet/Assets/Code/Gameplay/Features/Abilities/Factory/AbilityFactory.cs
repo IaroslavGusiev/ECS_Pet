@@ -26,9 +26,10 @@ namespace Code.Gameplay.Abilities
                 .AddAbilityTypeId(abilityConfig.AbilityTypeId)
                 .AddAnimationDelay(abilityConfig.AnimationDelay)
                 .AddAnimationDelayLeft(abilityConfig.AnimationDelay)
+                .With(entity => entity.AddStatusSetups(abilityConfig.StatusSetups), when: abilityConfig.StatusSetups is { Count: > 0 })
                 .With(entity => entity.isMeleeAttackAbility = true, when: abilityConfig.AbilityTypeId == AbilityTypeId.MeleeAttack)
                 .With(entity => entity.isRangedAttackAbility = true, when: abilityConfig.AbilityTypeId == AbilityTypeId.RangedAttack)
-                .With(entity => entity.isHealingAbility = true, when: abilityConfig.EffectConfigs.First().EffectTypeId == EffectTypeId.Heal)
+                .With(entity => entity.isHealingAbility = true, when: abilityConfig.EffectConfigs.Any() && abilityConfig.EffectConfigs.First().EffectTypeId == EffectTypeId.Heal)
                 .PutOnCooldown();
         }
 
@@ -44,9 +45,10 @@ namespace Code.Gameplay.Abilities
                 .AddAbilityTypeId(abilityConfig.AbilityTypeId)
                 .AddAnimationDelay(abilityConfig.AnimationDelay)
                 .AddAnimationDelayLeft(abilityConfig.AnimationDelay)
+                .With(entity => entity.AddStatusSetups(abilityConfig.StatusSetups), when: abilityConfig.StatusSetups is { Count: > 0 })
                 .With(entity => entity.isMeleeAttackAbility = true, when: abilityConfig.AbilityTypeId == AbilityTypeId.MeleeAttack)
                 .With(entity => entity.isRangedAttackAbility = true, when: abilityConfig.AbilityTypeId == AbilityTypeId.RangedAttack)
-                .With(entity => entity.isHealingAbility = true, when: abilityConfig.EffectConfigs.First().EffectTypeId == EffectTypeId.Heal)
+                .With(entity => entity.isHealingAbility = true, when: abilityConfig.EffectConfigs.Any() && abilityConfig.EffectConfigs.First().EffectTypeId == EffectTypeId.Heal)
                 .PutOnCooldown();
         }
     }

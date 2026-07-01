@@ -22,6 +22,13 @@ namespace Code.Gameplay.Features.Movement
         {
             foreach (GameEntity mover in _movers)
             {
+                if (mover.isStunned)
+                {
+                    mover.isMoving = false;
+                    mover.isMovementAvailable = false;
+                    continue;
+                }
+                
                 GameEntity target = _gameContext.GetEntityWithId(mover.TargetId);
 
                 if (target is { hasWorldPosition: true, isDead: false })

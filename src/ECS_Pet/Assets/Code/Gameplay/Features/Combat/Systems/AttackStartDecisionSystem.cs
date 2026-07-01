@@ -30,7 +30,7 @@ namespace Code.Gameplay.Combat
         {
             foreach (GameEntity attacker in _attackers)
             {
-                if (attacker.isDead)
+                if (attacker.isDead || attacker.isStunned)
                 {
                     continue;
                 }

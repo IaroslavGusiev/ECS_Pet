@@ -16,6 +16,13 @@ MonoBehaviour:
   <EffectConfigs>k__BackingField:
   - EffectTypeId: 1
     Value: 7
+  <StatusSetups>k__BackingField:
+  - StatusTypeId: 1
+    Value: 0
+    Duration: 1.5
+    Period: 0
+  <ProjectileConfig>k__BackingField:
+    Speed: 0
+    ProjectileViewPath: 
   <Cooldown>k__BackingField: 1.5
   <AnimationDelay>k__BackingField: 0.66
-  <ViewPrefab>k__BackingField: {fileID: 0}

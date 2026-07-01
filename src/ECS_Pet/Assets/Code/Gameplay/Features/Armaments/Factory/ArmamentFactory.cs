@@ -40,6 +40,7 @@ namespace Code.Gameplay.Armaments.Factory
                 .AddWorldPosition(spawnPosition)
                 .AddWorldRotation(Quaternion.identity)
                 .AddSpeed(projectileConfig.Speed)
+                .With(entity => entity.AddStatusSetups(ability.StatusSetups), when: ability.hasStatusSetups)
                 .With(entity => entity.isProjectileArmament = true)
                 .With(entity => entity.isMovementAvailable = true)
                 .With(entity => entity.isMoving = true);

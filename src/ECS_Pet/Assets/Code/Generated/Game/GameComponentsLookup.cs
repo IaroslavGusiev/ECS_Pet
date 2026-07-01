@@ -80,19 +80,27 @@ public static class GameComponentsLookup {
     public const int MaxMana = 69;
     public const int Monster = 70;
     public const int MonsterTypeId = 71;
-    public const int Gold = 72;
-    public const int Storage = 73;
-    public const int ProducerId = 74;
-    public const int ReadyToCollectTargets = 75;
-    public const int TargetBuffer = 76;
-    public const int TargetId = 77;
-    public const int DamageEffect = 78;
-    public const int Effect = 79;
-    public const int EffectConfigs = 80;
-    public const int EffectValue = 81;
-    public const int HealEffect = 82;
+    public const int Affected = 72;
+    public const int Status = 73;
+    public const int StatusDuration = 74;
+    public const int StatusSetups = 75;
+    public const int StatusTypeId = 76;
+    public const int Stunned = 77;
+    public const int StunStatus = 78;
+    public const int Unapplied = 79;
+    public const int Gold = 80;
+    public const int Storage = 81;
+    public const int ProducerId = 82;
+    public const int ReadyToCollectTargets = 83;
+    public const int TargetBuffer = 84;
+    public const int TargetId = 85;
+    public const int DamageEffect = 86;
+    public const int Effect = 87;
+    public const int EffectConfigs = 88;
+    public const int EffectValue = 89;
+    public const int HealEffect = 90;
 
-    public const int TotalComponents = 83;
+    public const int TotalComponents = 91;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -167,6 +175,14 @@ public static class GameComponentsLookup {
         "MaxMana",
         "Monster",
         "MonsterTypeId",
+        "Affected",
+        "Status",
+        "StatusDuration",
+        "StatusSetups",
+        "StatusTypeId",
+        "Stunned",
+        "StunStatus",
+        "Unapplied",
         "Gold",
         "Storage",
         "ProducerId",
@@ -253,6 +269,14 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Mana.MaxMana),
         typeof(Code.Gameplay.Monster.Monster),
         typeof(Code.Gameplay.Monster.MonsterTypeIdComponent),
+        typeof(Code.Gameplay.Statuses.Affected),
+        typeof(Code.Gameplay.Statuses.Status),
+        typeof(Code.Gameplay.Statuses.StatusDuration),
+        typeof(Code.Gameplay.Statuses.StatusSetups),
+        typeof(Code.Gameplay.Statuses.StatusTypeIdComponent),
+        typeof(Code.Gameplay.Statuses.Stunned),
+        typeof(Code.Gameplay.Statuses.StunStatus),
+        typeof(Code.Gameplay.Statuses.Unapplied),
         typeof(Code.Gameplay.Storage.Gold),
         typeof(Code.Gameplay.Storage.Storage),
         typeof(Code.Gameplay.TargetCollection.ProducerId),

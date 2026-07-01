@@ -20,6 +20,14 @@ namespace Code.Gameplay.Combat
         {
             foreach (GameEntity fighter in _fighters)
             {
+                if (fighter.isStunned)
+                {
+                    fighter.isAttacking = false;
+                    fighter.isMoving = false;
+                    fighter.isMovementAvailable = false;
+                    continue;
+                }
+
                 float distance = fighter.DistanceToTarget;
 
                 if (distance <= fighter.AttackRange)

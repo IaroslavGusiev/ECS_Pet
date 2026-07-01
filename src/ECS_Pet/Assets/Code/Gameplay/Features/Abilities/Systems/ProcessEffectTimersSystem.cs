@@ -2,6 +2,8 @@ using Entitas;
 using Code.GameplayEffects;
 using Code.Gameplay.Common.Time;
 using System.Collections.Generic;
+using Code.Gameplay.Statuses;
+using Code.Gameplay.Statuses.Applier;
 using Code.Gameplay.Armaments.Factory;
 
 namespace Code.Gameplay.Abilities
@@ -11,6 +13,7 @@ namespace Code.Gameplay.Abilities
         private readonly GameContext _gameContext;
         private readonly ITimeService _timeService;
         private readonly IEffectFactory _effectFactory;
+        private readonly IStatusApplier _statusApplier;
         private readonly IArmamentFactory _armamentFactory;
 
         private readonly IGroup<GameEntity> _abilities;
@@ -20,11 +23,13 @@ namespace Code.Gameplay.Abilities
             GameContext gameContext, 
             ITimeService timeService, 
             IEffectFactory effectFactory, 
+            IStatusApplier statusApplier,
             IArmamentFactory armamentFactory)
         {
             _gameContext = gameContext;
             _timeService = timeService;
             _effectFactory = effectFactory;
+            _statusApplier = statusApplier;
             _armamentFactory = armamentFactory;
 
             _abilities = gameContext.GetGroup(GameMatcher.AllOf(
@@ -48,7 +53,7 @@ namespace Code.Gameplay.Abilities
                     
                     GameEntity owner = _gameContext.GetEntityWithId(ability.OwnerLink);
 
-                    if (owner == null || owner.isDead)
+                    if (owner == null || owner.isDead || owner.isStunned)
                     {
                         continue;
                     }
@@ -62,6 +67,14 @@ namespace Code.Gameplay.Abilities
                         foreach (EffectConfig config in ability.EffectConfigs)
                         {
                             _effectFactory.CreateEffect(config, ProducerId(owner), ability.TargetId);
+                        }
+
+                        if (ability.hasStatusSetups)
+                        {
+                            foreach (StatusSetup setup in ability.StatusSetups)
+                            {
+                                _statusApplier.ApplyStatus(setup, ProducerId(owner), ability.TargetId);
+                            }
                         }
                     }
                 }

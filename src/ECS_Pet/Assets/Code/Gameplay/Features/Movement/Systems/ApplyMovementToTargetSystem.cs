@@ -27,6 +27,11 @@ namespace Code.Gameplay.Features.Movement
         {
             foreach (GameEntity mover in _movers)
             {
+                if (mover.isStunned)
+                {
+                    continue;
+                }
+
                 Vector3 currentPosition = mover.WorldPosition;
                 float distanceToTarget = mover.DistanceToTarget;
                 

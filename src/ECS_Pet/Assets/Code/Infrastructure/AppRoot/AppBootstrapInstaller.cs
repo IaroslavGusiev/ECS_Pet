@@ -7,6 +7,8 @@ using Code.Gameplay.Monster;
 using Code.Gameplay.UI.Gold;
 using Code.UI.LoadingCurtain;
 using Code.Gameplay.Abilities;
+using Code.Gameplay.Statuses.Applier;
+using Code.Gameplay.Statuses.Factory;
 using Code.Common.View.Factory;
 using Code.Gameplay.FighterSelection;
 using Code.Gameplay.Common.Time;
@@ -45,6 +47,8 @@ namespace Code.Infrastructure.CompositionRoot
             Container.Bind<IFighterFactory>().To<FighterFactory>().AsSingle();
             Container.Bind<IMonsterFactory>().To<MonsterFactory>().AsSingle();
             Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
+            Container.Bind<IStatusFactory>().To<StatusFactory>().AsSingle();
+            Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
             Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle();
             Container.Bind<IArmamentFactory>().To<ArmamentFactory>().AsSingle();
             Container.Bind<IVfxFactory>().To<VfxFactory>().AsSingle();

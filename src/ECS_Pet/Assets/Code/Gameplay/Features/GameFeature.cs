@@ -14,6 +14,7 @@ using Code.Gameplay.Abilities;
 using Code.Gameplay.Armaments;
 using Code.Gameplay.Animation;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Statuses;
 using Code.Gameplay.Features.Vfx;
 using Code.Infrastructure.Systems;
 using Code.Gameplay.CharacterStats;
@@ -35,6 +36,7 @@ namespace Code.Gameplay
 
             Add(systemFactory.Create<GameBoardFeature>());
             Add(systemFactory.Create<FighterSelectionFeature>());
+            Add(systemFactory.Create<StatusFeature>());
             Add(systemFactory.Create<MovementFeature>());
             Add(systemFactory.Create<CollectTargetsFeature>());
             Add(systemFactory.Create<HealingFeature>());
